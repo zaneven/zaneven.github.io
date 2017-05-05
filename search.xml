@@ -24,9 +24,9 @@
         
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> 技术 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -55,6 +55,31 @@
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
       
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ArcEngine 开发问题记录]]></title>
+      <url>/2017/04/12/ArcEngine%20%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+      <content type="html"><![CDATA[<p>在对地图文档进行操作时，居然出现如下问题：<br><code>IMapDocument m_MapDocument = new ESRI.ArcGIS.Carto.MapDocumentClass();</code></p>
+<p>报错:</p>
+<p>无法嵌入互操作类型<br>“<code>ESRI.ArcGIS.Carto.MapDocumentClass</code>“.<br>请改用适用的接口.</p>
+<p>解决方案如下：</p>
+<p>解决方案——项目——引用——ESRI.ArcGIS.Carto<br>右键ESRI.ArcGIS.Carto ——属性——嵌入互操作类型=false</p>
+]]></content>
+      
+        <categories>
+            
+            <category> ArcEngine开发 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+        </tags>
         
     </entry>
     
