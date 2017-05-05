@@ -3,6 +3,14 @@
   
     
     <entry>
+      <title><![CDATA[a]]></title>
+      <url>/2017/05/05/a/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[添加tags]]></title>
       <url>/2017/04/18/%E6%B7%BB%E5%8A%A0tags/</url>
       <content type="html"><![CDATA[<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo 新建一篇文章给它添加分类和标签:</div><div class="line"></div><div class="line">hexo <span class="keyword">new</span> <span class="string">"Hexo教程"</span></div></pre></td></tr></table></figure>
@@ -78,6 +86,36 @@
         <tags>
             
             <tag> 技术 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[MacOS - 重置 MySQL Root 密码]]></title>
+      <url>/2017/04/10/MacOS%20-%20%E9%87%8D%E7%BD%AE%20MySQL%20Root%20%E5%AF%86%E7%A0%81/</url>
+      <content type="html"><![CDATA[<h3 id="通过以下4步就可重新设置新密码"><a href="#通过以下4步就可重新设置新密码" class="headerlink" title="通过以下4步就可重新设置新密码"></a>通过以下4步就可重新设置新密码</h3><p>1.停止 mysql server.  通常是在 ‘系统偏好设置’ &gt; MySQL &gt; ‘Stop MySQL Server’</p>
+<p>2.打开终端，输入：</p>
+<pre><code><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="keyword">local</span>/mysql/bin/mysqld_safe <span class="comment">--skip-grant-tables</span></div></pre></td></tr></table></figure>
+</code></pre><p>3.打开另一个新终端，输入:</p>
+<pre><code><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo /usr/local/mysql/bin/mysql -u root</div><div class="line"></div><div class="line">     <span class="keyword">UPDATE</span> mysql.user <span class="keyword">SET</span> authentication_string=<span class="keyword">PASSWORD</span>(<span class="string">'新密码'</span>) <span class="keyword">WHERE</span> <span class="keyword">User</span>=<span class="string">'root'</span>;</div><div class="line"></div><div class="line">     <span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</div><div class="line"></div><div class="line">     \q</div></pre></td></tr></table></figure>
+</code></pre><p>4.重启MySQL.</p>
+<p>*以上方法针对 MySQL V5.7.9, 旧版的mysql请使用：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> mysql.user <span class="keyword">SET</span> <span class="keyword">Password</span>=<span class="keyword">PASSWORD</span>(<span class="string">'新密码'</span>) <span class="keyword">WHERE</span> <span class="keyword">User</span>=<span class="string">'root'</span>;</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 数据库 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
