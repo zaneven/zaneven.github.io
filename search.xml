@@ -130,7 +130,7 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     <entry>
       <title><![CDATA[ArcEngine 开发问题记录]]></title>
       <url>/2017/04/12/ArcEngine%20%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-      <content type="html"><![CDATA[<p>在对地图文档进行操作时，居然出现如下问题：<br><code>IMapDocument m_MapDocument = new ESRI.ArcGIS.Carto.MapDocumentClass();</code></p>
+      <content type="html"><![CDATA[<p>在对地图文档进行操作时，出现如下问题：<br><code>IMapDocument m_MapDocument = new ESRI.ArcGIS.Carto.MapDocumentClass();</code></p>
 <p>报错:</p>
 <p>无法嵌入互操作类型<br>“<code>ESRI.ArcGIS.Carto.MapDocumentClass</code>“.<br>请改用适用的接口.</p>
 <p>解决方案如下：</p>
