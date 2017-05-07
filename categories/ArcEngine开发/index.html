@@ -24,7 +24,7 @@
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
@@ -110,7 +110,7 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2017-04-12 </div>
-			<div class="article-title"><a href="/2017/04/12/ArcEngine 开发问题记录/" title="解决无法嵌入互操作类型问题">ArcEngine 开发问题记录</a></div>						
+			<div class="article-title"><a href="/2017/04/12/ArcEngine 开发问题记录/" >ArcEngine 开发问题记录</a></div>						
 		</h3>
 	
 
@@ -119,12 +119,9 @@
   <div class="row">
 	
 	
-		<p>在对地图文档进行操作时，出现如下问题：<br><code>IMapDocument m_MapDocument = new ESRI.ArcGIS.Carto.MapDocumentClass();</code></p>
-<p>报错:</p>
-<p>无法嵌入互操作类型<br>“<code>ESRI.ArcGIS.Carto.MapDocumentClass</code>“.<br>请改用适用的接口.</p>
-<p>解决方案如下：</p>
-<p>解决方案——项目——引用——ESRI.ArcGIS.Carto<br>右键ESRI.ArcGIS.Carto ——属性——嵌入互操作类型=false</p>
-
+		<div class="alert alert-info"><i class="fa fa-info"></i>  解决无法嵌入互操作类型问题</div>
+		<!-- only display read_more button if there's more to display -->
+		<a type="button" href="/2017/04/12/ArcEngine 开发问题记录/#more" class="btn btn-default more">阅读此文</a>
 	
 	</div>
 </div>
@@ -181,6 +178,8 @@
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/plugins/">plugins<span>1</span></a></li>
+		
 			<li><a href="/tags/技术/">技术<span>5</span></a></li>
 		
 			<li><a href="/tags/教程/">教程<span>4</span></a></li>
@@ -197,11 +196,15 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2017/05/05/MacOS-XAMPP中Apache-启动后闪停/"  title="解决MacOS中XAMPP-Apache无法启动问题" ><i class="fa fa-file-o"></i>MacOS XAMPP中Apache 启动后闪停</a>
+        <a href="/2017/05/07/Tag-Plugins/" ><i class="fa fa-file-o"></i>Tag Plugins</a>
       </li>
     
       <li>
-        <a href="/2017/05/05/校园网无法获得ipv6地址/"  title="解决校园网无法获得ipv6地址" ><i class="fa fa-file-o"></i>校园网无法获得ipv6地址</a>
+        <a href="/2017/05/05/MacOS-XAMPP中Apache-启动后闪停/" ><i class="fa fa-file-o"></i>MacOS XAMPP中Apache 启动后闪停</a>
+      </li>
+    
+      <li>
+        <a href="/2017/05/05/校园网无法获得ipv6地址/" ><i class="fa fa-file-o"></i>校园网无法获得ipv6地址</a>
       </li>
     
       <li>
@@ -210,10 +213,6 @@
     
       <li>
         <a href="/2017/04/17/第一篇文章/" ><i class="fa fa-file-o"></i>第一篇文章</a>
-      </li>
-    
-      <li>
-        <a href="/2017/04/17/hello-world/" ><i class="fa fa-file-o"></i>Hello World</a>
       </li>
     
   </ul>

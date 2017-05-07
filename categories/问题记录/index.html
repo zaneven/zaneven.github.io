@@ -24,7 +24,7 @@
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
@@ -110,7 +110,7 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2017-05-05 </div>
-			<div class="article-title"><a href="/2017/05/05/MacOS-XAMPP中Apache-启动后闪停/" title="解决MacOS中XAMPP-Apache无法启动问题">MacOS XAMPP中Apache 启动后闪停</a></div>						
+			<div class="article-title"><a href="/2017/05/05/MacOS-XAMPP中Apache-启动后闪停/" >MacOS XAMPP中Apache 启动后闪停</a></div>						
 		</h3>
 	
 
@@ -119,21 +119,9 @@
   <div class="row">
 	
 	
-		<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>mac启动后,XAMPP下的Apache无法启动,如下：</p>
-<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170505-225918.png" alt=""></p>
-<p>点击 start 后log里显示</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Starting Apache Web Server...</div><div class="line"><span class="regexp">/Applications/</span>XAMPP<span class="regexp">/xamppfiles/</span>apache2<span class="regexp">/scripts/</span>ctl.<span class="string">sh :</span> httpd started</div></pre></td></tr></table></figure>
-<p>但是很快就跳停，并且没有任何错误提示。</p>
-<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>输入：</p>
-<p> <code>sudo /Applications/XAMPP/xamppfiles/xampp start</code></p>
-<p>提示：</p>
-<p><code>XAMPP: Starting Apache...fail.
-XAMPP:  Another web server is alreadyrunning.</code></p>
-<p>刚开始以为是端口占用问题，后来发现是提示有另一个web server正在启动，使用<code>sudo apachectl stop</code>提示</p>
-<p><code>/System/Library/LaunchDaemons/org.apache.httpd.plist: Could not find specified service</code></p>
-<p>重启之后仍然无法解决。</p>
-<p>发现是自己装了Apple server中占用了localhost，停止了server中的网站功能之后成功启动。</p>
-
+		<div class="alert alert-info"><i class="fa fa-info"></i>  解决MacOS中XAMPP-Apache无法启动问题</div>
+		<!-- only display read_more button if there's more to display -->
+		<a type="button" href="/2017/05/05/MacOS-XAMPP中Apache-启动后闪停/#more" class="btn btn-default more">阅读此文</a>
 	
 	</div>
 </div>
@@ -144,7 +132,7 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2017-05-05 </div>
-			<div class="article-title"><a href="/2017/05/05/校园网无法获得ipv6地址/" title="解决校园网无法获得ipv6地址">校园网无法获得ipv6地址</a></div>						
+			<div class="article-title"><a href="/2017/05/05/校园网无法获得ipv6地址/" >校园网无法获得ipv6地址</a></div>						
 		</h3>
 	
 
@@ -153,18 +141,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
   <div class="row">
 	
 	
-		<p>五一过后，电脑插上网线突然无法连接ipv6网，网上几乎没有出现同样情况的人。试了各种方法，暴力重启都无法解决。联系了校园网中心的人也是没有解决。试了一个较为复杂的办法：</p>
-<ol>
-<li><p>新建一个空白文件,命名为ip-up</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">#!/bin/sh</span></div><div class="line">PREFIXINFO=`/usr/sbin/tcpdump -nvi <span class="variable">$IFNAME</span> -c 2 icmp6 | grep prefix`</div><div class="line">PREFIX=`<span class="built_in">echo</span> <span class="variable">$PREFIXINFO</span>|cut <span class="_">-f</span>2- <span class="_">-d</span>:|cut <span class="_">-f</span>1 <span class="_">-d</span>/|cut -c2-`</div><div class="line">PREFIXLEN=`<span class="built_in">echo</span> <span class="variable">$PREFIXINFO</span>|cut <span class="_">-f</span>2 <span class="_">-d</span>/|cut <span class="_">-f</span>1 <span class="_">-d</span>,`</div><div class="line">ADDR=<span class="string">"cafe"</span></div><div class="line">/sbin/ifconfig <span class="variable">$IFNAME</span> inet6 <span class="variable">$&#123;PREFIX&#125;</span><span class="variable">$&#123;ADDR&#125;</span>/<span class="variable">$PREFIXLEN</span></div><div class="line">/sbin/route add -inet6 default -interface <span class="variable">$IFNAME</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>然后将这个文件放入/etc/ppp，在终端里输入以下命令：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chmod <span class="number">755</span> /etc/ppp/<span class="built_in">ip</span>-<span class="meta">up</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a href="https://discussions.apple.com/thread/4294034?tstart=0" target="_blank" rel="external">这里是方法原址</a></p>
-<p>不知道具体是哪个方法有效，后来不知道怎么回事突然就接通了，总之解决了问题。</p>
-
+		<div class="alert alert-info"><i class="fa fa-info"></i>  解决校园网无法获得ipv6地址</div>
+		<!-- only display read_more button if there's more to display -->
+		<a type="button" href="/2017/05/05/校园网无法获得ipv6地址/#more" class="btn btn-default more">阅读此文</a>
 	
 	</div>
 </div>
@@ -221,6 +200,8 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/plugins/">plugins<span>1</span></a></li>
+		
 			<li><a href="/tags/教程/">教程<span>4</span></a></li>
 		
 			<li><a href="/tags/技术/">技术<span>5</span></a></li>
@@ -237,11 +218,15 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2017/05/05/MacOS-XAMPP中Apache-启动后闪停/"  title="解决MacOS中XAMPP-Apache无法启动问题" ><i class="fa fa-file-o"></i>MacOS XAMPP中Apache 启动后闪停</a>
+        <a href="/2017/05/07/Tag-Plugins/" ><i class="fa fa-file-o"></i>Tag Plugins</a>
       </li>
     
       <li>
-        <a href="/2017/05/05/校园网无法获得ipv6地址/"  title="解决校园网无法获得ipv6地址" ><i class="fa fa-file-o"></i>校园网无法获得ipv6地址</a>
+        <a href="/2017/05/05/MacOS-XAMPP中Apache-启动后闪停/" ><i class="fa fa-file-o"></i>MacOS XAMPP中Apache 启动后闪停</a>
+      </li>
+    
+      <li>
+        <a href="/2017/05/05/校园网无法获得ipv6地址/" ><i class="fa fa-file-o"></i>校园网无法获得ipv6地址</a>
       </li>
     
       <li>
@@ -250,10 +235,6 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     
       <li>
         <a href="/2017/04/17/第一篇文章/" ><i class="fa fa-file-o"></i>第一篇文章</a>
-      </li>
-    
-      <li>
-        <a href="/2017/04/17/hello-world/" ><i class="fa fa-file-o"></i>Hello World</a>
       </li>
     
   </ul>

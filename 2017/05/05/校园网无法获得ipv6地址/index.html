@@ -6,7 +6,7 @@
   <title>校园网无法获得ipv6地址 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
-  <meta name="description" content="解决校园网无法获得ipv6地址">
+  <meta name="description" content="记录 博客 编程 写作">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -24,7 +24,7 @@
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/bootstrap.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
@@ -109,14 +109,11 @@
 
 	<!-- content -->
 	<div class="mypage">		
-	  
-		 <div class="alert alert-success description">
-			<i class="fa fa-info-circle"></i> <p>解决校园网无法获得ipv6地址</p>
-			
-		 </div> <!-- alert -->
 	  		
 
-	  <p>五一过后，电脑插上网线突然无法连接ipv6网，网上几乎没有出现同样情况的人。试了各种方法，暴力重启都无法解决。联系了校园网中心的人也是没有解决。试了一个较为复杂的办法：</p>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  解决校园网无法获得ipv6地址</div>
+<a id="more"></a>
+<p>五一过后，电脑插上网线突然无法连接ipv6网，网上几乎没有出现同样情况的人。试了各种方法，暴力重启都无法解决。联系了校园网中心的人也是没有解决。试了一个较为复杂的办法：</p>
 <ol>
 <li><p>新建一个空白文件,命名为ip-up</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">#!/bin/sh</span></div><div class="line">PREFIXINFO=`/usr/sbin/tcpdump -nvi <span class="variable">$IFNAME</span> -c 2 icmp6 | grep prefix`</div><div class="line">PREFIX=`<span class="built_in">echo</span> <span class="variable">$PREFIXINFO</span>|cut <span class="_">-f</span>2- <span class="_">-d</span>:|cut <span class="_">-f</span>1 <span class="_">-d</span>/|cut -c2-`</div><div class="line">PREFIXLEN=`<span class="built_in">echo</span> <span class="variable">$PREFIXINFO</span>|cut <span class="_">-f</span>2 <span class="_">-d</span>/|cut <span class="_">-f</span>1 <span class="_">-d</span>,`</div><div class="line">ADDR=<span class="string">"cafe"</span></div><div class="line">/sbin/ifconfig <span class="variable">$IFNAME</span> inet6 <span class="variable">$&#123;PREFIX&#125;</span><span class="variable">$&#123;ADDR&#125;</span>/<span class="variable">$PREFIXLEN</span></div><div class="line">/sbin/route add -inet6 default -interface <span class="variable">$IFNAME</span></div></pre></td></tr></table></figure>

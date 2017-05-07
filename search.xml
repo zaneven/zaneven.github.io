@@ -3,12 +3,74 @@
   
     
     <entry>
+      <title><![CDATA[Tag Plugins]]></title>
+      <url>/2017/05/07/Tag-Plugins/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  "Introduce tag plugins in freemind."</div>
+<a id="more"></a>
+<p>Freemind 主题提供了丰富的 tag plugins，以充分利用 Bootstrap 的威力。</p>
+<p>在使用这些 tag plugins 之前，你需要先安装 <a href="https://github.com/wzpan/hexo-tag-bootstrap" target="_blank" rel="external">hexo-tag-bootstrap</a> 。在你的 Hexo 博客目录，执行下列命令：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install </span>hexo-tag-<span class="keyword">bootstrap </span>--save</div></pre></td></tr></table></figure>
+<p>然后就可以像使用其他 hexo tag plugins 一样使用这些 Bootstrap tag plugins 了。</p>
+<h2 id="文本颜色"><a href="#文本颜色" class="headerlink" title="文本颜色"></a>文本颜色</h2><p>插入一段文本，并用特殊的颜色高亮它。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">textcolor</span> [style] %&#125;</span><span class="xml"></span></div><div class="line">  text string</div><div class="line"><span class="template-tag">&#123;% <span class="name">endtextcolor</span> %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">textcolor</span> muted %&#125;</span><span class="xml"></span></div><div class="line">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endtextcolor</span> %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">textcolor</span> primary %&#125;</span><span class="xml"></span></div><div class="line">Nullam id dolor id nibh ultricies vehicula ut id elit.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endtextcolor</span> %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">textcolor</span> success %&#125;</span><span class="xml"></span></div><div class="line">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endtextcolor</span> %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">textcolor</span> info %&#125;</span><span class="xml"></span></div><div class="line">Maecenas sed diam eget risus varius blandit sit amet non magna.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endtextcolor</span> %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">textcolor</span> warning %&#125;</span><span class="xml"></span></div><div class="line">Etiam porta sem malesuada magna mollis euismod.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endtextcolor</span> %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">textcolor</span> danger %&#125;</span><span class="xml"></span></div><div class="line">Donec ullamcorper nulla non metus auctor fringilla.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endtextcolor</span> %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+
+<p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+<p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+<p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+<p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+
+<p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+<h2 id="按钮（Buttons）"><a href="#按钮（Buttons）" class="headerlink" title="按钮（Buttons）"></a>按钮（Buttons）</h2><p>插入一个按钮，按钮可以带有链接、文本，并可以指定样式。</p>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% btn url text [style] %&#125;</div></pre></td></tr></table></figure>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">btn</span> http://hahack.com hahack %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">btn</span> http://hahack.com hahack primary %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">btn</span> http://hahack.com hahack success %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">btn</span> http://hahack.com hahack warning %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">btn</span> http://hahack.com hahack danger %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">btn</span> http://hahack.com hahack info %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><a class="btn btn-default" href="http://hahack.com" target="_blank" rel="external">hahack</a>
+<a class="btn btn-primary" href="http://hahack.com" target="_blank" rel="external">hahack</a>
+<a class="btn btn-success" href="http://hahack.com" target="_blank" rel="external">hahack</a>
+<a class="btn btn-warning" href="http://hahack.com" target="_blank" rel="external">hahack</a>
+<a class="btn btn-danger" href="http://hahack.com" target="_blank" rel="external">hahack</a>
+<a class="btn btn-info" href="http://hahack.com" target="_blank" rel="external">hahack</a>
+<h2 id="标签（Labels）"><a href="#标签（Labels）" class="headerlink" title="标签（Labels）"></a>标签（Labels）</h2><p>插入一个标签，并为其指定文本和样式。</p>
+<h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% label text [style] %&#125;</div></pre></td></tr></table></figure>
+<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;% <span class="keyword">label</span><span class="bash"> default %&#125;</span></div><div class="line"></div><div class="line">&#123;% <span class="keyword">label</span><span class="bash"> warinng warning %&#125;</span></div><div class="line"></div><div class="line">&#123;% <span class="keyword">label</span><span class="bash"> success success %&#125;</span></div><div class="line"></div><div class="line">&#123;% <span class="keyword">label</span><span class="bash"> danger danger %&#125;</span></div><div class="line"></div><div class="line">&#123;% <span class="keyword">label</span><span class="bash"> primary primary %&#125;</span></div><div class="line"></div><div class="line">&#123;% <span class="keyword">label</span><span class="bash"> info info %&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="结果-2"><a href="#结果-2" class="headerlink" title="结果"></a>结果</h3><span class="label label-default">default</span>
+<span class="label label-warning">warinng</span>
+<span class="label label-success">success</span>
+<span class="label label-danger">danger</span>
+<span class="label label-primary">primary</span>
+<span class="label label-info">info</span>
+<h2 id="徽章（Badges）"><a href="#徽章（Badges）" class="headerlink" title="徽章（Badges）"></a>徽章（Badges）</h2><p>插入一个徽章，并为其指定文本。</p>
+<h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">badge</span> text %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<h3 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">badge</span> 42 %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<h3 id="结果-3"><a href="#结果-3" class="headerlink" title="结果"></a>结果</h3><span class="badge">42</span>
+<h2 id="警报（Alerts）"><a href="#警报（Alerts）" class="headerlink" title="警报（Alerts）"></a>警报（Alerts）</h2><p>插入一段警报文本信息，并为其指定样式。</p>
+<h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">alert</span> [style] %&#125;</span><span class="xml"></span></div><div class="line">   Alert string</div><div class="line"><span class="template-tag">&#123;% <span class="name">endalert</span> %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<h3 id="示例-4"><a href="#示例-4" class="headerlink" title="示例"></a>示例</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">alert</span> warning %&#125;</span><span class="xml"></span></div><div class="line">Best check yo self, you're not looking too good.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endalert</span> %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">alert</span> danger %&#125;</span><span class="xml"></span></div><div class="line">Change a few things up and try submitting again.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endalert</span> %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">alert</span> success %&#125;</span><span class="xml"></span></div><div class="line">You successfully read this important alert message.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endalert</span> %&#125;</span><span class="xml"></span></div><div class="line"></div><div class="line"><span class="template-tag">&#123;% <span class="name">alert</span> info %&#125;</span><span class="xml"></span></div><div class="line">This alert needs your attention, but it's not super important.</div><div class="line"><span class="template-tag">&#123;% <span class="name">endalert</span> %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<h3 id="结果-4"><a href="#结果-4" class="headerlink" title="结果"></a>结果</h3><div class="alert alert-warning"><i class="fa fa-bell"></i>  Best check yo self, you're not looking too good.</div>
+<div class="alert alert-danger"><i class="fa fa-bug"></i>  Change a few things up and try submitting again.</div>
+<div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  You successfully read this important alert message.</div>
+<div class="alert alert-info"><i class="fa fa-info"></i>  This alert needs your attention, but it's not super important.</div>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> plugins </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MacOS XAMPP中Apache 启动后闪停]]></title>
       <url>/2017/05/05/MacOS-XAMPP%E4%B8%ADApache-%E5%90%AF%E5%8A%A8%E5%90%8E%E9%97%AA%E5%81%9C/</url>
-      <content type="html"><![CDATA[<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>mac启动后,XAMPP下的Apache无法启动,如下：</p>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决MacOS中XAMPP-Apache无法启动问题</div>
+<a id="more"></a>
+<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>mac启动后,XAMPP下的Apache无法启动,如下：</p>
 <p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170505-225918.png" alt=""></p>
-<p>点击 start 后log里显示</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Starting Apache Web Server...</div><div class="line"><span class="regexp">/Applications/</span>XAMPP<span class="regexp">/xamppfiles/</span>apache2<span class="regexp">/scripts/</span>ctl.<span class="string">sh :</span> httpd started</div></pre></td></tr></table></figure>
+<p>点击 start 后log里显示<br><!-- more --><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Starting Apache Web Server...</div><div class="line"><span class="regexp">/Applications/</span>XAMPP<span class="regexp">/xamppfiles/</span>apache2<span class="regexp">/scripts/</span>ctl.<span class="string">sh :</span> httpd started</div></pre></td></tr></table></figure></p>
 <p>但是很快就跳停，并且没有任何错误提示。</p>
 <h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>输入：</p>
 <p> <code>sudo /Applications/XAMPP/xamppfiles/xampp start</code></p>
@@ -41,7 +103,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     <entry>
       <title><![CDATA[校园网无法获得ipv6地址]]></title>
       <url>/2017/05/05/%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%97%A0%E6%B3%95%E8%8E%B7%E5%BE%97ipv6%E5%9C%B0%E5%9D%80/</url>
-      <content type="html"><![CDATA[<p>五一过后，电脑插上网线突然无法连接ipv6网，网上几乎没有出现同样情况的人。试了各种方法，暴力重启都无法解决。联系了校园网中心的人也是没有解决。试了一个较为复杂的办法：</p>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决校园网无法获得ipv6地址</div>
+<a id="more"></a>
+<p>五一过后，电脑插上网线突然无法连接ipv6网，网上几乎没有出现同样情况的人。试了各种方法，暴力重启都无法解决。联系了校园网中心的人也是没有解决。试了一个较为复杂的办法：</p>
 <ol>
 <li><p>新建一个空白文件,命名为ip-up</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">#!/bin/sh</span></div><div class="line">PREFIXINFO=`/usr/sbin/tcpdump -nvi <span class="variable">$IFNAME</span> -c 2 icmp6 | grep prefix`</div><div class="line">PREFIX=`<span class="built_in">echo</span> <span class="variable">$PREFIXINFO</span>|cut <span class="_">-f</span>2- <span class="_">-d</span>:|cut <span class="_">-f</span>1 <span class="_">-d</span>/|cut -c2-`</div><div class="line">PREFIXLEN=`<span class="built_in">echo</span> <span class="variable">$PREFIXINFO</span>|cut <span class="_">-f</span>2 <span class="_">-d</span>/|cut <span class="_">-f</span>1 <span class="_">-d</span>,`</div><div class="line">ADDR=<span class="string">"cafe"</span></div><div class="line">/sbin/ifconfig <span class="variable">$IFNAME</span> inet6 <span class="variable">$&#123;PREFIX&#125;</span><span class="variable">$&#123;ADDR&#125;</span>/<span class="variable">$PREFIXLEN</span></div><div class="line">/sbin/route add -inet6 default -interface <span class="variable">$IFNAME</span></div></pre></td></tr></table></figure>
@@ -74,14 +138,11 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     <entry>
       <title><![CDATA[添加tags]]></title>
       <url>/2017/04/18/%E6%B7%BB%E5%8A%A0tags/</url>
-      <content type="html"><![CDATA[<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo 新建一篇文章给它添加分类和标签:</div><div class="line"></div><div class="line">hexo <span class="keyword">new</span> <span class="string">"Hexo教程"</span></div></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  为post添加tags</div>
+<a id="more"></a>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo 新建一篇文章给它添加分类和标签:</div><div class="line"></div><div class="line">hexo <span class="keyword">new</span> <span class="string">"Hexo教程"</span></div></pre></td></tr></table></figure>
 <p>通过编辑器打开：添加tags和categories</p>
-<hr>
-<p>title: title #文章標題<br>date: 2016-06-01 23:47:44 #文章生成時間<br>categories: “Hexo教程” #文章分類目錄 可以省略<br>tags: #文章標籤 可以省略</p>
-<pre><code>- 标签1
-- 标签2
-</code></pre><p>description: #你對本頁的描述 可以省略</p>
-<hr>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">title:</span> <span class="string">title</span> <span class="comment">#文章標題</span></div><div class="line"><span class="attr">date:</span> <span class="number">2016</span><span class="bullet">-06</span><span class="bullet">-01</span> <span class="number">23</span><span class="string">:47:44</span> <span class="comment">#文章生成時間</span></div><div class="line"><span class="attr">categories:</span> <span class="string">"Hexo教程"</span> <span class="comment">#文章分類目錄 可以省略</span></div><div class="line"><span class="attr">tags:</span> <span class="comment">#文章標籤 可以省略</span></div><div class="line"><span class="bullet">     -</span> <span class="string">标签1</span></div><div class="line"><span class="bullet">     -</span> <span class="string">标签2</span></div><div class="line"><span class="attr">description:</span> <span class="comment">#你對本頁的描述 可以省略</span></div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure>
 ]]></content>
       
         <categories>
@@ -113,7 +174,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     <entry>
       <title><![CDATA[Hello World]]></title>
       <url>/2017/04/17/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  The beginning</div>
+<a id="more"></a>
+<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -130,7 +193,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     <entry>
       <title><![CDATA[ArcEngine 开发问题记录]]></title>
       <url>/2017/04/12/ArcEngine%20%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-      <content type="html"><![CDATA[<p>在对地图文档进行操作时，出现如下问题：<br><code>IMapDocument m_MapDocument = new ESRI.ArcGIS.Carto.MapDocumentClass();</code></p>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决无法嵌入互操作类型问题</div>
+<a id="more"></a>
+<p>在对地图文档进行操作时，出现如下问题：<br><code>IMapDocument m_MapDocument = new ESRI.ArcGIS.Carto.MapDocumentClass();</code></p>
 <p>报错:</p>
 <p>无法嵌入互操作类型<br>“<code>ESRI.ArcGIS.Carto.MapDocumentClass</code>“.<br>请改用适用的接口.</p>
 <p>解决方案如下：</p>
@@ -155,7 +220,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     <entry>
       <title><![CDATA[MacOS - 重置 MySQL Root 密码]]></title>
       <url>/2017/04/10/MacOS%20-%20%E9%87%8D%E7%BD%AE%20MySQL%20Root%20%E5%AF%86%E7%A0%81/</url>
-      <content type="html"><![CDATA[<h3 id="通过以下4步就可重新设置新密码"><a href="#通过以下4步就可重新设置新密码" class="headerlink" title="通过以下4步就可重新设置新密码"></a>通过以下4步就可重新设置新密码</h3><p>1.停止 mysql server.  通常是在 ‘系统偏好设置’ &gt; MySQL &gt; ‘Stop MySQL Server’</p>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  通过简单命令重新设置mysql root密码</div>
+<a id="more"></a>
+<h3 id="通过以下4步就可重新设置新密码"><a href="#通过以下4步就可重新设置新密码" class="headerlink" title="通过以下4步就可重新设置新密码"></a>通过以下4步就可重新设置新密码</h3><p>1.停止 mysql server.  通常是在 ‘系统偏好设置’ &gt; MySQL &gt; ‘Stop MySQL Server’</p>
 <p>2.打开终端，输入：</p>
 <pre><code><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="keyword">local</span>/mysql/bin/mysqld_safe <span class="comment">--skip-grant-tables</span></div></pre></td></tr></table></figure>
 </code></pre><p>3.打开另一个新终端，输入:</p>
