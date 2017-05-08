@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>添加tags | Zane&#39;s Grocery</title>
+  <title>常用的Vi命令 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="添加tags"/>
+  <meta property="og:title" content="常用的Vi命令"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -91,7 +91,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> 添加tags</h1>
+			<h1 class="title title-inverse "> 常用的Vi命令</h1>
 		</div>		
 	
 
@@ -111,11 +111,47 @@
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  为post添加tags</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  常用的Vi命令</div>
 <a id="more"></a>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo 新建一篇文章给它添加分类和标签:</div><div class="line"></div><div class="line">hexo <span class="keyword">new</span> <span class="string">"Hexo教程"</span></div></pre></td></tr></table></figure>
-<p>通过编辑器打开：添加tags和categories</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">title:</span> <span class="string">title</span> <span class="comment">#文章標題</span></div><div class="line"><span class="attr">date:</span> <span class="number">2016</span><span class="bullet">-06</span><span class="bullet">-01</span> <span class="number">23</span><span class="string">:47:44</span> <span class="comment">#文章生成時間</span></div><div class="line"><span class="attr">categories:</span> <span class="string">"Hexo教程"</span> <span class="comment">#文章分類目錄 可以省略</span></div><div class="line"><span class="attr">tags:</span> <span class="comment">#文章標籤 可以省略</span></div><div class="line"><span class="bullet">     -</span> <span class="string">标签1</span></div><div class="line"><span class="bullet">     -</span> <span class="string">标签2</span></div><div class="line"><span class="attr">description:</span> <span class="comment">#你對本頁的描述 可以省略</span></div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>在光标前插入</td>
+<td>i</td>
+</tr>
+<tr>
+<td>在光标后插入</td>
+<td>a</td>
+</tr>
+<tr>
+<td>粘贴内容到光标下方</td>
+<td>p</td>
+</tr>
+<tr>
+<td>保存并退出</td>
+<td>:wq</td>
+</tr>
+<tr>
+<td>不保存退出</td>
+<td>:q</td>
+</tr>
+<tr>
+<td>文本查找操作</td>
+<td>/字符串</td>
+</tr>
+<tr>
+<td>退出编辑模式</td>
+<td>ESC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><p>Ctrl+u：向文件首翻半屏；<br>Ctrl+d：向文件尾翻半屏；<br>Ctrl+f：向文件尾翻一屏；<br>Ctrl+b：向文件首翻一屏；<br>Esc：从编辑模式切换到命令模式；<br>ZZ：命令模式下保存当前文件所做的修改后退出vi；<br>:行号：光标跳转到指定行的行首；<br>:$：光标跳转到最后一行的行首；<br>x或X：删除一个字符，x删除光标后的，而X删除光标前的；<br>D：删除从当前光标到光标所在行尾的全部字符；<br>dd：删除光标行正行内容；<br>ndd：删除当前行及其后n-1行；<br>nyy：将当前行及其下n行的内容保存到寄存器？中，其中？为一个字母，n为一个数字；<br>p：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的下方；<br>P：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的上方；<br>/字符串：文本查找操作，用于从当前光标所在位置开始向文件尾部查找指定字符串的内容，查找的字符串会被加亮显示；<br>？name：文本查找操作，用于从当前光标所在位置开始向文件头部查找指定字符串的内容，查找的字符串会被加亮显示；<br>a，bs/F/T：替换文本操作，用于在第a行到第b行之间，将F字符串换成T字符串。其中，“s/”表示进行替换操作；<br>a：在当前字符后添加文本；<br>：在行末添加文本；<br>i：在当前字符前插入文本；<br>I：在行首插入文本；<br>o：在当前行后面插入一空行；<br>O：在当前行前面插入一空行；<br>:wq：在命令模式下，执行存盘退出操作；<br>:w：在命令模式下，执行存盘操作；<br>:w！：在命令模式下，执行强制存盘操作；<br>:q：在命令模式下，执行退出vi操作；<br>:q！：在命令模式下，执行强制退出vi操作；<br>:e文件名：在命令模式下，打开并编辑指定名称的文件；<br>:n：在命令模式下，如果同时打开多个文件，则继续编辑下一个文件；<br>:f：在命令模式下，用于显示当前的文件名、光标所在行的行号以及显示比例；<br>:set number：在命令模式下，用于在最左端显示行号；<br>:set nonumber：在命令模式下，用于在最左端不显示行号；</p>
 	  
 	</div>
 
@@ -124,14 +160,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2017/04/17/第一篇文章/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/05/05/校园网无法获得ipv6地址/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2017/04/10/MacOS - 重置 MySQL Root 密码/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -182,7 +218,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-04-18 
+	2017-04-05 
 	</div>
 	
 
@@ -193,7 +229,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Hexo教程/">Hexo教程<span>1</span></a></li>
+    <li><a href="/categories/Linux/">Linux<span>1</span></a></li>
   </li>
 
     </ul>
