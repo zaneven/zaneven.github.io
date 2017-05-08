@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>MacOS - 重置 MySQL Root 密码 | Zane&#39;s Grocery</title>
+  <title>Centos7 无法启动mysql解决方法 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="MacOS - 重置 MySQL Root 密码"/>
+  <meta property="og:title" content="Centos7 无法启动mysql解决方法"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -91,7 +91,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> MacOS - 重置 MySQL Root 密码</h1>
+			<h1 class="title title-inverse "> Centos7 无法启动mysql解决方法</h1>
 		</div>		
 	
 
@@ -111,16 +111,20 @@
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  通过简单命令重新设置mysql root密码</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  解决CentOS下无法启动mysql问题</div>
 <a id="more"></a>
-<h3 id="通过以下4步就可重新设置新密码"><a href="#通过以下4步就可重新设置新密码" class="headerlink" title="通过以下4步就可重新设置新密码"></a>通过以下4步就可重新设置新密码</h3><p>1.停止 mysql server.  通常是在 ‘系统偏好设置’ &gt; MySQL &gt; ‘Stop MySQL Server’</p>
-<p>2.打开终端，输入：</p>
-<pre><code><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="keyword">local</span>/mysql/bin/mysqld_safe <span class="comment">--skip-grant-tables</span></div></pre></td></tr></table></figure>
-</code></pre><p>3.打开另一个新终端，输入:</p>
-<pre><code><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo /usr/local/mysql/bin/mysql -u root</div><div class="line"></div><div class="line">     <span class="keyword">UPDATE</span> mysql.user <span class="keyword">SET</span> authentication_string=<span class="keyword">PASSWORD</span>(<span class="string">'新密码'</span>) <span class="keyword">WHERE</span> <span class="keyword">User</span>=<span class="string">'root'</span>;</div><div class="line"></div><div class="line">     <span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</div><div class="line"></div><div class="line">     \q</div></pre></td></tr></table></figure>
-</code></pre><p>4.重启MySQL.</p>
-<p>*以上方法针对 MySQL V5.7.9, 旧版的mysql请使用：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> mysql.user <span class="keyword">SET</span> <span class="keyword">Password</span>=<span class="keyword">PASSWORD</span>(<span class="string">'新密码'</span>) <span class="keyword">WHERE</span> <span class="keyword">User</span>=<span class="string">'root'</span>;</div></pre></td></tr></table></figure>
+<h3 id="MariaDB-和-Mysql"><a href="#MariaDB-和-Mysql" class="headerlink" title="MariaDB 和 Mysql"></a>MariaDB 和 Mysql</h3><hr>
+<p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可。开发这个分支的原因之一是：甲骨文公司收购了MySQL后，有将MySQL闭源的潜在风险，因此社区采用分支的方式来避开这个风险。</p>
+<p>MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。在存储引擎方面，10.0.9版起使用XtraDB（名称代号为Aria）来代替MySQL的InnoDB。</p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><hr>
+<p>安装时提示</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum install mysql -y</span></div><div class="line"><span class="comment"># mysql</span></div><div class="line">ERROR <span class="number">2002</span> (HY000): Can<span class="string">'t connect to local MySQL server through socket '</span>/var/<span class="class"><span class="keyword">lib</span>/<span class="title">mysql</span>/<span class="title">mysql</span>.<span class="title">sock</span>' (111)</span></div></pre></td></tr></table></figure>
+<p>试着去启动mysql服务，仍然不行</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># systemctl start mysql</div><div class="line">Failed <span class="keyword">to</span> issue <span class="function"><span class="keyword">method</span> <span class="title">call</span>:</span> <span class="keyword">Unit</span> mysql.service failed <span class="keyword">to</span> load: No such file <span class="keyword">or</span> directory.</div><div class="line"></div><div class="line"># systemctl start  mysql.service</div><div class="line">Failed <span class="keyword">to</span> issue <span class="function"><span class="keyword">method</span> <span class="title">call</span>:</span> <span class="keyword">Unit</span> mysql.service failed <span class="keyword">to</span> load: No such file <span class="keyword">or</span> directory</div><div class="line"></div><div class="line"># systemctl enable mysql.service</div><div class="line">Failed <span class="keyword">to</span> issue <span class="function"><span class="keyword">method</span> <span class="title">call</span>:</span> Access denied</div></pre></td></tr></table></figure>
+<h3 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h3><hr>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum install mariadb-server -y</span></div><div class="line"><span class="comment"># systemctl start mariadb.service</span></div><div class="line"><span class="comment"># systemctl enable mariadb.service</span></div><div class="line"><span class="comment"># mysql</span></div><div class="line">Welcome <span class="built_in">to</span> <span class="keyword">the</span> MariaDB monitor.  Commands <span class="function"><span class="keyword">end</span> <span class="title">with</span> ; <span class="title">or</span> \<span class="title">g</span>.</span></div><div class="line">Your MariaDB connection id is <span class="number">10</span></div><div class="line">Server <span class="built_in">version</span>: <span class="number">5.5</span><span class="number">.44</span>-MariaDB MariaDB Server</div><div class="line"></div><div class="line">Copyright (c) <span class="number">2000</span>, <span class="number">2015</span>, Oracle, MariaDB Corporation Ab <span class="keyword">and</span> others.</div><div class="line"></div><div class="line">Type <span class="string">'help;'</span> <span class="keyword">or</span> <span class="string">'\h'</span> <span class="keyword">for</span> help. Type <span class="string">'\c'</span> <span class="built_in">to</span> <span class="built_in">clear</span> <span class="keyword">the</span> current input statement.</div><div class="line"></div><div class="line">MariaDB [(<span class="literal">none</span>)]&gt;</div></pre></td></tr></table></figure>
+<p>如何重新设置mysql root密码:</p>
+<a class="btn btn-info" href="http://zane.gocery.me/2017/04/10/MacOS%20-%20重置%20MySQL%20Root%20密码/" target="_blank" rel="external">重设mysql密码</a>
 	  
 	</div>
 
@@ -130,13 +134,13 @@
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/04/05/常用的Vi命令/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/04/16/Centos7-安装Python-pip/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/04/12/ArcEngine 开发问题记录/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2017/04/17/hello-world/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -187,7 +191,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-04-10 
+	2017-04-16 
 	</div>
 	
 
@@ -198,7 +202,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/数据库/">数据库<span>1</span></a></li>
+    <li><a href="/categories/Linux/">Linux<span>4</span></a></li>
   </li>
 
     </ul>

@@ -3,6 +3,46 @@
   
     
     <entry>
+      <title><![CDATA[MacOS下使用七牛云创建个人图床]]></title>
+      <url>/2017/05/08/MacOS%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  使用七牛云创建个人图床，图片自动上传，并返回外链</div>
+<a id="more"></a>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><hr>
+<p>python 监控文件夹 –&gt; 文件新增(FS capture 截图自动保存该目录) –&gt; 使用 qiniu sdk 上传&gt;到 qiniu 云存储 –&gt; 生成外链到粘贴板 –&gt; 复制图片外链到博客</p>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><hr>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip <span class="keyword">install</span> qiniu4blog</div></pre></td></tr></table></figure>
+<p> Mac os 下 python2.7.9 下验证通过</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><hr>
+<p>登录<a href="https://portal.qiniu.com/" target="_blank" rel="external">https://portal.qiniu.com/</a> 新建一个bucket,获取以下相关信息<br><code>bucket</code> , <code>accessKey</code> ,<code>secretKey</code></p>
+<p>在home目录下新建配置文件 qiniu.cfg<br><code>path_to_watch</code> 为截图自动保存的目录<br><code>addr</code> 是图床的域名<br> qiniu.cfg内容如下</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="section">[config]</span></div><div class="line"><span class="attr">bucket</span> = your-bucket-name</div><div class="line"><span class="attr">accessKey</span> = qzA***********************sa</div><div class="line"><span class="attr">secretKey</span> = P5G***********************wq</div><div class="line"><span class="attr">path_to_watch</span> = D:\install\qiniu\uploadimage2qiniu</div><div class="line"><span class="section"></span></div><div class="line">[custom_url]</div><div class="line"><span class="attr">enable</span> = <span class="literal">false</span> 或者 <span class="literal">true</span></div><div class="line"><span class="attr">addr</span> = http://<span class="number">7</span>qnct6.com1.z0.glb.clouddn.com/</div></pre></td></tr></table></figure>
+<p>mac 系统设置截图自动保存文件夹</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">defaults <span class="keyword">write</span> com.apple.screencapture <span class="keyword">location</span> <span class="title">/Users</span>/leeyoung/Desktop/up2qiniu</div><div class="line">killall SystemUIServer</div></pre></td></tr></table></figure>
+<p>其中<code>/Users/leeyoung/Desktop/up2qiniu</code>修改为自己图片想要保存的位置</p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><h4 id="监听模式-打开终端"><a href="#监听模式-打开终端" class="headerlink" title="监听模式 打开终端"></a>监听模式 打开终端</h4><hr>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">qiniu4blog</span>  <span class="comment">#将会监听path_to_watch内的文件变动，上传图片</span></div></pre></td></tr></table></figure>
+<h4 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h4><hr>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qiniu4blog d:/image1<span class="selector-class">.jpg</span> d:/image2<span class="selector-class">.jpg</span> d:/image3<span class="selector-class">.jpg</span>  #指定上传多个文件</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> 云 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Tag Plugins]]></title>
       <url>/2017/05/07/Tag-Plugins/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  "Introduce tag plugins in freemind."</div>
@@ -187,6 +227,121 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
       
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Centos7 无法启动mysql解决方法]]></title>
+      <url>/2017/04/16/Centos7-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8mysql%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决CentOS下无法启动mysql问题</div>
+<a id="more"></a>
+<h3 id="MariaDB-和-Mysql"><a href="#MariaDB-和-Mysql" class="headerlink" title="MariaDB 和 Mysql"></a>MariaDB 和 Mysql</h3><hr>
+<p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可。开发这个分支的原因之一是：甲骨文公司收购了MySQL后，有将MySQL闭源的潜在风险，因此社区采用分支的方式来避开这个风险。</p>
+<p>MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。在存储引擎方面，10.0.9版起使用XtraDB（名称代号为Aria）来代替MySQL的InnoDB。</p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><hr>
+<p>安装时提示</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum install mysql -y</span></div><div class="line"><span class="comment"># mysql</span></div><div class="line">ERROR <span class="number">2002</span> (HY000): Can<span class="string">'t connect to local MySQL server through socket '</span>/var/<span class="class"><span class="keyword">lib</span>/<span class="title">mysql</span>/<span class="title">mysql</span>.<span class="title">sock</span>' (111)</span></div></pre></td></tr></table></figure>
+<p>试着去启动mysql服务，仍然不行</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># systemctl start mysql</div><div class="line">Failed <span class="keyword">to</span> issue <span class="function"><span class="keyword">method</span> <span class="title">call</span>:</span> <span class="keyword">Unit</span> mysql.service failed <span class="keyword">to</span> load: No such file <span class="keyword">or</span> directory.</div><div class="line"></div><div class="line"># systemctl start  mysql.service</div><div class="line">Failed <span class="keyword">to</span> issue <span class="function"><span class="keyword">method</span> <span class="title">call</span>:</span> <span class="keyword">Unit</span> mysql.service failed <span class="keyword">to</span> load: No such file <span class="keyword">or</span> directory</div><div class="line"></div><div class="line"># systemctl enable mysql.service</div><div class="line">Failed <span class="keyword">to</span> issue <span class="function"><span class="keyword">method</span> <span class="title">call</span>:</span> Access denied</div></pre></td></tr></table></figure>
+<h3 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h3><hr>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum install mariadb-server -y</span></div><div class="line"><span class="comment"># systemctl start mariadb.service</span></div><div class="line"><span class="comment"># systemctl enable mariadb.service</span></div><div class="line"><span class="comment"># mysql</span></div><div class="line">Welcome <span class="built_in">to</span> <span class="keyword">the</span> MariaDB monitor.  Commands <span class="function"><span class="keyword">end</span> <span class="title">with</span> ; <span class="title">or</span> \<span class="title">g</span>.</span></div><div class="line">Your MariaDB connection id is <span class="number">10</span></div><div class="line">Server <span class="built_in">version</span>: <span class="number">5.5</span><span class="number">.44</span>-MariaDB MariaDB Server</div><div class="line"></div><div class="line">Copyright (c) <span class="number">2000</span>, <span class="number">2015</span>, Oracle, MariaDB Corporation Ab <span class="keyword">and</span> others.</div><div class="line"></div><div class="line">Type <span class="string">'help;'</span> <span class="keyword">or</span> <span class="string">'\h'</span> <span class="keyword">for</span> help. Type <span class="string">'\c'</span> <span class="built_in">to</span> <span class="built_in">clear</span> <span class="keyword">the</span> current input statement.</div><div class="line"></div><div class="line">MariaDB [(<span class="literal">none</span>)]&gt;</div></pre></td></tr></table></figure>
+<p>如何重新设置mysql root密码:</p>
+<a class="btn btn-info" href="http://zane.gocery.me/2017/04/10/MacOS%20-%20重置%20MySQL%20Root%20密码/" target="_blank" rel="external">重设mysql密码</a>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Centos7 安装Python-pip]]></title>
+      <url>/2017/04/16/Centos7-%E5%AE%89%E8%A3%85Python-pip/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决Centos7下无法安装Python-pip软件包</div>
+<a id="more"></a>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><hr>
+<p>在使用centos7的yum安装python-pip的时候报以下错误：</p>
+ <figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">No package python-pip available.</div><div class="line"><span class="keyword">Error: </span>Nothing to do</div></pre></td></tr></table></figure>
+<p>说没有python-pip软件包可以安装。</p>
+<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><hr>
+<p>由于Centos这类是衍生出来的发行版，所以有时候他们的更新的比较滞后，或者说有时候一些扩展的源根本就没有。</p>
+<p>所以在使用yum来search  python-pip的时候，会说没有找到该软件包。因此为了能够安装这些包，需要先安装扩展源EPEL。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><hr>
+<p>EPEL(<a href="http://fedoraproject.org/wiki/EPEL" target="_blank" rel="external">http://fedoraproject.org/wiki/EPEL</a>) 是由 Fedora 社区打造，为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。</p>
+<ol>
+<li><p>首先安装epel扩展源：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum -y <span class="keyword">install</span> epel-<span class="keyword">release</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>然后安装python-pip</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum -y <span class="keyword">install</span> python-pip</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装完之后别忘了清除一下cache</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum clean <span class="keyword">all</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Centos7 安装图形界面]]></title>
+      <url>/2017/04/14/Centos7-%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  Centos 7下安装Gnome图形界面</div>
+<a id="more"></a>
+<p>在安装Gnome包之前，先检查下安装源是否正常，因为要通过yum命令来安装Gnome包， 而yum命令式通过yum源来下载安装包的。</p>
+<ol>
+<li><p>在命令行下输入下面的命令来安装 Gnome 包</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo  yum groupinstall <span class="string">"GNOME Desktop"</span> <span class="string">"Graphical Administration Tools"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>更新系统的运行级别</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -sf /<span class="class"><span class="keyword">lib</span>/<span class="title">systemd</span>/<span class="title">system</span>/<span class="title">runlevel5</span>.<span class="title">target</span> /<span class="title">etc</span>/<span class="title">systemd</span>/<span class="title">system</span>/ <span class="title">default</span>.<span class="title">target</span></span></div></pre></td></tr></table></figure>
+</li>
+<li><p>重启系统</p>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
         
     </entry>
     
