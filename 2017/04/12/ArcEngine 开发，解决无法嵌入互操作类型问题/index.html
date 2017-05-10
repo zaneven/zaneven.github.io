@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>MacOS XAMPP中Apache 启动后闪停 | Zane&#39;s Grocery</title>
+  <title>ArcEngine 开发，解决无法嵌入互操作类型问题 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="MacOS XAMPP中Apache 启动后闪停"/>
+  <meta property="og:title" content="ArcEngine 开发，解决无法嵌入互操作类型问题"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -91,7 +91,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> MacOS XAMPP中Apache 启动后闪停</h1>
+			<h1 class="title title-inverse "> ArcEngine 开发，解决无法嵌入互操作类型问题</h1>
 		</div>		
 	
 
@@ -111,21 +111,13 @@
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  解决MacOS中XAMPP-Apache无法启动问题</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  解决无法嵌入互操作类型问题</div>
 <a id="more"></a>
-<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>mac启动后,XAMPP下的Apache无法启动,如下：</p>
-<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170505-225918.png" alt=""></p>
-<p>点击 start 后log里显示<br><!-- more --><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Starting Apache Web Server...</div><div class="line"><span class="regexp">/Applications/</span>XAMPP<span class="regexp">/xamppfiles/</span>apache2<span class="regexp">/scripts/</span>ctl.<span class="string">sh :</span> httpd started</div></pre></td></tr></table></figure></p>
-<p>但是很快就跳停，并且没有任何错误提示。</p>
-<h3 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h3><p>输入：</p>
-<p> <code>sudo /Applications/XAMPP/xamppfiles/xampp start</code></p>
-<p>提示：</p>
-<p><code>XAMPP: Starting Apache...fail.
-XAMPP:  Another web server is alreadyrunning.</code></p>
-<p>刚开始以为是端口占用问题，后来发现是提示有另一个web server正在启动，使用<code>sudo apachectl stop</code>提示</p>
-<p><code>/System/Library/LaunchDaemons/org.apache.httpd.plist: Could not find specified service</code></p>
-<p>重启之后仍然无法解决。</p>
-<p>发现是自己装了Apple server中占用了localhost，停止了server中的网站功能之后成功启动。</p>
+<p>在对地图文档进行操作时，出现如下问题：<br><code>IMapDocument m_MapDocument = new ESRI.ArcGIS.Carto.MapDocumentClass();</code></p>
+<p>报错:</p>
+<p>无法嵌入互操作类型<br>“<code>ESRI.ArcGIS.Carto.MapDocumentClass</code>“.<br>请改用适用的接口.</p>
+<p>解决方案如下：</p>
+<p>解决方案——项目——引用——ESRI.ArcGIS.Carto<br>右键ESRI.ArcGIS.Carto ——属性——嵌入互操作类型=false</p>
 	  
 	</div>
 
@@ -135,13 +127,13 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/05/05/校园网无法获得ipv6地址/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/04/10/MacOS - 重置 MySQL Root 密码/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/05/07/Tag-Plugins/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2017/04/14/Centos7-安装图形界面/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -192,7 +184,7 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-05-05 
+	2017-04-12 
 	</div>
 	
 
@@ -203,7 +195,7 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/technology/">technology<span>4</span></a></li>
+    <li><a href="/categories/ArcEngine开发/">ArcEngine开发<span>1</span></a></li>
   </li>
 
     </ul>
@@ -216,18 +208,13 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/技术/">技术<span>10</span></a></li> <li><a href="/tags/问题记录/">问题记录<span>6</span></a></li> <li><a href="/tags/教程/">教程<span>10</span></a></li>
+  <li><a href="/tags/技术/">技术<span>10</span></a></li> <li><a href="/tags/问题记录/">问题记录<span>6</span></a></li>
     </ul>
 	</div>
 		
 
 	<!-- toc -->
 	<div class="meta-widget">
-	
-	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
-	   <div id="toc" class="toc collapse in">
-			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#问题描述："><span class="toc-article-text">问题描述：</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#解决办法："><span class="toc-article-text">解决办法：</span></a></li></ol>
-		</div>
 	
 	</div>
 	

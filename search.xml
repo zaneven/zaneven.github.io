@@ -3,8 +3,57 @@
   
     
     <entry>
+      <title><![CDATA[关于连接github出现Permission denied（publickey）]]></title>
+      <url>/2017/05/10/%E5%85%B3%E4%BA%8E%E8%BF%9E%E6%8E%A5github%E5%87%BA%E7%8E%B0Permission-denied%EF%BC%88publickey%EF%BC%89/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决推送远程仓库是提示Permission denied（publickey）</div>
+<a id="more"></a>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><hr>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">apple (<span class="literal">master</span>) learn-html $ git push</div><div class="line">fatal: The current branch <span class="keyword">master</span> <span class="title">has</span> no upstream branch.</div><div class="line">To push the current branch <span class="keyword">and</span> set the remote as upstream, use</div><div class="line"></div><div class="line">    git push --set-upstream origin <span class="keyword">master</span></div><div class="line"></div><div class="line"><span class="title">apple</span> (<span class="literal">master</span>) learn-html $  git push --set-upstream origin <span class="keyword">master</span></div><div class="line"><span class="title">Permission</span> denied (publickey).</div><div class="line">fatal: Could not <span class="keyword">read</span> from remote repository.</div><div class="line"></div><div class="line">Please make sure you have the correct access rights</div><div class="line"><span class="keyword">and</span> the repository exists.</div></pre></td></tr></table></figure>
+<p>在连接远程仓库后，使用<code>git push</code>推送时提醒 <code>Permission denied (publickey)</code></p>
+<p>使用<code>ssh git@github.com</code>测试后显示</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apple (master) learn-<span class="selector-tag">html</span> $ ssh git@github<span class="selector-class">.com</span></div><div class="line">Permission denied (publickey).</div></pre></td></tr></table></figure>
+<p>说明电脑没有连接到远程仓库</p>
+<p>之前已经放了一个公钥在GitHub上，显示没有使用过<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170510-122258.png" alt=""></p>
+<p>使用<code>ssh -T -v git@github.com</code>查看连接日志</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">apple ~ $ ssh -T -v git<span class="meta">@github</span>.com</div><div class="line">OpenSSH_7<span class="number">.4</span>p1, LibreSSL <span class="number">2.5</span><span class="number">.0</span></div><div class="line"><span class="string">debug1:</span> Reading configuration data <span class="regexp">/etc/</span>ssh/ssh_config</div><div class="line"><span class="string">debug1:</span> Connecting to github.com [<span class="number">192.30</span><span class="number">.255</span><span class="number">.112</span>] port <span class="number">22.</span></div><div class="line"><span class="string">debug1:</span> Connection established.</div><div class="line"><span class="string">debug1:</span> identity file <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_rsa type <span class="number">1</span></div><div class="line"><span class="string">debug1:</span> <span class="string">key_load_public:</span> No such file or directory</div><div class="line"><span class="string">debug1:</span> identity file <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_rsa-cert type <span class="number">-1</span></div><div class="line"><span class="string">debug1:</span> <span class="string">key_load_public:</span> No such file or directory</div><div class="line"><span class="string">debug1:</span> identity file <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_dsa type <span class="number">-1</span></div><div class="line"><span class="string">debug1:</span> <span class="string">key_load_public:</span> No such file or directory</div><div class="line"><span class="string">debug1:</span> identity file <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_dsa-cert type <span class="number">-1</span></div><div class="line"><span class="string">debug1:</span> <span class="string">key_load_public:</span> No such file or directory</div><div class="line"><span class="string">debug1:</span> identity file <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_ecdsa type <span class="number">-1</span></div><div class="line"><span class="string">debug1:</span> <span class="string">key_load_public:</span> No such file or directory</div><div class="line"><span class="string">debug1:</span> identity file <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_ecdsa-cert type <span class="number">-1</span></div><div class="line"><span class="string">debug1:</span> <span class="string">key_load_public:</span> No such file or directory</div><div class="line"><span class="string">debug1:</span> identity file <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_ed25519 type <span class="number">-1</span></div><div class="line"><span class="string">debug1:</span> <span class="string">key_load_public:</span> No such file or directory</div><div class="line"><span class="string">debug1:</span> identity file <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_ed25519-cert type <span class="number">-1</span></div><div class="line"><span class="string">debug1:</span> Enabling compatibility mode <span class="keyword">for</span> protocol <span class="number">2.0</span></div><div class="line"><span class="string">debug1:</span> Local version string SSH<span class="number">-2.0</span>-OpenSSH_7<span class="number">.4</span></div><div class="line"><span class="string">debug1:</span> Remote protocol version <span class="number">2.0</span>, remote software version libssh<span class="number">-0.7</span><span class="number">.0</span></div><div class="line"><span class="string">debug1:</span> no <span class="string">match:</span> libssh<span class="number">-0.7</span><span class="number">.0</span></div><div class="line"><span class="string">debug1:</span> Authenticating to github.<span class="string">com:</span><span class="number">22</span> <span class="keyword">as</span> <span class="string">'git'</span></div><div class="line"><span class="string">debug1:</span> SSH2_MSG_KEXINIT sent</div><div class="line"><span class="string">debug1:</span> SSH2_MSG_KEXINIT received</div><div class="line"><span class="string">debug1:</span> <span class="string">kex:</span> <span class="string">algorithm:</span> curve25519-sha256<span class="meta">@libssh</span>.org</div><div class="line"><span class="string">debug1:</span> <span class="string">kex:</span> host key <span class="string">algorithm:</span> ssh-rsa</div><div class="line"><span class="string">debug1:</span> <span class="string">kex:</span> server-&gt;client <span class="string">cipher:</span> chacha20-poly1305<span class="meta">@openssh</span>.com <span class="string">MAC:</span> &lt;implicit&gt; <span class="string">compression:</span> none</div><div class="line"><span class="string">debug1:</span> <span class="string">kex:</span> client-&gt;server <span class="string">cipher:</span> chacha20-poly1305<span class="meta">@openssh</span>.com <span class="string">MAC:</span> &lt;implicit&gt; <span class="string">compression:</span> none</div><div class="line"><span class="string">debug1:</span> expecting SSH2_MSG_KEX_ECDH_REPLY</div><div class="line"><span class="string">debug1:</span> Server host <span class="string">key:</span> ssh-rsa <span class="string">SHA256:</span>nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8</div><div class="line"><span class="string">debug1:</span> Host <span class="string">'github.com'</span> is known and matches the RSA host key.</div><div class="line"><span class="string">debug1:</span> Found key <span class="keyword">in</span> <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span><span class="string">known_hosts:</span><span class="number">1</span></div><div class="line"><span class="string">debug1:</span> rekey after <span class="number">134217728</span> blocks</div><div class="line"><span class="string">debug1:</span> SSH2_MSG_NEWKEYS sent</div><div class="line"><span class="string">debug1:</span> expecting SSH2_MSG_NEWKEYS</div><div class="line"><span class="string">debug1:</span> SSH2_MSG_NEWKEYS received</div><div class="line"><span class="string">debug1:</span> rekey after <span class="number">134217728</span> blocks</div><div class="line"><span class="string">debug1:</span> SSH2_MSG_SERVICE_ACCEPT received</div><div class="line"><span class="string">debug1:</span> Authentications that can <span class="string">continue:</span> publickey</div><div class="line"><span class="string">debug1:</span> Next authentication <span class="string">method:</span> publickey</div><div class="line"><span class="string">debug1:</span> Offering RSA <span class="keyword">public</span> <span class="string">key:</span> <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_rsa</div><div class="line"><span class="string">debug1:</span> Authentications that can <span class="string">continue:</span> publickey</div><div class="line"><span class="string">debug1:</span> Trying <span class="keyword">private</span> <span class="string">key:</span> <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_dsa</div><div class="line"><span class="string">debug1:</span> Trying <span class="keyword">private</span> <span class="string">key:</span> <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_ecdsa</div><div class="line"><span class="string">debug1:</span> Trying <span class="keyword">private</span> <span class="string">key:</span> <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_ed25519</div><div class="line"><span class="string">debug1:</span> No more authentication methods to <span class="keyword">try</span>.</div><div class="line">Permission denied (publickey).</div></pre></td></tr></table></figure>
+<p>从下面这段代码发现ssh查找的路径为<code>/Users/apple/.ssh/</code>而我之前使用的公钥是存放在根目录下的</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="string">debug1:</span> Offering RSA <span class="keyword">public</span> <span class="string">key:</span> <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_rsa</div><div class="line"><span class="string">debug1:</span> Authentications that can <span class="string">continue:</span> publickey</div><div class="line"><span class="string">debug1:</span> Trying <span class="keyword">private</span> <span class="string">key:</span> <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_dsa</div><div class="line"><span class="string">debug1:</span> Trying <span class="keyword">private</span> <span class="string">key:</span> <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_ecdsa</div><div class="line"><span class="string">debug1:</span> Trying <span class="keyword">private</span> <span class="string">key:</span> <span class="regexp">/Users/</span>apple<span class="regexp">/.ssh/</span>id_ed25519</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><hr>
+<ol>
+<li><p>进入.ssh查看文件，可以看到存在id_rsa和id_rsa.pub分别是私钥和公钥。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">apple ~ $ cd <span class="selector-class">.ssh</span></div><div class="line">apple <span class="selector-class">.ssh</span> $ ls</div><div class="line">id_rsa		id_rsa<span class="selector-class">.pub</span>	known_hosts</div><div class="line">apple <span class="selector-class">.ssh</span> $ ssh -T git@github<span class="selector-class">.com</span></div><div class="line">Permission denied (publickey).</div><div class="line">apple <span class="selector-class">.ssh</span> $ subl id_rsa.pub</div></pre></td></tr></table></figure>
+</li>
+<li><p>打开.ssh下的公钥文件把内容添加到GitHub的SSH keys<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170510-123513.png" alt=""><br>再次验证 <code>ssh -T git@github.com</code></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apple <span class="selector-class">.ssh</span> $ ssh -T git@github<span class="selector-class">.com</span></div><div class="line">Hi zaneven! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>验证推送</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">apple (<span class="literal">master</span>) learn-html $ git push --set-upstream origin <span class="keyword">master</span></div><div class="line"><span class="title">Counting</span> objects: <span class="number">5</span>, done.</div><div class="line">Delta compression using up to <span class="number">4</span> threads.</div><div class="line">Compressing objects: <span class="number">100</span>% (<span class="number">5</span>/<span class="number">5</span>), done.</div><div class="line">Writing objects: <span class="number">100</span>% (<span class="number">5</span>/<span class="number">5</span>), <span class="number">1013</span> bytes | <span class="number">0</span> bytes/s, done.</div><div class="line">Total <span class="number">5</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</div><div class="line">To git@github.com:zaneven/learn-html.git</div><div class="line"> * [new branch]      <span class="keyword">master</span> <span class="title">-&gt; master</span></div><div class="line">Branch <span class="keyword">master</span> <span class="title">set</span> up to track remote branch <span class="keyword">master</span> <span class="title">from</span> origin.</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>成功推送到远程仓库</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Git </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 问题记录 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MacOS下使用七牛云实现自动图床]]></title>
-      <url>/2017/05/08/MacOS%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/</url>
+      <url>/2017/05/08/MacOS%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%9B%BE%E5%BA%8A/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  使用七牛云创建个人图床，图片自动上传，并返回外链</div>
 <a id="more"></a>
 <p>##特点</p>
@@ -37,7 +86,7 @@
       
         <categories>
             
-            <category> 云 </category>
+            <category> technology </category>
             
         </categories>
         
@@ -135,7 +184,7 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
       
         <categories>
             
-            <category> 问题记录 </category>
+            <category> technology </category>
             
         </categories>
         
@@ -143,6 +192,8 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
         <tags>
             
             <tag> 技术 </tag>
+            
+            <tag> 问题记录 </tag>
             
             <tag> 教程 </tag>
             
@@ -170,7 +221,7 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
       
         <categories>
             
-            <category> 问题记录 </category>
+            <category> technology </category>
             
         </categories>
         
@@ -179,6 +230,8 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
+            <tag> 问题记录 </tag>
+            
             <tag> 教程 </tag>
             
         </tags>
@@ -186,8 +239,8 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     </entry>
     
     <entry>
-      <title><![CDATA[添加tags]]></title>
-      <url>/2017/04/18/%E6%B7%BB%E5%8A%A0tags/</url>
+      <title><![CDATA[Hexo post添加tags]]></title>
+      <url>/2017/04/18/Hexo%20post%E6%B7%BB%E5%8A%A0tags/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  为post添加tags</div>
 <a id="more"></a>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo 新建一篇文章给它添加分类和标签:</div><div class="line"></div><div class="line">hexo <span class="keyword">new</span> <span class="string">"Hexo教程"</span></div></pre></td></tr></table></figure>
@@ -197,7 +250,7 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
       
         <categories>
             
-            <category> Hexo教程 </category>
+            <category> technology </category>
             
         </categories>
         
@@ -209,15 +262,6 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             <tag> 教程 </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[第一篇文章]]></title>
-      <url>/2017/04/17/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-      <content type="html"><![CDATA[<pre><code>欢迎来到我的博客
-</code></pre>]]></content>
-      
         
     </entry>
     
@@ -270,6 +314,8 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
+            <tag> 问题记录 </tag>
+            
             <tag> 教程 </tag>
             
         </tags>
@@ -314,6 +360,8 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
+            <tag> 问题记录 </tag>
+            
             <tag> 教程 </tag>
             
         </tags>
@@ -356,8 +404,8 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
     </entry>
     
     <entry>
-      <title><![CDATA[ArcEngine 开发问题记录]]></title>
-      <url>/2017/04/12/ArcEngine%20%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+      <title><![CDATA[ArcEngine 开发，解决无法嵌入互操作类型问题]]></title>
+      <url>/2017/04/12/ArcEngine%20%E5%BC%80%E5%8F%91%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E5%B5%8C%E5%85%A5%E4%BA%92%E6%93%8D%E4%BD%9C%E7%B1%BB%E5%9E%8B%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决无法嵌入互操作类型问题</div>
 <a id="more"></a>
 <p>在对地图文档进行操作时，出现如下问题：<br><code>IMapDocument m_MapDocument = new ESRI.ArcGIS.Carto.MapDocumentClass();</code></p>
@@ -377,6 +425,8 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
         <tags>
             
             <tag> 技术 </tag>
+            
+            <tag> 问题记录 </tag>
             
         </tags>
         
