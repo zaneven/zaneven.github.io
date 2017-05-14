@@ -3,6 +3,50 @@
   
     
     <entry>
+      <title><![CDATA[WordPress修改固定链接后页面404]]></title>
+      <url>/2017/05/14/WordPress%E4%BF%AE%E6%94%B9%E5%9B%BA%E5%AE%9A%E9%93%BE%E6%8E%A5%E5%90%8E%E9%A1%B5%E9%9D%A2404/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决WordPress修改页面固定链接后页面丢失问题</div>
+<a id="more"></a>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><hr>
+<p><img src="http://omdpnsgk3.bkt.clouddn.com/WX20170514-195407.png" alt=""><br>在WordPress仪表盘内设置固定链接后，之前生成的所有页面都找不到相应的URL<br>重启了httpd服务仍然没有解决问题</p>
+<p>百度了一通找到一些解决方案</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><hr>
+<p>由于使用的是Apache搭建的WordPress，可能是服务器没打开AllowOverride<br>httpd.config的AllowOverride设置的是None，那.htaccess将被忽略</p>
+<h4 id="htaccess文件"><a href="#htaccess文件" class="headerlink" title=".htaccess文件"></a>.htaccess文件</h4><hr>
+<blockquote>
+<p>概述来说，htaccess文件是Apache服务器中的一个配置文件，它负责相关目录下的网页配置。通过htaccess文件，可以帮我们实现：网页301重定向、自定义404错误页面、改变文件扩展名、允许/阻止 特定的用户或者目录的访问、禁止目录列表、配置默认文档等功能。</p>
+</blockquote>
+<h3 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h3><hr>
+<ol>
+<li><p>首先 <code>vi /usr/local/apache2/conf/httpd.conf</code> 编辑httpd.conf文件</p>
+</li>
+<li><p>找到 <code>LoadModule rewrite_module modules/mod_rewrite.so</code> 去掉前面的#</p>
+</li>
+<li><p>找到 <code>AllowOverride None</code>将”None”改为”All”</p>
+</li>
+<li><p>然后 <code>service httpd restart</code> 重启服务</p>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> technology </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 问题记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于连接github出现Permission denied（publickey）]]></title>
       <url>/2017/05/10/%E5%85%B3%E4%BA%8E%E8%BF%9E%E6%8E%A5github%E5%87%BA%E7%8E%B0Permission-denied%EF%BC%88publickey%EF%BC%89/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决推送远程仓库是提示Permission denied（publickey）</div>
@@ -56,8 +100,7 @@
       <url>/2017/05/08/MacOS%E4%B8%8B%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%9B%BE%E5%BA%8A/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  使用七牛云创建个人图床，图片自动上传，并返回外链</div>
 <a id="more"></a>
-<p>##特点</p>
-<ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
 <li>保持目录结构,比如 根目录<code>/day01/image1.jpg</code> 上传后为 <code>http://youraddress/day01/image1.jpg</code></li>
 <li>支持子目录文件同步</li>
 <li>支持中文</li>
