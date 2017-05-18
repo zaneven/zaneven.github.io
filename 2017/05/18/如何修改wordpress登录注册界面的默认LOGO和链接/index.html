@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>校园网无法获得ipv6地址 | Zane&#39;s Grocery</title>
+  <title>如何修改wordpress登录注册界面的默认LOGO和链接 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="校园网无法获得ipv6地址"/>
+  <meta property="og:title" content="如何修改wordpress登录注册界面的默认LOGO和链接"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -91,7 +91,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> 校园网无法获得ipv6地址</h1>
+			<h1 class="title title-inverse "> 如何修改wordpress登录注册界面的默认LOGO和链接</h1>
 		</div>		
 	
 
@@ -111,19 +111,20 @@
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  解决校园网无法获得ipv6地址</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  轻松修改wordpress登录注册界面的默认LOGO和链接</div>
 <a id="more"></a>
-<p>五一过后，电脑插上网线突然无法连接ipv6网，网上几乎没有出现同样情况的人。试了各种方法，暴力重启都无法解决。联系了校园网中心的人也是没有解决。试了一个较为复杂的办法：</p>
+<h3 id="更换LOGO"><a href="#更换LOGO" class="headerlink" title="更换LOGO"></a>更换LOGO</h3><hr>
 <ol>
-<li><p>新建一个空白文件,命名为ip-up</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">#!/bin/sh</span></div><div class="line">PREFIXINFO=`/usr/sbin/tcpdump -nvi <span class="variable">$IFNAME</span> -c 2 icmp6 | grep prefix`</div><div class="line">PREFIX=`<span class="built_in">echo</span> <span class="variable">$PREFIXINFO</span>|cut <span class="_">-f</span>2- <span class="_">-d</span>:|cut <span class="_">-f</span>1 <span class="_">-d</span>/|cut -c2-`</div><div class="line">PREFIXLEN=`<span class="built_in">echo</span> <span class="variable">$PREFIXINFO</span>|cut <span class="_">-f</span>2 <span class="_">-d</span>/|cut <span class="_">-f</span>1 <span class="_">-d</span>,`</div><div class="line">ADDR=<span class="string">"cafe"</span></div><div class="line">/sbin/ifconfig <span class="variable">$IFNAME</span> inet6 <span class="variable">$&#123;PREFIX&#125;</span><span class="variable">$&#123;ADDR&#125;</span>/<span class="variable">$PREFIXLEN</span></div><div class="line">/sbin/route add -inet6 default -interface <span class="variable">$IFNAME</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>然后将这个文件放入/etc/ppp，在终端里输入以下命令：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chmod <span class="number">755</span> /etc/ppp/<span class="built_in">ip</span>-<span class="meta">up</span></div></pre></td></tr></table></figure>
+<li>找到WordPress目前使用主题文件夹</li>
+<li><p>将以下代码加入到文件夹中的functions.php 保存，刷新，即可轻松实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* WordPress界登陆面Logo修改开始 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">custom_login_logo</span>(<span class="params"></span>) </span>&#123; ?&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span></div><div class="line"><span class="selector-class">.login</span> <span class="selector-tag">h1</span> <span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>:<span class="built_in">url</span>(http://omdpnsgk3.bkt.clouddn.com/logo.jpg) <span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">&lt;?php</div><div class="line">&#125;</div><div class="line">add_action(login_head, custom_login_logo);</div><div class="line"><span class="comment">/* WordPress登陆界面Logo修改结束 */</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><a href="https://discussions.apple.com/thread/4294034?tstart=0" target="_blank" rel="external">这里是方法原址</a></p>
-<p>不知道具体是哪个方法有效，后来不知道怎么回事突然就接通了，总之解决了问题。</p>
+<p>其中 <a href="http://omdpnsgk3.bkt.clouddn.com/logo.jpg" target="_blank" rel="external">http://omdpnsgk3.bkt.clouddn.com/logo.jpg</a> 修改为自己的图片地址</p>
+<h3 id="更换链接"><a href="#更换链接" class="headerlink" title="更换链接"></a>更换链接</h3><hr>
+<p>同理，将下面代码加入functions.php文件，即可修改链接</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* WordPress登陆界面Logo链接修改开始 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">custom_loginlogo_url</span><span class="params">($url)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> get_bloginfo(url);</div><div class="line">&#125;</div><div class="line">add_filter( login_headerurl, custom_loginlogo_url );</div><div class="line"><span class="comment">/* WordPress登陆界面Logo链接修改結束 */</span></div></pre></td></tr></table></figure>
+<p>如果不想用首页地址，可以把return后的內容改成「双引号+地址」，例如 return “<a href="http://igrocery.com/" target="_blank" rel="external">http://igrocery.com/</a>“</p>
 	  
 	</div>
 
@@ -133,13 +134,13 @@
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/04/18/Hexo post添加tags/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/05/16/Excel基础训练-快速填充/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/05/05/MacOS-XAMPP中Apache-启动后闪停/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2017/05/18/如何去除wordpress ”功能”页面 wordpress.org/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -190,7 +191,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-05-05 
+	2017-05-18 
 	</div>
 	
 
@@ -201,7 +202,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/technology/">technology<span>4</span></a></li>
+    <li><a href="/categories/WordPress/">WordPress<span>3</span></a></li>
   </li>
 
     </ul>
@@ -214,7 +215,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/技术/">技术<span>13</span></a></li> <li><a href="/tags/教程/">教程<span>12</span></a></li> <li><a href="/tags/问题/">问题<span>7</span></a></li>
+  <li><a href="/tags/技术/">技术<span>13</span></a></li> <li><a href="/tags/教程/">教程<span>12</span></a></li>
     </ul>
 	</div>
 		

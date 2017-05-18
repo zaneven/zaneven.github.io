@@ -3,6 +3,88 @@
   
     
     <entry>
+      <title><![CDATA[如何去除wordpress ”功能”页面 wordpress.org]]></title>
+      <url>/2017/05/18/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4wordpress%20%E2%80%9D%E5%8A%9F%E8%83%BD%E2%80%9D%E9%A1%B5%E9%9D%A2%20wordpress.org/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  去掉“功能”页面，wordpress.org官网链接的方法</div>
+<a id="more"></a>
+<h3 id="去掉wordpress-org官网链接的方法"><a href="#去掉wordpress-org官网链接的方法" class="headerlink" title="去掉wordpress.org官网链接的方法"></a>去掉wordpress.org官网链接的方法</h3><hr>
+<h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><hr>
+<p>网上大多数是这种教程，但是并不适合于我的版本。</p>
+<ol>
+<li><p>打开网站根目录。找到wp-includes文件夹，进入文件夹以后找到文件<code>default-widgets.php</code></p>
+</li>
+<li><p>当找到这个文件以后打开，一般是在300行左右，找到如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://wordpress.org/"</span> <span class="attr">title</span>=<span class="string">"&lt;?php echo esc_attr(__('Powered by WordPress, state-of-the-art semantic personal publishing platform.')); ?&gt;"</span>&gt;</span>WordPress.org<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div></pre></td></tr></table></figure>
+</li>
+<li><p>直接将它删除，注意不要多删，否则模板会不正常显示。</p>
+</li>
+</ol>
+<hr>
+<h4 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h4><hr>
+<p>此方法适用于wordpress-4.5.3版本。</p>
+<ol>
+<li>找到wp-includes/widgets/class-wp-widget-meta.PHP 文件</li>
+<li>找到文件中的下面内容<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170518-183423.png" alt=""></li>
+<li><p>删除以下内容</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?php  </div><div class="line">                        /**  </div><div class="line">                         * Filter the <span class="string">"Powered by WordPress"</span> <span class="keyword">text</span> <span class="keyword">in</span> the Meta widget.  </div><div class="line">                         *  </div><div class="line">                         * @since <span class="number">3.6</span><span class="number">.0</span>  </div><div class="line">                         *  </div><div class="line">                         * @param <span class="built_in">string</span> $title_text <span class="keyword">Default</span> title <span class="keyword">text</span> <span class="keyword">for</span> the WordPress.org link.  </div><div class="line">                         */  </div><div class="line">                        echo apply_filters( <span class="comment">'widget_meta_poweredby', sprintf( '<span class="doctag">&lt;li&gt;</span><span class="doctag">&lt;a href="%s" title="%s"&gt;</span>%s<span class="doctag">&lt;/a&gt;</span><span class="doctag">&lt;/li&gt;</span>',  </span></div><div class="line">                                esc_url( __( <span class="comment">'https://wordpress.org/' ) ),  </span></div><div class="line">                                esc_attr__( <span class="comment">'Powered by WordPress, state-of-the-art semantic personal publishing platform.' ),  </span></div><div class="line">                                _x( <span class="comment">'WordPress.org', 'meta widget link text' )  </span></div><div class="line">                        ) );  </div><div class="line">  </div><div class="line">                        wp_meta();  </div><div class="line">                        ?&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> WordPress </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[如何修改wordpress登录注册界面的默认LOGO和链接]]></title>
+      <url>/2017/05/18/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9wordpress%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E7%95%8C%E9%9D%A2%E7%9A%84%E9%BB%98%E8%AE%A4LOGO%E5%92%8C%E9%93%BE%E6%8E%A5/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  轻松修改wordpress登录注册界面的默认LOGO和链接</div>
+<a id="more"></a>
+<h3 id="更换LOGO"><a href="#更换LOGO" class="headerlink" title="更换LOGO"></a>更换LOGO</h3><hr>
+<ol>
+<li>找到WordPress目前使用主题文件夹</li>
+<li><p>将以下代码加入到文件夹中的functions.php 保存，刷新，即可轻松实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* WordPress界登陆面Logo修改开始 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">custom_login_logo</span>(<span class="params"></span>) </span>&#123; ?&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span></div><div class="line"><span class="selector-class">.login</span> <span class="selector-tag">h1</span> <span class="selector-tag">a</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>:<span class="built_in">url</span>(http://omdpnsgk3.bkt.clouddn.com/logo.jpg) <span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">&lt;?php</div><div class="line">&#125;</div><div class="line">add_action(login_head, custom_login_logo);</div><div class="line"><span class="comment">/* WordPress登陆界面Logo修改结束 */</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>其中 <a href="http://omdpnsgk3.bkt.clouddn.com/logo.jpg" target="_blank" rel="external">http://omdpnsgk3.bkt.clouddn.com/logo.jpg</a> 修改为自己的图片地址</p>
+<h3 id="更换链接"><a href="#更换链接" class="headerlink" title="更换链接"></a>更换链接</h3><hr>
+<p>同理，将下面代码加入functions.php文件，即可修改链接</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* WordPress登陆界面Logo链接修改开始 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">custom_loginlogo_url</span><span class="params">($url)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> get_bloginfo(url);</div><div class="line">&#125;</div><div class="line">add_filter( login_headerurl, custom_loginlogo_url );</div><div class="line"><span class="comment">/* WordPress登陆界面Logo链接修改結束 */</span></div></pre></td></tr></table></figure>
+<p>如果不想用首页地址，可以把return后的內容改成「双引号+地址」，例如 return “<a href="http://igrocery.com/" target="_blank" rel="external">http://igrocery.com/</a>“</p>
+]]></content>
+      
+        <categories>
+            
+            <category> WordPress </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Excel基础训练-快速填充]]></title>
       <url>/2017/05/16/Excel%E5%9F%BA%E7%A1%80%E8%AE%AD%E7%BB%83-%E5%BF%AB%E9%80%9F%E5%A1%AB%E5%85%85/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  Excel 2013以上版本，快速填充功能</div>
@@ -115,7 +197,7 @@
       
         <categories>
             
-            <category> technology </category>
+            <category> WordPress </category>
             
         </categories>
         
@@ -171,9 +253,9 @@
         
         <tags>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -320,9 +402,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -357,9 +439,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -441,9 +523,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -487,9 +569,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
