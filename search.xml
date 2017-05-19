@@ -3,6 +3,121 @@
   
     
     <entry>
+      <title><![CDATA[Excel基础训练-数据的录入与规范]]></title>
+      <url>/2017/05/19/Excel%E5%9F%BA%E7%A1%80%E8%AE%AD%E7%BB%83-%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BD%95%E5%85%A5%E4%B8%8E%E8%A7%84%E8%8C%83/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  Excel数据录入要掌握的快捷键及需要注意的问题</div>
+<a id="more"></a>
+<h3 id="数据录入需要掌握的快捷键"><a href="#数据录入需要掌握的快捷键" class="headerlink" title="数据录入需要掌握的快捷键"></a>数据录入需要掌握的快捷键</h3><hr>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>切换至下一个水平单元格</td>
+<td>Tab</td>
+</tr>
+<tr>
+<td>切换至下一行单元格</td>
+<td>Return(enter)</td>
+</tr>
+<tr>
+<td>原位填充</td>
+<td>Ctrl+enter</td>
+</tr>
+<tr>
+<td>插入当前时间</td>
+<td>Ctrl+；</td>
+</tr>
+<tr>
+<td>插入当前日期</td>
+<td>Ctrl+shift+；</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据录入规范及需要注意的问题"><a href="#数据录入规范及需要注意的问题" class="headerlink" title="数据录入规范及需要注意的问题"></a>数据录入规范及需要注意的问题</h3><hr>
+<ul>
+<li><p>时间和日期的录入规范</p>
+<p>时间录入必须使用 “:” 比如“13:25”<br>日期录入必须使用 “/“ 比如”2017/5/19“</p>
+</li>
+<li><p>长数字的录入需要注意</p>
+<p>长数字的录入，如身份证、银行卡等，需要将单元格的格式设置为文本</p>
+</li>
+<li><p>隔行着色</p>
+<ul>
+<li>菜单栏-插入<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-161934.png" alt=""></li>
+<li>插入-表格<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-162025.png" alt=""></li>
+<li>设计-选择样式<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-162109.png" alt=""></li>
+<li>设计-将表格转化为区域<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-162154.png" alt=""></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Excel </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[解决WordPress用户注册时密码重置提示 您的密码重设链接无效]]></title>
+      <url>/2017/05/19/%E8%A7%A3%E5%86%B3WordPress%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E6%97%B6%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE%E6%8F%90%E7%A4%BA-%E6%82%A8%E7%9A%84%E5%AF%86%E7%A0%81%E9%87%8D%E8%AE%BE%E9%93%BE%E6%8E%A5%E6%97%A0%E6%95%88/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决WordPress用户注册时密码重置提示“您的密码重设链接无效”问题</div>
+<a id="more"></a>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><hr>
+<p>WordPress站点的用户如果忘记密码，在登录界面填写注册用户名或邮箱，系统会自动发送一封重置密码的邮件到该用户的邮箱，该邮件里面包含有一条重置密码的链接。<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-123555.png" alt=""></p>
+<hr>
+<p>但是点击了链接以后会提示：</p>
+<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-123841.png" alt=""></p>
+<p>仔细观察后发现链接的前后包含了”&lt;&gt;”符号，当点击这样的链接后就会产生以上的情况。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><hr>
+<ol>
+<li><p>找到WordPress根目录下wp-login.php文件</p>
+</li>
+<li><p>打开文件，大约330行找到如下代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$message</span> .= <span class="string">'&lt;'</span> . network_site_url(<span class="string">"wp-login.php?action=rp&amp;key=<span class="variable">$key</span>&amp;login="</span> . rawurlencode(<span class="variable">$user_login</span>), <span class="string">'login'</span>) . <span class="string">"&gt;\r\n"</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>将代码修改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$message</span> .= network_site_url(<span class="string">"wp-login.php?action=rp&amp;key=<span class="variable">$key</span>&amp;login="</span> . rawurlencode(<span class="variable">$user_login</span>), <span class="string">'login'</span>);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h3><hr>
+<p>再次发送重置密码的邮件后变为正常链接，并且可以重置密码<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-124458.png" alt=""></p>
+<hr>
+<p>打开后可以重置密码<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-124835.png" alt=""></p>
+]]></content>
+      
+        <categories>
+            
+            <category> WordPress </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 问题 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[如何去除wordpress ”功能”页面 wordpress.org]]></title>
       <url>/2017/05/18/%E5%A6%82%E4%BD%95%E5%8E%BB%E9%99%A4wordpress%20%E2%80%9D%E5%8A%9F%E8%83%BD%E2%80%9D%E9%A1%B5%E9%9D%A2%20wordpress.org/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  去掉“功能”页面，wordpress.org官网链接的方法</div>
@@ -253,9 +368,9 @@
         
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -402,9 +517,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -439,9 +554,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -523,9 +638,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -569,9 +684,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         

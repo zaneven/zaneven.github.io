@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Centos7 安装图形界面 | Zane&#39;s Grocery</title>
+  <title>Excel基础训练-数据的录入与规范 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Centos7 安装图形界面"/>
+  <meta property="og:title" content="Excel基础训练-数据的录入与规范"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -91,7 +91,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Centos7 安装图形界面</h1>
+			<h1 class="title title-inverse "> Excel基础训练-数据的录入与规范</h1>
 		</div>		
 	
 
@@ -111,19 +111,56 @@
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  Centos 7下安装Gnome图形界面</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  Excel数据录入要掌握的快捷键及需要注意的问题</div>
 <a id="more"></a>
-<p>在安装Gnome包之前，先检查下安装源是否正常，因为要通过yum命令来安装Gnome包， 而yum命令式通过yum源来下载安装包的。</p>
-<ol>
-<li><p>在命令行下输入下面的命令来安装 Gnome 包</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$sudo  yum groupinstall <span class="string">"GNOME Desktop"</span> <span class="string">"Graphical Administration Tools"</span></div></pre></td></tr></table></figure>
+<h3 id="数据录入需要掌握的快捷键"><a href="#数据录入需要掌握的快捷键" class="headerlink" title="数据录入需要掌握的快捷键"></a>数据录入需要掌握的快捷键</h3><hr>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>切换至下一个水平单元格</td>
+<td>Tab</td>
+</tr>
+<tr>
+<td>切换至下一行单元格</td>
+<td>Return(enter)</td>
+</tr>
+<tr>
+<td>原位填充</td>
+<td>Ctrl+enter</td>
+</tr>
+<tr>
+<td>插入当前时间</td>
+<td>Ctrl+；</td>
+</tr>
+<tr>
+<td>插入当前日期</td>
+<td>Ctrl+shift+；</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据录入规范及需要注意的问题"><a href="#数据录入规范及需要注意的问题" class="headerlink" title="数据录入规范及需要注意的问题"></a>数据录入规范及需要注意的问题</h3><hr>
+<ul>
+<li><p>时间和日期的录入规范</p>
+<p>时间录入必须使用 “:” 比如“13:25”<br>日期录入必须使用 “/“ 比如”2017/5/19“</p>
 </li>
-<li><p>更新系统的运行级别</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -sf /<span class="class"><span class="keyword">lib</span>/<span class="title">systemd</span>/<span class="title">system</span>/<span class="title">runlevel5</span>.<span class="title">target</span> /<span class="title">etc</span>/<span class="title">systemd</span>/<span class="title">system</span>/ <span class="title">default</span>.<span class="title">target</span></span></div></pre></td></tr></table></figure>
+<li><p>长数字的录入需要注意</p>
+<p>长数字的录入，如身份证、银行卡等，需要将单元格的格式设置为文本</p>
 </li>
-<li><p>重启系统</p>
+<li><p>隔行着色</p>
+<ul>
+<li>菜单栏-插入<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-161934.png" alt=""></li>
+<li>插入-表格<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-162025.png" alt=""></li>
+<li>设计-选择样式<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-162109.png" alt=""></li>
+<li>设计-将表格转化为区域<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-162154.png" alt=""></li>
+</ul>
 </li>
-</ol>
+</ul>
 	  
 	</div>
 
@@ -133,13 +170,13 @@
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/04/12/ArcEngine 开发，解决无法嵌入互操作类型问题/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/05/19/解决WordPress用户注册时密码重置提示-您的密码重设链接无效/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/04/16/Centos7-安装Python-pip/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -190,7 +227,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-04-14 
+	2017-05-19 
 	</div>
 	
 
@@ -201,7 +238,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Linux/">Linux<span>4</span></a></li>
+    <li><a href="/categories/Excel/">Excel<span>2</span></a></li>
   </li>
 
     </ul>
@@ -214,7 +251,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/技术/">技术<span>14</span></a></li> <li><a href="/tags/教程/">教程<span>12</span></a></li>
+  <li><a href="/tags/学习/">学习<span>2</span></a></li>
     </ul>
 	</div>
 		
