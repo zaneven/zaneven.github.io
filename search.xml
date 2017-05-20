@@ -3,6 +3,58 @@
   
     
     <entry>
+      <title><![CDATA[Excel基础训练-Excel中常用的工具]]></title>
+      <url>/2017/05/20/Excel%E5%9F%BA%E7%A1%80%E8%AE%AD%E7%BB%83-Excel%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  Excel中常用的工具：数据验证，定位，排序</div>
+<a id="more"></a>
+<h3 id="数据验证"><a href="#数据验证" class="headerlink" title="数据验证"></a>数据验证</h3><hr>
+<p>位置处于菜单栏-数据-数据验证</p>
+<ul>
+<li>友好的提示<br><img src="http://omdpnsgk3.bkt.clouddn.com/%E6%8D%95%E8%8E%B7.PNG" alt=""></li>
+<li>下拉列表<br><img src="http://omdpnsgk3.bkt.clouddn.com/xulie.PNG" alt=""></li>
+<li>动态权限<br><img src="http://omdpnsgk3.bkt.clouddn.com/dongtai.PNG" alt=""></li>
+</ul>
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><hr>
+<p><img src="http://omdpnsgk3.bkt.clouddn.com/dingwei.PNG" alt=""></p>
+<ul>
+<li><p>批量删除图片<br>定位到对象，删除即可</p>
+</li>
+<li><p>空值<br>定位到空值，可以选择所有的空值</p>
+</li>
+<li><p>定位到公式<br>选择定位到公式条件，可以高亮公式表格</p>
+</li>
+</ul>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><hr>
+<ul>
+<li><p>排序的标准姿态<br>选择任意一个单元格进行排序，而不是选择整列</p>
+</li>
+<li><p>排序轻巧输入空行<br>想在每行底下添加一个空行<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170520-231329.png" alt=""></p>
+<ol>
+<li>添加辅助列<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170520-231508.png" alt=""></li>
+<li>选中辅助列的单元格双击右下角生成序号<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170520-231626.png" alt=""></li>
+<li>复制序列到辅助列底部<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170520-231906.png" alt=""></li>
+<li>对辅助列进行排序<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170520-232046.png" alt=""></li>
+</ol>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Excel </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Excel基础训练-数据的录入与规范]]></title>
       <url>/2017/05/19/Excel%E5%9F%BA%E7%A1%80%E8%AE%AD%E7%BB%83-%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BD%95%E5%85%A5%E4%B8%8E%E8%A7%84%E8%8C%83/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  Excel数据录入要掌握的快捷键及需要注意的问题</div>
