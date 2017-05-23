@@ -3,6 +3,159 @@
   
     
     <entry>
+      <title><![CDATA[Excel基础训练-视图和打印]]></title>
+      <url>/2017/05/23/Excel%E5%9F%BA%E7%A1%80%E8%AE%AD%E7%BB%83-%E8%A7%86%E5%9B%BE%E5%92%8C%E6%89%93%E5%8D%B0/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  介绍Excel中快速翻阅工作表、跳转单元格、影子工作簿、冻结窗格、打印设置等技巧</div>
+<a id="more"></a>
+<h3 id="快速翻阅工作表的方式"><a href="#快速翻阅工作表的方式" class="headerlink" title="快速翻阅工作表的方式"></a>快速翻阅工作表的方式</h3><hr>
+<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170523-210842.png" alt=""><br>当工作簿里有特别多的工作表的时候，快速到达指定的工作表的方法</p>
+<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170523-211052.png" alt=""><br>在此处单击鼠标右键-&gt;选择工作表即可</p>
+<h3 id="快速跳转单元格"><a href="#快速跳转单元格" class="headerlink" title="快速跳转单元格"></a>快速跳转单元格</h3><hr>
+<ul>
+<li><p>双击单元格边框<br>双击上下边框可以跳转到单元格所在列的最上方和最下方单元格</p>
+</li>
+<li><p>Ctrl+↑，Ctrl+↓，Ctrl+←，Ctrl+→<br>可以达到和双击单元格同样的效果</p>
+</li>
+<li><p>Ctrl+Home/End<br>快速跳转到第一个单元格和最后一个单元格</p>
+</li>
+</ul>
+<h3 id="影子工作簿快速核对数据"><a href="#影子工作簿快速核对数据" class="headerlink" title="影子工作簿快速核对数据"></a>影子工作簿快速核对数据</h3><hr>
+<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170523-212601.png" alt=""><br>当想检核对照两个工作簿的数据时，来回点来点去很麻烦，这时可以使用影子工作簿<br><br><br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170523-212958.png" alt=""></p>
+<ul>
+<li>首先找到视图选项卡-&gt;点击新建窗口</li>
+</ul>
+<p><br><br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170523-213225.png" alt=""></p>
+<ul>
+<li>生成的新窗口和原来的表格一样，相当于镜像，而且当改动一个表格的内容后，另一个表格的内容同样会发生变化</li>
+</ul>
+<h3 id="冻结窗格"><a href="#冻结窗格" class="headerlink" title="冻结窗格"></a>冻结窗格</h3><hr>
+<p>在浏览数据的时候，想要固定第一行或者第一列作为属性类型参考</p>
+<p><br></p>
+<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170523-215840.png" alt=""></p>
+<ul>
+<li>首先找到视图选项卡-&gt;点击冻结窗格</li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>冻结窗格有以下三个类型<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170523-215924.png" alt=""></p>
+<ul>
+<li>冻结拆分窗格<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170523-220402.png" alt=""></li>
+</ul>
+<p>选定单元格，点击冻结拆分窗格后，单元格以上以及左侧的所有行列都被固定</p>
+<ul>
+<li>冻结首行<br>只固定表格第一行</li>
+<li>冻结首列<br>只固定表格第一列</li>
+</ul>
+</li>
+</ul>
+<h3 id="Excel打印"><a href="#Excel打印" class="headerlink" title="Excel打印"></a>Excel打印</h3><hr>
+<p>打印相关设置</p>
+<ul>
+<li><p>打印标题</p>
+</li>
+<li><p>分页视图</p>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Excel </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[HTML5增强型表单标签]]></title>
+      <url>/2017/05/23/HTML5%E5%A2%9E%E5%BC%BA%E5%9E%8B%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  HTML5中增型表单标签以及表单新属性</div>
+<a id="more"></a>
+<h3 id="增型表单标签"><a href="#增型表单标签" class="headerlink" title="增型表单标签"></a>增型表单标签</h3><hr>
+<p>HTML5中，新标准把文本框提示信息、表单校验、日期选择控件、颜色选择控件、范围控件、进度条、标签跨表单等功能直接加入新的表单标签中。</p>
+<ol>
+<li><p>Number类型input标签</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"number"</span> <span class="built_in">name</span>=<span class="string">"demoNumber"</span> <span class="built_in">min</span>=<span class="string">"1"</span> <span class="built_in">max</span>=<span class="string">"100"</span> <span class="built_in">step</span>=<span class="string">"1"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>name: 标识表单提交时的key值</p>
+<p>min: 标识当前输入框输入的最小值</p>
+<p>max: 标识当前输入框输入的最大值</p>
+<p>step: 标识点击增大/减小的时候，增加/减小的步长</p>
+</li>
+<li><p>Email类型input标签</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"email"</span> name=<span class="string">"email"</span> placeholder=<span class="string">"请输入注册邮箱"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>当表单在提交前，此文本框会自动校验是否符合邮箱的正则表达式。</p>
+</li>
+<li><p>URL类型的input标签</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"url"</span> placeholder=<span class="string">"请输入网址"</span> name=<span class="string">"url"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Tel类型的input标签</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"tel"</span> placeholder=<span class="string">"输入电话"</span> name=<span class="string">"phone"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>range类型的input标签</p>
+<p><input type="range" min="0" max="50" step="5" name="rangedemo" value="0"><br>此类型标签的加入，输入范围内的数据变得非常简单容易，而且非常标准，用户输入可感知体验非常好。另外此标签可以跟表单新增加的output标签一块使用，达到一个联动的效果。</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form oninput=<span class="string">"output.value=parseInt(range.value)"</span>/&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"range"</span> <span class="built_in">min</span>=<span class="string">"0"</span> <span class="built_in">max</span>=<span class="string">"100"</span> <span class="built_in">step</span>=<span class="string">"5"</span> <span class="built_in">name</span>=<span class="string">"range"</span> value=<span class="string">"0"</span>/&gt;</div><div class="line">    &lt;output <span class="built_in">name</span>=<span class="string">"output"</span>&gt;<span class="number">0</span>&lt;output/&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>新的日期、时间、月份、星期input标签</p>
+<p>Web项目开发，一定会遇到相关的js日期控件，在HTML5中新加入的表单属性将会使Web开发变得更加简洁。</p>
+<input type="date" name="datedemo">
+
+<p>相关的日期属性还包括：month、time、week、datetime-local、datetime</p>
+</li>
+<li><p>颜色选择input标签</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"color"</span> name=<span class="string">"colordemo"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>input标签自动完成功能</p>
+<p>有的项目会要求实现自动完成或者输入提示功能，在HTML5的支持下将变得简单。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autocomplete</span>=<span class="string">"on"</span> <span class="attr">name</span>=<span class="string">"demoAutoComplete"</span> <span class="attr">list</span>=<span class="string">"autoNames"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"autoNames"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">option</span>  <span class="attr">value</span>=<span class="string">"实验楼"</span> &gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">option</span>  <span class="attr">value</span>=<span class="string">"HTML5"</span> &gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">option</span>  <span class="attr">value</span>=<span class="string">"input标签"</span> &gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="HTML5表单新属性"><a href="#HTML5表单新属性" class="headerlink" title="HTML5表单新属性"></a>HTML5表单新属性</h3><ol>
+<li><p>input表单新增加的特有属性</p>
+<p>autofocus属性，<code>demo:&lt;input type=&quot;text&quot; autofocus=&quot;autofocus&quot;/&gt;</code>此属性可以设置当前页面中input标签加载完毕后获得焦点。</p>
+<p>max、min、step：这些上面介绍过，都是跟数字相关。</p>
+<p>placeholder：提示信息属性。</p>
+<p>multiple：用于文件上传控件，设置此属性后，允许多个文件。</p>
+<p>校验属性：设置了required属性后预示着当前文本框在提交前必须有数据输入，而这一切都是由浏览器自动完成。还添加了pattern正则表达式校验：</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> autofocus=<span class="string">"autofocus"</span> required pattern=<span class="string">"\d+"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>另外一个较大的改进就是增加了form属性，也就是说，任何一个标签都可以指定它所属于一个表单，而不是必须在中进行包裹了。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">form</span>=<span class="string">"demoform"</span> name=<span class="string">"demo"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>form表单新增加的属性</p>
+<p>novalidate属性规定在提交表单时不应该验证 form或input域</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;form action=<span class="string">""</span> method=<span class="string">"<span class="keyword">POST</span>"</span> novalidate=<span class="string">"true"</span>&gt;&lt;/form&gt;</div><div class="line">autocomplete属性规定form或input域应该拥有自动完成功能</div></pre></td></tr></table></figure>
+</li>
+<li><p>综合实例</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">&lt;fieldset&gt;</span></div><div class="line">    <span class="symbol">&lt;legend&gt;</span>表单演示：最新Opera浏览器支持效果良好&lt;/legend&gt;</div><div class="line">    &lt;form action=<span class="string">""</span> method=<span class="string">"POST"</span> id=<span class="string">"form1"</span> oninput=<span class="string">"output.value=parseInt(range.value)"</span>&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"text"</span> autofocus=<span class="string">"autofocus"</span> required pattern=<span class="string">"\d+"</span> name=<span class="string">"auto"</span> placeholder=<span class="string">"必填项测试"</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"number"</span> name=<span class="string">"demoNumber"</span> <span class="built_in">min</span>=<span class="string">"1"</span> <span class="built_in">max</span>=<span class="string">"100"</span> step=<span class="string">"2"</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"email"</span> placeholder=<span class="string">"请输入邮箱"</span> name=<span class="string">"mail"</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"url"</span> name=<span class="string">"url"</span> placeholder=<span class="string">"输入正确的网址"</span> /&gt;</div><div class="line">        &lt;<span class="keyword">br</span> /&gt;</div><div class="line">            日期：&lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"datetime"</span> name=<span class="string">"time"</span> /&gt;</div><div class="line">            颜色：&lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"color"</span> name=<span class="string">"color"</span> /&gt;&lt;<span class="keyword">br</span> /&gt;</div><div class="line">        &lt;<span class="keyword">br</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"range"</span> <span class="built_in">min</span>=<span class="string">"0"</span> <span class="built_in">max</span>=<span class="string">"50"</span> step=<span class="string">"5"</span> name=<span class="string">"range"</span> value=<span class="string">"0"</span> /&gt;</div><div class="line">        &lt;output name=<span class="string">"output"</span>&gt;<span class="number">0</span>&lt;/output&gt;</div><div class="line">        &lt;<span class="keyword">br</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交表单"</span> /&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line">    表单外的<span class="built_in">input</span>标签：</div><div class="line">    &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"text"</span> form=<span class="string">"form1"</span> name=<span class="string">"demo"</span> /&gt;</div><div class="line">&lt;/fieldset&gt;</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<fieldset><br> <legend>表单演示：最新Opera浏览器支持效果良好</legend><br> <form action="" method="POST" id="form1" oninput="output.value=parseInt(range.value)"><br>     <input type="text" autofocus="autofocus" required pattern="\d+" name="auto" placeholder="必填项测试"><br>     <input type="number" name="demoNumber" min="1" max="100" step="2"><br>     <input type="email" placeholder="请输入邮箱" name="mail"><br>     <input type="url" name="url" placeholder="输入正确的网址"><br>     <br><br>         日期：<input type="datetime" name="time"><br>         颜色：<input type="color" name="color"><br><br>     <br><br>     <input type="range" min="0" max="50" step="5" name="range" value="0"><br>     <output name="output">0</output><br>     <br><br>     <input type="submit" value="提交表单"><br> </form><br> 表单外的input标签：<br> <input type="text" form="form1" name="demo"><br></fieldset>
+
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> HTML </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[HTML5的新的结构标签]]></title>
       <url>/2017/05/22/HTML5%E7%9A%84%E6%96%B0%E7%9A%84%E7%BB%93%E6%9E%84%E6%A0%87%E7%AD%BE/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  HTML5中的结构标签，结构标签使得页面结构更加得清晰。</div>
@@ -466,9 +619,9 @@
         
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -615,9 +768,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -652,9 +805,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -736,9 +889,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -782,9 +935,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         

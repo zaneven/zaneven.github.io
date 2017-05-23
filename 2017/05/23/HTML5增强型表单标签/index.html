@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTML5增强型表单标签 | Zane&#39;s Grocery</title>
+  <meta name="author" content="赵小文">
+  
+  <meta name="description" content="记录 博客 编程 写作">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="HTML5增强型表单标签"/>
+  <meta property="og:site_name" content="Zane&#39;s Grocery"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Zane&#39;s Grocery</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> HTML5增强型表单标签</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  HTML5中增型表单标签以及表单新属性</div>
+<a id="more"></a>
+<h3 id="增型表单标签"><a href="#增型表单标签" class="headerlink" title="增型表单标签"></a>增型表单标签</h3><hr>
+<p>HTML5中，新标准把文本框提示信息、表单校验、日期选择控件、颜色选择控件、范围控件、进度条、标签跨表单等功能直接加入新的表单标签中。</p>
+<ol>
+<li><p>Number类型input标签</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"number"</span> <span class="built_in">name</span>=<span class="string">"demoNumber"</span> <span class="built_in">min</span>=<span class="string">"1"</span> <span class="built_in">max</span>=<span class="string">"100"</span> <span class="built_in">step</span>=<span class="string">"1"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>name: 标识表单提交时的key值</p>
+<p>min: 标识当前输入框输入的最小值</p>
+<p>max: 标识当前输入框输入的最大值</p>
+<p>step: 标识点击增大/减小的时候，增加/减小的步长</p>
+</li>
+<li><p>Email类型input标签</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"email"</span> name=<span class="string">"email"</span> placeholder=<span class="string">"请输入注册邮箱"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>当表单在提交前，此文本框会自动校验是否符合邮箱的正则表达式。</p>
+</li>
+<li><p>URL类型的input标签</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"url"</span> placeholder=<span class="string">"请输入网址"</span> name=<span class="string">"url"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Tel类型的input标签</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"tel"</span> placeholder=<span class="string">"输入电话"</span> name=<span class="string">"phone"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>range类型的input标签</p>
+<p><input type="range" min="0" max="50" step="5" name="rangedemo" value="0"><br>此类型标签的加入，输入范围内的数据变得非常简单容易，而且非常标准，用户输入可感知体验非常好。另外此标签可以跟表单新增加的output标签一块使用，达到一个联动的效果。</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form oninput=<span class="string">"output.value=parseInt(range.value)"</span>/&gt;</div><div class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"range"</span> <span class="built_in">min</span>=<span class="string">"0"</span> <span class="built_in">max</span>=<span class="string">"100"</span> <span class="built_in">step</span>=<span class="string">"5"</span> <span class="built_in">name</span>=<span class="string">"range"</span> value=<span class="string">"0"</span>/&gt;</div><div class="line">    &lt;output <span class="built_in">name</span>=<span class="string">"output"</span>&gt;<span class="number">0</span>&lt;output/&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>新的日期、时间、月份、星期input标签</p>
+<p>Web项目开发，一定会遇到相关的js日期控件，在HTML5中新加入的表单属性将会使Web开发变得更加简洁。</p>
+<input type="date" name="datedemo">
+
+<p>相关的日期属性还包括：month、time、week、datetime-local、datetime</p>
+</li>
+<li><p>颜色选择input标签</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"color"</span> name=<span class="string">"colordemo"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>input标签自动完成功能</p>
+<p>有的项目会要求实现自动完成或者输入提示功能，在HTML5的支持下将变得简单。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autocomplete</span>=<span class="string">"on"</span> <span class="attr">name</span>=<span class="string">"demoAutoComplete"</span> <span class="attr">list</span>=<span class="string">"autoNames"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"autoNames"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">option</span>  <span class="attr">value</span>=<span class="string">"实验楼"</span> &gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">option</span>  <span class="attr">value</span>=<span class="string">"HTML5"</span> &gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">option</span>  <span class="attr">value</span>=<span class="string">"input标签"</span> &gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="HTML5表单新属性"><a href="#HTML5表单新属性" class="headerlink" title="HTML5表单新属性"></a>HTML5表单新属性</h3><ol>
+<li><p>input表单新增加的特有属性</p>
+<p>autofocus属性，<code>demo:&lt;input type=&quot;text&quot; autofocus=&quot;autofocus&quot;/&gt;</code>此属性可以设置当前页面中input标签加载完毕后获得焦点。</p>
+<p>max、min、step：这些上面介绍过，都是跟数字相关。</p>
+<p>placeholder：提示信息属性。</p>
+<p>multiple：用于文件上传控件，设置此属性后，允许多个文件。</p>
+<p>校验属性：设置了required属性后预示着当前文本框在提交前必须有数据输入，而这一切都是由浏览器自动完成。还添加了pattern正则表达式校验：</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> autofocus=<span class="string">"autofocus"</span> required pattern=<span class="string">"\d+"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>另外一个较大的改进就是增加了form属性，也就是说，任何一个标签都可以指定它所属于一个表单，而不是必须在中进行包裹了。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">form</span>=<span class="string">"demoform"</span> name=<span class="string">"demo"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>form表单新增加的属性</p>
+<p>novalidate属性规定在提交表单时不应该验证 form或input域</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;form action=<span class="string">""</span> method=<span class="string">"<span class="keyword">POST</span>"</span> novalidate=<span class="string">"true"</span>&gt;&lt;/form&gt;</div><div class="line">autocomplete属性规定form或input域应该拥有自动完成功能</div></pre></td></tr></table></figure>
+</li>
+<li><p>综合实例</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">&lt;fieldset&gt;</span></div><div class="line">    <span class="symbol">&lt;legend&gt;</span>表单演示：最新Opera浏览器支持效果良好&lt;/legend&gt;</div><div class="line">    &lt;form action=<span class="string">""</span> method=<span class="string">"POST"</span> id=<span class="string">"form1"</span> oninput=<span class="string">"output.value=parseInt(range.value)"</span>&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"text"</span> autofocus=<span class="string">"autofocus"</span> required pattern=<span class="string">"\d+"</span> name=<span class="string">"auto"</span> placeholder=<span class="string">"必填项测试"</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"number"</span> name=<span class="string">"demoNumber"</span> <span class="built_in">min</span>=<span class="string">"1"</span> <span class="built_in">max</span>=<span class="string">"100"</span> step=<span class="string">"2"</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"email"</span> placeholder=<span class="string">"请输入邮箱"</span> name=<span class="string">"mail"</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"url"</span> name=<span class="string">"url"</span> placeholder=<span class="string">"输入正确的网址"</span> /&gt;</div><div class="line">        &lt;<span class="keyword">br</span> /&gt;</div><div class="line">            日期：&lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"datetime"</span> name=<span class="string">"time"</span> /&gt;</div><div class="line">            颜色：&lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"color"</span> name=<span class="string">"color"</span> /&gt;&lt;<span class="keyword">br</span> /&gt;</div><div class="line">        &lt;<span class="keyword">br</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"range"</span> <span class="built_in">min</span>=<span class="string">"0"</span> <span class="built_in">max</span>=<span class="string">"50"</span> step=<span class="string">"5"</span> name=<span class="string">"range"</span> value=<span class="string">"0"</span> /&gt;</div><div class="line">        &lt;output name=<span class="string">"output"</span>&gt;<span class="number">0</span>&lt;/output&gt;</div><div class="line">        &lt;<span class="keyword">br</span> /&gt;</div><div class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交表单"</span> /&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line">    表单外的<span class="built_in">input</span>标签：</div><div class="line">    &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"text"</span> form=<span class="string">"form1"</span> name=<span class="string">"demo"</span> /&gt;</div><div class="line">&lt;/fieldset&gt;</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<fieldset><br> <legend>表单演示：最新Opera浏览器支持效果良好</legend><br> <form action="" method="POST" id="form1" oninput="output.value=parseInt(range.value)"><br>     <input type="text" autofocus="autofocus" required pattern="\d+" name="auto" placeholder="必填项测试"><br>     <input type="number" name="demoNumber" min="1" max="100" step="2"><br>     <input type="email" placeholder="请输入邮箱" name="mail"><br>     <input type="url" name="url" placeholder="输入正确的网址"><br>     <br><br>         日期：<input type="datetime" name="time"><br>         颜色：<input type="color" name="color"><br><br>     <br><br>     <input type="range" min="0" max="50" step="5" name="range" value="0"><br>     <output name="output">0</output><br>     <br><br>     <input type="submit" value="提交表单"><br> </form><br> 表单外的input标签：<br> <input type="text" form="form1" name="demo"><br></fieldset>
+
+</li>
+</ol>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2017/05/22/HTML5的新的结构标签/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2017/05/23/Excel基础训练-视图和打印/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+
+        
+    <!-- JiaThis Button BEGIN -->
+    <div class="jiathis_style_24x24">
+        <a class="jiathis_button_weixin"></a>
+        <a class="jiathis_button_tsina"></a>
+        <a class="jiathis_button_twitter"></a>
+        <a class="jiathis_button_fb"></a>
+        <a class="jiathis_button_googleplus"></a>
+        <a class="jiathis_button_linkedin"></a>
+        <a class="jiathis_button_copy"></a>
+        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+        <a class="jiathis_counter_style"></a>
+    </div>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+    <br>
+
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-05-23 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/HTML/">HTML<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/学习/">学习<span>6</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 赵小文
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
