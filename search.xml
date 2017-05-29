@@ -25,9 +25,9 @@
 <li><p>在出现的对话框第一个选择行选择需要计数的列表，第二个选择行选择需要计数的对象<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-223632.png" alt=""></p>
 </li>
 <li><p>在计数后的数据表格右下角双击，可以直接对接下来需要计数的数据进行快速填充<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224449.png" alt=""></p>
-<h3 id="数据核对"><a href="#数据核对" class="headerlink" title="数据核对"></a>数据核对</h3></li>
+</li>
 </ol>
-<hr>
+<h3 id="数据核对"><a href="#数据核对" class="headerlink" title="数据核对"></a>数据核对</h3><hr>
 <p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224713.png" alt=""><br>想要筛选出未签到的人员名单进行信息核对。</p>
 <ol>
 <li>新建一个辅助列</li>
@@ -671,9 +671,9 @@
         
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -820,9 +820,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -857,9 +857,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -941,9 +941,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -987,9 +987,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
