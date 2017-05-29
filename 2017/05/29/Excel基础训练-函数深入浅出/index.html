@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Excel基础训练-数据的录入与规范 | Zane&#39;s Grocery</title>
+  <title>Excel基础训练-函数深入浅出 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Excel基础训练-数据的录入与规范"/>
+  <meta property="og:title" content="Excel基础训练-函数深入浅出"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -91,7 +91,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Excel基础训练-数据的录入与规范</h1>
+			<h1 class="title title-inverse "> Excel基础训练-函数深入浅出</h1>
 		</div>		
 	
 
@@ -111,56 +111,38 @@
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  Excel数据录入要掌握的快捷键及需要注意的问题</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  公式和函数基本概念及其关系，以及函数的使用方式</div>
 <a id="more"></a>
-<h3 id="数据录入需要掌握的快捷键"><a href="#数据录入需要掌握的快捷键" class="headerlink" title="数据录入需要掌握的快捷键"></a>数据录入需要掌握的快捷键</h3><hr>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>命令</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>切换至下一个水平单元格</td>
-<td>Tab</td>
-</tr>
-<tr>
-<td>切换至下一行单元格</td>
-<td>Return(enter)</td>
-</tr>
-<tr>
-<td>原位填充</td>
-<td>Ctrl+enter</td>
-</tr>
-<tr>
-<td>插入当前时间</td>
-<td>Ctrl+；</td>
-</tr>
-<tr>
-<td>插入当前日期</td>
-<td>Ctrl+shift+；</td>
-</tr>
-</tbody>
-</table>
-<h3 id="数据录入规范及需要注意的问题"><a href="#数据录入规范及需要注意的问题" class="headerlink" title="数据录入规范及需要注意的问题"></a>数据录入规范及需要注意的问题</h3><hr>
-<ul>
-<li><p>时间和日期的录入规范</p>
-<p>时间录入必须使用 “:” 比如“13:25”<br>日期录入必须使用 “/“ 比如”2017/5/19“</p>
+<h3 id="公式的基本概念"><a href="#公式的基本概念" class="headerlink" title="公式的基本概念"></a>公式的基本概念</h3><hr>
+<p>公式是由用户自行设计对工作表进行计算和处理的计算式。在Excel中以等号开头的式子。</p>
+<p>比如，在单元格内键入 =2+2 在按下回车以后便会输出公式的结果<br>只要拥有运算符号并且符合运算标准，都可以得到相应的运算结果</p>
+<h3 id="函数与公式的关系"><a href="#函数与公式的关系" class="headerlink" title="函数与公式的关系"></a>函数与公式的关系</h3><hr>
+<p>函数与公式既有区别又互相联系。函数是公式的一部分，函数的出现可以辅助我们进行公式的运算。<br>比如简单的求和，利用公式需要点击所有想要求和的单元格。而利用SUM函数可以快速的求一部分单元格内数据的总和。</p>
+<h3 id="函数的基础概念和录入方式"><a href="#函数的基础概念和录入方式" class="headerlink" title="函数的基础概念和录入方式"></a>函数的基础概念和录入方式</h3><hr>
+<p>Excel函数即是预先定义，执行计算、分析等处理数据任务的特殊公式。从字面意思上理解，函数（function），代表了一个功能模块。<br>以常用的求和函数SUM为例，它的语法是“SUM（number1，number2，．．．．．．）”。其中“SUM”称为函数名称，一个函数只有唯一的一个名称，它决定了函数的功能和用途。函数名称后紧跟左括号，接着是用逗号分隔的称为参数的内容，最后用一个右括号表示函数结束。</p>
+<p>函数的录入方式是，首先输入 “=”，然后输入函数名，内容高亮的同时按下Tab键便可插入函数。</p>
+<h3 id="基础条件计数"><a href="#基础条件计数" class="headerlink" title="基础条件计数"></a>基础条件计数</h3><hr>
+<h4 id="countif函数"><a href="#countif函数" class="headerlink" title="countif函数"></a>countif函数</h4><p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-222924.png" alt=""><br>想要统计一列数据中某个名称出现的个数<br><br></p>
+<ol>
+<li><p>在想要输出结果的单元格内输入“=countif“按下Tab键<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-223059.png" alt=""></p>
 </li>
-<li><p>长数字的录入需要注意</p>
-<p>长数字的录入，如身份证、银行卡等，需要将单元格的格式设置为文本</p>
+<li><p>然后点击上方区域的插入函数<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224052.png" alt=""></p>
 </li>
-<li><p>隔行着色</p>
-<ul>
-<li>菜单栏-插入<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-161934.png" alt=""></li>
-<li>插入-表格<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-162025.png" alt=""></li>
-<li>设计-选择样式<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-162109.png" alt=""></li>
-<li>设计-将表格转化为区域<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170519-162154.png" alt=""></li>
-</ul>
+<li><p>在出现的对话框第一个选择行选择需要计数的列表，第二个选择行选择需要计数的对象<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-223632.png" alt=""></p>
 </li>
-</ul>
+<li><p>在计数后的数据表格右下角双击，可以直接对接下来需要计数的数据进行快速填充<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224449.png" alt=""></p>
+<h3 id="数据核对"><a href="#数据核对" class="headerlink" title="数据核对"></a>数据核对</h3></li>
+</ol>
+<hr>
+<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224713.png" alt=""><br>想要筛选出未签到的人员名单进行信息核对。</p>
+<ol>
+<li>新建一个辅助列</li>
+<li>在想要输出结果的单元格内输入“=countif“按下Tab键</li>
+<li>然后点击上方区域的插入函数</li>
+<li>在出现的对话框第一个选择行选择需要计数的列表，第二个选择行选择需要计数的对象</li>
+<li>在计数后的数据表格右下角双击，可以直接对接下来需要计数的数据进行快速填充</li>
+</ol>
+<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-225351-HD.gif" alt=""></p>
 	  
 	</div>
 
@@ -170,13 +152,13 @@
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/05/19/解决WordPress用户注册时密码重置提示-您的密码重设链接无效/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/05/23/Excel基础训练-视图和打印/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/05/20/Excel基础训练-Excel中常用的工具/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -227,7 +209,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-05-19 
+	2017-05-29 
 	</div>
 	
 
