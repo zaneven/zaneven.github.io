@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTML5文件操作API | Zane&#39;s Grocery</title>
+  <meta name="author" content="赵小文">
+  
+  <meta name="description" content="记录 博客 编程 写作">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="HTML5文件操作API"/>
+  <meta property="og:site_name" content="Zane&#39;s Grocery"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Zane&#39;s Grocery</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> HTML5文件操作API</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  使用HTML5标准中操作文件的API控制文件的读取、写入、文件夹、文件等</div>
+<a id="more"></a>
+<h3 id="几个重要的JS对象"><a href="#几个重要的JS对象" class="headerlink" title="几个重要的JS对象"></a>几个重要的JS对象</h3><hr>
+<p>在HTML5标准中，默认提供了操作文件的API让这一切直接标准化。有了操作文件的API，让我们的Web应用可以很轻松的通过JS来控制文件的读取、写入、文件夹、文件等一系列的操作。</p>
+<h4 id="FileList对象"><a href="#FileList对象" class="headerlink" title="FileList对象"></a>FileList对象</h4><hr>
+<p>它是File对象的一个集合，在HTML4标准中文件上传控件只接受一个文件，而在新标准中，只需要设置multiple，就支持多文件上传，所以从此标签中获取的files属性就是FileList对象实例。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">demo：&lt;input type=<span class="string">"file"</span> multiple=<span class="string">"multiple"</span> <span class="built_in">name</span>=<span class="string">"fileDemo"</span> <span class="built_in">id</span>=<span class="string">"fileDemo"</span> /&gt;;</div></pre></td></tr></table></figure>
+<p>下面是关于FileList对象的API的原型：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">interface FileList &#123;</div><div class="line">      <span class="keyword">getter</span> File? item(<span class="keyword">unsigned</span> <span class="keyword">long</span> index);</div><div class="line">      <span class="keyword">readonly</span> attribute <span class="keyword">unsigned</span> <span class="keyword">long</span> length;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="Blob对象"><a href="#Blob对象" class="headerlink" title="Blob对象"></a>Blob对象</h4><hr>
+<p>其实就是一个原始数据对象，它提供了slice方法可以读取原始数据中的某块数据。另外有两个属性：size（数据的大小），type（数据的MIME类型;</p>
+<p>看下面的是W3C的API原型:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> <span class="title">Blob</span> &#123;</div><div class="line">    <span class="keyword">readonly</span> attribute unsigned <span class="keyword">long</span> <span class="keyword">long</span> size;</div><div class="line">    <span class="keyword">readonly</span> attribute DOMString type;</div><div class="line">    <span class="comment">//slice Blob into byte-ranged chunks     </span></div><div class="line">    <span class="function">Blob <span class="title">slice</span>(<span class="params"></span></span></div><div class="line">        optional <span class="keyword">long</span> <span class="keyword">long</span> start,</div><div class="line">        optional <span class="keyword">long</span> <span class="keyword">long</span> end,</div><div class="line">        optional DOMString contentType</div><div class="line">    ); </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="File对象"><a href="#File对象" class="headerlink" title="File对象"></a>File对象</h4><hr>
+<p>继承自Blob对象，指向一个具体的文件，它还有两个属性：name（文件名）,lastModifiedDate（最后修改时间）;</p>
+<p>W3C的标准：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">interface</span> <span class="title">File</span> : <span class="title">Blob</span> &#123;</div><div class="line">    <span class="keyword">readonly</span> attribute DOMString name;</div><div class="line">    <span class="keyword">readonly</span> attribute Date lastModifiedDate;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="FileReader对象"><a href="#FileReader对象" class="headerlink" title="FileReader对象"></a>FileReader对象</h4><hr>
+<p>设计用来读取文件里面的数据，提供三个常用的读取文件数据的方法，另外读取文件数据使用了异步的方式，非常高效。</p>
+<p>W3C的标准：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">[Constructor]</div><div class="line"><span class="keyword">interface</span> <span class="title">FileReader</span>: <span class="title">EventTarget</span> &#123;</div><div class="line">    <span class="comment">// async read methods</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">readAsArrayBuffer</span>(<span class="params">Blob blob</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">readAsBinaryString</span>(<span class="params">Blob blob</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">readAsText</span>(<span class="params">Blob blob, optional DOMString encoding</span>)</span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">readAsDataURL</span>(<span class="params">Blob blob</span>)</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">abort</span>(<span class="params"></span>)</span>;</div><div class="line"></div><div class="line">    <span class="comment">// states  </span></div><div class="line">    <span class="keyword">const</span> unsigned <span class="keyword">short</span> EMPTY = <span class="number">0</span>;</div><div class="line">    <span class="keyword">const</span> unsigned <span class="keyword">short</span> LOADING = <span class="number">1</span>;</div><div class="line">    <span class="keyword">const</span> unsigned <span class="keyword">short</span> DONE = <span class="number">2</span>;</div><div class="line"></div><div class="line">    <span class="keyword">readonly</span> attribute unsigned <span class="keyword">short</span> readyState;</div><div class="line"></div><div class="line">    <span class="comment">// File or Blob data</span></div><div class="line">    <span class="keyword">readonly</span> attribute any result;</div><div class="line">    <span class="keyword">readonly</span> attribute DOMError error;</div><div class="line"></div><div class="line">    <span class="comment">// event handler attributes</span></div><div class="line">    attribute [TreatNonCallableAsNull] Function? onloadstart;</div><div class="line">    attribute [TreatNonCallableAsNull] Function? onprogress;</div><div class="line">    attribute [TreatNonCallableAsNull] Function? onload;</div><div class="line">    attribute [TreatNonCallableAsNull] Function? onabort;</div><div class="line">    attribute [TreatNonCallableAsNull] Function? onerror;</div><div class="line">    attribute [TreatNonCallableAsNull] Function? onloadend;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这个对象是非常重要第一个对象，它提供了四个读取文件数据的方法，这些方法都是异步的方式读取数据，读取成功后就直接将结果放到属性result中。所以一般就是直接读取数据，然后监听此对象的onload事件，然后在事件里面读取result属性，再做后续处理。当然abort就是停止读取的方法。</p>
+<h4 id="FileReader对象的三个读取文件数据方法"><a href="#FileReader对象的三个读取文件数据方法" class="headerlink" title="FileReader对象的三个读取文件数据方法"></a>FileReader对象的三个读取文件数据方法</h4><hr>
+<p><strong>readAsBinaryString(Blob blob)</strong> 传入一个Blob对象，然后读取数据的结果作为二进制字符串的形式放到FileReader的result属性中。<br><strong>readAsText(Blob blob, optional DOMString encoding)</strong> 第一个参数传入Blob对象，然后第二个参数传入编码格式，异步将数据读取成功后放到result属性中，读取的内容是普通的文本字符串的形式。<br><strong>readAsDataURL(Blob blob)</strong> 传入一个Blob对象，读取内容可以做为URL属性，也就是说可以将一个图片的结果指向给一个img的src属性。</p>
+<h3 id="读取文件上传控件里的文件并将内容以不同的方式展现到浏览器"><a href="#读取文件上传控件里的文件并将内容以不同的方式展现到浏览器" class="headerlink" title="读取文件上传控件里的文件并将内容以不同的方式展现到浏览器"></a>读取文件上传控件里的文件并将内容以不同的方式展现到浏览器</h3><hr>
+<p>在展示代码之前，之前我们操作一个图片文件，都是先将图片上传到服务器端，然后再使用一个img标签指向到服务器的url地址，然后再进行一个使用第三方插件进行图片处理，而现在这一切都不需要服务器端了，因为FileReader对象提供的几个读取文件的方法变得异常简单，而且全部是客户端js的操作。</p>
+<h4 id="实例一：获取上传文件的文件名（注：需要引入jQuery）"><a href="#实例一：获取上传文件的文件名（注：需要引入jQuery）" class="headerlink" title="实例一：获取上传文件的文件名（注：需要引入jQuery）"></a>实例一：获取上传文件的文件名（注：需要引入jQuery）</h4><hr>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"Scripts/jquery-1.5.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">        $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            $(<span class="string">"#btnGetFile"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                <span class="keyword">var</span> fileList = <span class="built_in">document</span>.getElementById(<span class="string">"fileDemo"</span>).files;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; fileList.length; i++) &#123;</div><div class="line">                    <span class="keyword">if</span> (!(<span class="regexp">/image\/\w+/</span>.test(fileList[i].type))) &#123;</div><div class="line">                         $(<span class="string">"#result"</span>).append(<span class="string">"&lt;span&gt;type:"</span>+fileList[i].type+<span class="string">"--******非图片类型*****--name:"</span>+fileList[i].name+<span class="string">"--size:"</span>+fileList[i].size+<span class="string">"&lt;/span&gt;&lt;br /&gt;"</span>);</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">else</span> &#123;</div><div class="line">                        $(<span class="string">"#result"</span>).append(<span class="string">"&lt;span&gt;type:"</span>+fileList[i].type+<span class="string">"--name:"</span>+fileList[i].name+<span class="string">"--size:"</span>+fileList[i].size+<span class="string">"&lt;/span&gt;&lt;br /&gt;"</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;);</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/home/index"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">novalidate</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">multiple</span>=<span class="string">"multiple"</span> <span class="attr">name</span>=<span class="string">"fileDemo"</span> <span class="attr">id</span>=<span class="string">"fileDemo"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"获取文件的名字"</span> <span class="attr">id</span>=<span class="string">"btnGetFile"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"result"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="实例二：读取上传文件内容，然后将文件内容直接读取到浏览器上（注：需要引入jQuery）"><a href="#实例二：读取上传文件内容，然后将文件内容直接读取到浏览器上（注：需要引入jQuery）" class="headerlink" title="实例二：读取上传文件内容，然后将文件内容直接读取到浏览器上（注：需要引入jQuery）"></a>实例二：读取上传文件内容，然后将文件内容直接读取到浏览器上（注：需要引入jQuery）</h4><hr>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"Scripts/jquery-1.5.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> FileReader == <span class="string">"undified"</span>) &#123;</div><div class="line">            alert(<span class="string">"您老的浏览器不行了！"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">showDataByURL</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> resultFile = <span class="built_in">document</span>.getElementById(<span class="string">"fileDemo"</span>).files[<span class="number">0</span>];</div><div class="line">            <span class="keyword">if</span> (resultFile) &#123;</div><div class="line">                <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</div><div class="line">                reader.readAsDataURL(resultFile);</div><div class="line">                reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> urlData = <span class="keyword">this</span>.result;</div><div class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).innerHTML += <span class="string">"&lt;img src='"</span> + urlData + <span class="string">"' alt='"</span> + resultFile.name + <span class="string">"' /&gt;"</span>;</div><div class="line">                &#125;; </div><div class="line">            &#125;</div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">showDataByBinaryString</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> resultFile = <span class="built_in">document</span>.getElementById(<span class="string">"fileDemo"</span>).files[<span class="number">0</span>];</div><div class="line">            <span class="keyword">if</span> (resultFile) &#123;</div><div class="line">                <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</div><div class="line">                <span class="comment">//异步方式，不会影响主线程</span></div><div class="line">                reader.readAsBinaryString(resultFile);</div><div class="line">                reader.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> urlData = <span class="keyword">this</span>.result;</div><div class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).innerHTML += urlData;</div><div class="line">                &#125;;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">showDataByText</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> resultFile = <span class="built_in">document</span>.getElementById(<span class="string">"fileDemo"</span>).files[<span class="number">0</span>];</div><div class="line">            <span class="keyword">if</span> (resultFile) &#123;</div><div class="line">                <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</div><div class="line">                reader.readAsText(resultFile,<span class="string">'gb2312'</span>);</div><div class="line">                reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> urlData = <span class="keyword">this</span>.result;</div><div class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"result"</span>).innerHTML += urlData;</div><div class="line">                &#125;;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"fileDemo"</span> <span class="attr">id</span>=<span class="string">"fileDemo"</span> <span class="attr">multep</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"readAsDataURL"</span> <span class="attr">id</span>=<span class="string">"readAsDataURL"</span> <span class="attr">onclick</span>=<span class="string">"showDataByURL();"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"readAsBinaryString"</span>  <span class="attr">id</span>=<span class="string">"readAsBinaryString"</span> <span class="attr">onclick</span>=<span class="string">"showDataByBinaryString();"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"readAsText"</span>  <span class="attr">id</span>=<span class="string">"readAsText"</span> <span class="attr">onclick</span>=<span class="string">"showDataByText();"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"result"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2017/05/29/Excel基础训练-函数深入浅出/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+
+        
+    <!-- JiaThis Button BEGIN -->
+    <div class="jiathis_style_24x24">
+        <a class="jiathis_button_weixin"></a>
+        <a class="jiathis_button_tsina"></a>
+        <a class="jiathis_button_twitter"></a>
+        <a class="jiathis_button_fb"></a>
+        <a class="jiathis_button_googleplus"></a>
+        <a class="jiathis_button_linkedin"></a>
+        <a class="jiathis_button_copy"></a>
+        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+        <a class="jiathis_counter_style"></a>
+    </div>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+    <br>
+
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-06-01 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/HTML/">HTML<span>3</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/学习/">学习<span>8</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 赵小文
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
