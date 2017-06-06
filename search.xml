@@ -3,6 +3,48 @@
   
     
     <entry>
+      <title><![CDATA[Excel基础训练-数据分析]]></title>
+      <url>/2017/06/06/Excel%E5%9F%BA%E7%A1%80%E8%AE%AD%E7%BB%83-%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  数据透视表和Powerview表在数据分析的基础应用</div>
+<a id="more"></a>
+<h3 id="数据透视表的基础使用"><a href="#数据透视表的基础使用" class="headerlink" title="数据透视表的基础使用"></a>数据透视表的基础使用</h3><hr>
+<ol>
+<li>插入-数据透视表</li>
+<li>选择想要分析的表格区域（一般会自动选择）</li>
+<li>拖动数据透视表字段进行交叉分析<br><img src="http://omdpnsgk3.bkt.clouddn.com/GIF4.gif" alt=""></li>
+</ol>
+<h3 id="powerview表的使用"><a href="#powerview表的使用" class="headerlink" title="powerview表的使用"></a>powerview表的使用</h3><hr>
+<ol>
+<li>随便单击一个表内单元格</li>
+<li><p>在搜索框内键入-powerview并打开<br><img src="http://omdpnsgk3.bkt.clouddn.com/GIF6.gif" alt=""></p>
+<p><br></p>
+</li>
+<li><p>勾选Power View字段显示行列信息</p>
+</li>
+<li><p>在上方可以选择合适的图表样式<br><img src="http://omdpnsgk3.bkt.clouddn.com/GIF7.gif" alt=""></p>
+<p><br></p>
+</li>
+<li><p>可以进行多种数据交叉分析，并且动态显示<br><img src="http://omdpnsgk3.bkt.clouddn.com/1.gif" alt=""><br><img src="http://omdpnsgk3.bkt.clouddn.com/2.gif" alt=""></p>
+</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> Excel </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[HTML5文件操作API]]></title>
       <url>/2017/06/01/HTML5%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9CAPI/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  使用HTML5标准中操作文件的API控制文件的读取、写入、文件夹、文件等</div>
@@ -86,7 +128,6 @@
 <li>在出现的对话框第一个选择行选择需要计数的列表，第二个选择行选择需要计数的对象</li>
 <li>在计数后的数据表格右下角双击，可以直接对接下来需要计数的数据进行快速填充</li>
 </ol>
-<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-225351-HD.gif" alt=""></p>
 ]]></content>
       
         <categories>
@@ -721,9 +762,9 @@
         
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -870,9 +911,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -907,9 +948,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -991,9 +1032,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -1037,9 +1078,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
