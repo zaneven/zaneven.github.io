@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ubuntu环境下Postgresql导入导出ESRI Shapefile数据 | Zane&#39;s Grocery</title>
+  <meta name="author" content="赵小文">
+  
+  <meta name="description" content="记录 博客 编程 写作">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Ubuntu环境下Postgresql导入导出ESRI Shapefile数据"/>
+  <meta property="og:site_name" content="Zane&#39;s Grocery"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Zane&#39;s Grocery</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Ubuntu环境下Postgresql导入导出ESRI Shapefile数据</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  Ubuntu环境下Postgresql导入导出Shapefile数据的方法</div>
+<a id="more"></a>
+<h2 id="Ubuntu环境下Postgresql导入导出ESRI-Shapefile数据"><a href="#Ubuntu环境下Postgresql导入导出ESRI-Shapefile数据" class="headerlink" title="Ubuntu环境下Postgresql导入导出ESRI Shapefile数据"></a>Ubuntu环境下Postgresql导入导出ESRI Shapefile数据</h2><p>PostGIS作为PostgreSQL数据库的空间扩展，提供了对空间数据管理的支持。对于空间矢量数据，PostGIS提供了Geometry和Geography俩种类型用于空间对象的存储，Geometry使用笛卡尔坐标系，而Geography使用球面坐标系（默认是WGS84坐标系）。空间栅格数据提供了Raster类型。</p>
+<h3 id="在Ubuntu中安装PostgreSQL和PostGIS："><a href="#在Ubuntu中安装PostgreSQL和PostGIS：" class="headerlink" title="在Ubuntu中安装PostgreSQL和PostGIS："></a>在Ubuntu中安装PostgreSQL和PostGIS：</h3><ol>
+<li>首先使用如下命令安装PostgreSQL：</li>
+</ol>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install postgresql</div></pre></td></tr></table></figure>
+<ol>
+<li>然后使用如下命令添加UbuntuGIS的PPA用于安装PostGIS扩展。</li>
+</ol>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:ubuntugis/ppa</div><div class="line">sudo apt-get update</div></pre></td></tr></table></figure>
+<ol>
+<li>最后使用如下命令安装PostGIS：</li>
+</ol>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install postgis</div></pre></td></tr></table></figure>
+<h3 id="接下来就是使用shp2psql命令行工具导入数据了"><a href="#接下来就是使用shp2psql命令行工具导入数据了" class="headerlink" title="接下来就是使用shp2psql命令行工具导入数据了"></a>接下来就是使用shp2psql命令行工具导入数据了</h3><p>在shp文件的目录下，使用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">shp2pgsql <span class="_">-s</span> 4326 -I <span class="string">"continent"</span> staging.world_continent | psql -h localhost -p 5432 <span class="_">-d</span> postgis_in_action -U postgres -W</div></pre></td></tr></table></figure>
+<p>首先说明的是shp2pgsql的参数（具体参数使用shp2pgsql –help进行查看）：</p>
+<ul>
+<li>-s指定空间参考系，PostGIS的参考系和EPSG代码是一样的，比如EPSG:4326表示WGS84地理坐标系</li>
+<li>-I指定在新建的关系表的空间对象的那一列建立空间索引</li>
+<li>双引号引起来的是Shapefile的文件名称（也可以加上扩展名.shp）</li>
+<li>最后是关系表的全名，staging是schema名称，world_continent是关系名称</li>
+<li>shp2pgsql的输出是一个标准的SQL，然后Linux的管道操作符’|’将结果传入到psql中进行SQL的执行。</li>
+<li>-h指定连接的地址hostname</li>
+<li>-p指定连接的端口号</li>
+<li>-d指定连接的数据库名称</li>
+<li>-U指定连接的用户名</li>
+<li>-W指定在执行时弹出密码输入提示</li>
+</ul>
+<blockquote>
+<p>在PostGIS中Geography对象类型保存在名为geog的列，而Geometry对象类型保存在geom的列。所以，我们的数据被以Geometry对象类型保存在数据库。如果要保存成为Geography对象，则需要在shp2psql命令行导入的时候加入-G参数</p>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ision-Tower<span class="number">-5810</span>:<span class="regexp">/mnt/</span>data<span class="regexp">/caupd/</span><span class="number">02</span>_result<span class="regexp">/01_urban_construction/</span><span class="number">2015</span>shp$ shp2pgsql -s <span class="number">4326</span> -I <span class="string">"lulc_clip_WGS84.shp"</span> data.clip | psql -h <span class="number">123.56</span><span class="number">.182</span><span class="number">.63</span> -p <span class="number">5432</span> -d g-<span class="keyword">default</span> -U projx -W</div><div class="line">Shapefile <span class="string">type:</span> Polygon</div><div class="line">Postgis <span class="string">type:</span> MULTIPOLYGON[<span class="number">2</span>]</div><div class="line">Password <span class="keyword">for</span> user <span class="string">projx:</span> </div><div class="line">SET</div><div class="line">SET</div><div class="line">BEGIN</div><div class="line">CREATE TABLE</div><div class="line">ALTER TABLE</div><div class="line">                 addgeometrycolumn                  </div><div class="line">----------------------------------------------------</div><div class="line"> data.clip.geom <span class="string">SRID:</span><span class="number">4326</span> <span class="string">TYPE:</span>MULTIPOLYGON <span class="string">DIMS:</span><span class="number">2</span> </div><div class="line">(<span class="number">1</span> row)</div></pre></td></tr></table></figure>
+<p>数据的导出，我们可以使用psql2shp工具导出数据为Shapefile文件。命令如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pgsql2shp -f ~/Desktop/continent -h localhost -<span class="selector-tag">p</span> <span class="number">5432</span> -u postgres -P [passworld] postgis_in_action staging.world_continent</div></pre></td></tr></table></figure>
+<p>-f后面是导出的文件全路径<br>-P后面接用户postgres的密码<br>最后面postgis_in_action是数据库名称，staging.world_continent是关系表名称</p>
+<h3 id="完整的shp2pgsql操作帮助："><a href="#完整的shp2pgsql操作帮助：" class="headerlink" title="完整的shp2pgsql操作帮助："></a>完整的shp2pgsql操作帮助：</h3><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">USAGE: shp2pgsql [&lt;options&gt;] &lt;shapefile&gt; [[&lt;schema&gt;.]&lt;table&gt;]</div><div class="line">OPTIONS:</div><div class="line">  -s [&lt;from&gt;:]&lt;srid&gt; Set the SRID field. Defaults <span class="keyword">to</span> <span class="number">0</span>.</div><div class="line">      Optionally reprojects from given SRID (cannot be used <span class="keyword">with</span> -D).</div><div class="line"> (-d|a|c|p) These are mutually exclusive options:</div><div class="line">     -d  Drops the table, <span class="keyword">then</span> recreates it <span class="keyword">and</span> populates</div><div class="line">         it <span class="keyword">with</span> current shape <span class="keyword">file</span> data.</div><div class="line">     -a  Appends shape <span class="keyword">file</span> into current table, must be</div><div class="line">         exactly the same table schema.</div><div class="line">     -c  Creates a <span class="keyword">new</span> table <span class="keyword">and</span> populates it, this <span class="keyword">is</span> the</div><div class="line">         <span class="keyword">default</span> <span class="keyword">if</span> you do <span class="keyword">not</span> specify any options.</div><div class="line">     -p  Prepare mode, only creates the table.</div><div class="line">  -g &lt;geocolumn&gt; Specify the name <span class="keyword">of</span> the geometry/geography column</div><div class="line">      (mostly useful <span class="keyword">in</span> append mode).</div><div class="line">  -D  <span class="keyword">Use</span> postgresql dump format (defaults <span class="keyword">to</span> SQL insert statements).</div><div class="line">  -e  Execute each statement individually, do <span class="keyword">not</span> <span class="keyword">use</span> a transaction.</div><div class="line">      <span class="keyword">Not</span> compatible <span class="keyword">with</span> -D.</div><div class="line">  -G  <span class="keyword">Use</span> geography <span class="keyword">type</span> (requires lon/lat data <span class="keyword">or</span> -s <span class="keyword">to</span> reproject).</div><div class="line">  -k  Keep postgresql identifiers <span class="keyword">case</span>.</div><div class="line">  -i  <span class="keyword">Use</span> int4 <span class="keyword">type</span> <span class="keyword">for</span> <span class="keyword">all</span> <span class="built_in">integer</span> dbf fields.</div><div class="line">  -I  Create a spatial index <span class="keyword">on</span> the geocolumn.</div><div class="line">  -m &lt;filename&gt;  Specify a <span class="keyword">file</span> containing a set <span class="keyword">of</span> mappings <span class="keyword">of</span> (long) column</div><div class="line">     names <span class="keyword">to</span> <span class="number">10</span> <span class="built_in">character</span> DBF column names. The content <span class="keyword">of</span> the <span class="keyword">file</span> <span class="keyword">is</span> one <span class="keyword">or</span></div><div class="line">     more lines <span class="keyword">of</span> two names separated by white space <span class="keyword">and</span> no trailing <span class="keyword">or</span></div><div class="line">     leading space. <span class="keyword">For</span> example:</div><div class="line">         COLUMNNAME DBFFIELD1</div><div class="line">         AVERYLONGCOLUMNNAME DBFFIELD2</div><div class="line">  -S  <span class="keyword">Generate</span> simple geometries instead <span class="keyword">of</span> MULTI geometries.</div><div class="line">  -t &lt;dimensionality&gt; <span class="keyword">Force</span> geometry <span class="keyword">to</span> be one <span class="keyword">of</span> '<span class="number">2</span>D', '<span class="number">3</span>DZ', '<span class="number">3</span>DM', <span class="keyword">or</span> '<span class="number">4</span>D'</div><div class="line">  -w  Output WKT instead <span class="keyword">of</span> WKB.  <span class="literal">Note</span> that this can result <span class="keyword">in</span></div><div class="line">      coordinate drift.</div><div class="line">  -W &lt;encoding&gt; Specify the <span class="built_in">character</span> encoding <span class="keyword">of</span> Shape<span class="symbol">'s</span></div><div class="line">      <span class="keyword">attribute</span> column. (<span class="keyword">default</span>: <span class="string">"UTF-8"</span>)</div><div class="line">  -N &lt;policy&gt; <span class="keyword">NULL</span> geometries handling policy (insert*,skip,abort).</div><div class="line">  -n  Only import DBF <span class="keyword">file</span>.</div><div class="line">  -T &lt;tablespace&gt; Specify the tablespace <span class="keyword">for</span> the <span class="keyword">new</span> table.</div><div class="line">      <span class="literal">Note</span> that indexes will still <span class="keyword">use</span> the <span class="keyword">default</span> tablespace unless the</div><div class="line">      -X flag <span class="keyword">is</span> also used.</div><div class="line">  -X &lt;tablespace&gt; Specify the tablespace <span class="keyword">for</span> the table<span class="symbol">'s</span> indexes.</div><div class="line">      This applies <span class="keyword">to</span> the primary key, <span class="keyword">and</span> the spatial index <span class="keyword">if</span></div><div class="line">      the -I flag <span class="keyword">is</span> used.</div><div class="line">  -?  Display this help screen.</div><div class="line"></div><div class="line">  An argument <span class="keyword">of</span> `<span class="comment">--' disables further option processing.</span></div><div class="line">  (useful <span class="keyword">for</span> unusual <span class="keyword">file</span> names starting <span class="keyword">with</span> <span class="string">'-'</span>)</div></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2017/06/06/Excel基础训练-数据分析/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+
+        
+    <!-- JiaThis Button BEGIN -->
+    <div class="jiathis_style_24x24">
+        <a class="jiathis_button_weixin"></a>
+        <a class="jiathis_button_tsina"></a>
+        <a class="jiathis_button_twitter"></a>
+        <a class="jiathis_button_fb"></a>
+        <a class="jiathis_button_googleplus"></a>
+        <a class="jiathis_button_linkedin"></a>
+        <a class="jiathis_button_copy"></a>
+        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+        <a class="jiathis_counter_style"></a>
+    </div>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+    <br>
+
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-07-06 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Linux/">Linux<span>5</span></a></li> <li><a href="/categories/Linux/数据库/">数据库<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/技术/">技术<span>15</span></a></li> <li><a href="/tags/教程/">教程<span>13</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 赵小文
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
