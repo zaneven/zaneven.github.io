@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>常用的Vi命令 | Zane&#39;s Grocery</title>
+  <title>Linux下screen命令的使用技巧 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="常用的Vi命令"/>
+  <meta property="og:title" content="Linux下screen命令的使用技巧"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -91,7 +91,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> 常用的Vi命令</h1>
+			<h1 class="title title-inverse "> Linux下screen命令的使用技巧</h1>
 		</div>		
 	
 
@@ -111,47 +111,161 @@
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  常用的Vi命令</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  使用 screen 命令使远程登录的Linux可以后台执行作业</div>
 <a id="more"></a>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><table>
+<h2 id="linux-screen-命令详解"><a href="#linux-screen-命令详解" class="headerlink" title="linux screen 命令详解"></a>linux screen 命令详解</h2><h3 id="功能说明："><a href="#功能说明：" class="headerlink" title="功能说明："></a>功能说明：</h3><p>使用SSH远程登录linux时，如果连接非正常中断，重新连接时，系统将开一个新的session，无法恢复原来的session.Screen命令可以解决这个问题。Screen工具是一个终端多路转接器，在本质上，这意味着你能够使用一个单一的终端窗口运行多终端 的应用。</p>
+<h3 id="语-法："><a href="#语-法：" class="headerlink" title="语　　法："></a>语　　法：</h3><p>screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]</p>
+<h3 id="补充说明："><a href="#补充说明：" class="headerlink" title="补充说明："></a>补充说明：</h3><p>screen为多重视窗管理程序。此处所谓的视窗，是指一个全屏幕的文字模式画面。通常只有在使用telnet登入主机或是使用老式的终端机时，才有可能用到screen程序。</p>
+<h3 id="参-数："><a href="#参-数：" class="headerlink" title="参　　数："></a>参　　数：</h3><table>
 <thead>
 <tr>
-<th>操作</th>
-<th>命令</th>
+<th>参数</th>
+<th>解释</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>在光标前插入</td>
-<td>i</td>
+<td>-A</td>
+<td>将所有的视窗都调整为目前终端机的大小。</td>
 </tr>
 <tr>
-<td>在光标后插入</td>
-<td>a</td>
+<td>-d &lt;作业名&gt;</td>
+<td>将指定的screen作业离线。</td>
 </tr>
 <tr>
-<td>粘贴内容到光标下方</td>
-<td>p</td>
+<td>-h &lt;行数&gt;</td>
+<td>指定视窗的缓冲区行数。</td>
 </tr>
 <tr>
-<td>保存并退出</td>
-<td>:wq</td>
+<td>-m 　</td>
+<td>即使目前已在作业中的screen作业，仍强制建立新的screen作业。</td>
 </tr>
 <tr>
-<td>不保存退出</td>
-<td>:q</td>
+<td>-r &lt;作业名称&gt;</td>
+<td>恢复离线的screen作业。</td>
 </tr>
 <tr>
-<td>文本查找操作</td>
-<td>/字符串</td>
+<td>-R 　</td>
+<td>先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。</td>
 </tr>
 <tr>
-<td>退出编辑模式</td>
-<td>ESC</td>
+<td>-s 　</td>
+<td>指定建立新视窗时，所要执行的shell。</td>
+</tr>
+<tr>
+<td>-S &lt;作业名称&gt; 　</td>
+<td>指定screen作业的名称。</td>
+</tr>
+<tr>
+<td>-v 　</td>
+<td>显示版本信息。</td>
+</tr>
+<tr>
+<td>-x 　</td>
+<td>恢复之前离线的screen作业。</td>
+</tr>
+<tr>
+<td>-ls或–list 　</td>
+<td>显示目前所有的screen作业。</td>
+</tr>
+<tr>
+<td>-wipe 　</td>
+<td>检查目前所有的screen作业，并删除已经无法使用的screen作业。</td>
 </tr>
 </tbody>
 </table>
-<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><p>Ctrl+u：向文件首翻半屏；<br>Ctrl+d：向文件尾翻半屏；<br>Ctrl+f：向文件尾翻一屏；<br>Ctrl+b：向文件首翻一屏；<br>Esc：从编辑模式切换到命令模式；<br>ZZ：命令模式下保存当前文件所做的修改后退出vi；<br>:行号：光标跳转到指定行的行首；<br>:$：光标跳转到最后一行的行首；<br>x或X：删除一个字符，x删除光标后的，而X删除光标前的；<br>D：删除从当前光标到光标所在行尾的全部字符；<br>dd：删除光标行正行内容；<br>ndd：删除当前行及其后n-1行；<br>nyy：将当前行及其下n行的内容保存到寄存器？中，其中？为一个字母，n为一个数字；<br>p：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的下方；<br>P：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的上方；<br>/字符串：文本查找操作，用于从当前光标所在位置开始向文件尾部查找指定字符串的内容，查找的字符串会被加亮显示；<br>？name：文本查找操作，用于从当前光标所在位置开始向文件头部查找指定字符串的内容，查找的字符串会被加亮显示；<br>a，bs/F/T：替换文本操作，用于在第a行到第b行之间，将F字符串换成T字符串。其中，“s/”表示进行替换操作；<br>a：在当前字符后添加文本；<br>：在行末添加文本；<br>i：在当前字符前插入文本；<br>I：在行首插入文本；<br>o：在当前行后面插入一空行；<br>O：在当前行前面插入一空行；<br>:wq：在命令模式下，执行存盘退出操作；<br>:w：在命令模式下，执行存盘操作；<br>:w！：在命令模式下，执行强制存盘操作；<br>:q：在命令模式下，执行退出vi操作；<br>:q！：在命令模式下，执行强制退出vi操作；<br>:e文件名：在命令模式下，打开并编辑指定名称的文件；<br>:n：在命令模式下，如果同时打开多个文件，则继续编辑下一个文件；<br>:f：在命令模式下，用于显示当前的文件名、光标所在行的行号以及显示比例；<br>:set number：在命令模式下，用于在最左端显示行号；<br>:set nonumber：在命令模式下，用于在最左端不显示行号；</p>
+<h3 id="常用-screen-参数："><a href="#常用-screen-参数：" class="headerlink" title="常用 screen 参数："></a>常用 screen 参数：</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>screen -S yourname</td>
+<td>新建一个叫yourname的session</td>
+</tr>
+<tr>
+<td>screen -ls</td>
+<td>列出当前所有的session</td>
+</tr>
+<tr>
+<td>screen -r yourname</td>
+<td>回到yourname这个session</td>
+</tr>
+<tr>
+<td>screen -d yourname</td>
+<td>远程detach某个session</td>
+</tr>
+<tr>
+<td>screen -d -r yourname</td>
+<td>结束当前session并回到yourname这个session</td>
+</tr>
+</tbody>
+</table>
+<h3 id="在每个-screen-session-下，所有命令都以-ctrl-a-C-a-开始。"><a href="#在每个-screen-session-下，所有命令都以-ctrl-a-C-a-开始。" class="headerlink" title="在每个 screen session 下，所有命令都以 ctrl+a(C-a) 开始。"></a>在每个 screen session 下，所有命令都以 ctrl+a(C-a) 开始。</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-a ?</td>
+<td>-&gt; Help，显示简单说明</td>
+</tr>
+<tr>
+<td>C-a c</td>
+<td>-&gt; Create，开启新的 window</td>
+</tr>
+<tr>
+<td>C-a n</td>
+<td>-&gt; Next，切换到下个 window</td>
+</tr>
+<tr>
+<td>C-a p</td>
+<td>-&gt; Previous，前一个 window</td>
+</tr>
+<tr>
+<td>C-a 0..9</td>
+<td>-&gt; 切换到第 0..9 个window</td>
+</tr>
+<tr>
+<td>Ctrl+a [Space]</td>
+<td>-&gt; 由视窗0循序换到视窗9</td>
+</tr>
+<tr>
+<td>C-a C-a</td>
+<td>-&gt; 在两个最近使用的 window 间切换</td>
+</tr>
+<tr>
+<td>C-a x</td>
+<td>-&gt; 锁住当前的 window，需用用户密码解锁</td>
+</tr>
+<tr>
+<td>C-a d</td>
+<td>-&gt; detach，暂时离开当前session，将目前的 screen session (可能含有多个 windows) 丢到后台执行，并会回到还没进 screen 时的状态，此时在 screen session 里每个 window 内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响。</td>
+</tr>
+<tr>
+<td>C-a z</td>
+<td>-&gt; 把当前session放到后台执行，用 shell 的 fg 命令则可回去。</td>
+</tr>
+<tr>
+<td>C-a w</td>
+<td>-&gt; Windows，列出已开启的 windows 有哪些</td>
+</tr>
+<tr>
+<td>C-a t</td>
+<td>-&gt; Time，显示当前时间，和系统的 load</td>
+</tr>
+<tr>
+<td>C-a K</td>
+<td>-&gt; kill window，强行关闭当前的 window</td>
+</tr>
+</tbody>
+</table>
 	  
 	</div>
 
@@ -160,14 +274,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-		
-          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-        
+				
+    	<li class="prev"><a href="/2017/07/06/Ubuntu环境下Postgresql导入导出ESRI-Shapefile数据/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/04/10/MacOS - 重置 MySQL Root 密码/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -218,7 +332,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-04-05 
+	2017-07-09 
 	</div>
 	
 
@@ -242,7 +356,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/技术/">技术<span>16</span></a></li> <li><a href="/tags/教程/">教程<span>13</span></a></li>
+  <li><a href="/tags/技术/">技术<span>16</span></a></li>
     </ul>
 	</div>
 		
