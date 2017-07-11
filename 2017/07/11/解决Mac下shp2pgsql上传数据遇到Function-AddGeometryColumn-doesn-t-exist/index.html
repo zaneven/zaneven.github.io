@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo post添加tags | Zane&#39;s Grocery</title>
+  <title>Mac下shp2pgsql上传数据遇到Function AddGeometryColumn doesn&#39;t exist | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hexo post添加tags"/>
+  <meta property="og:title" content="Mac下shp2pgsql上传数据遇到Function AddGeometryColumn doesn&#39;t exist"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -91,7 +91,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Hexo post添加tags</h1>
+			<h1 class="title title-inverse "> Mac下shp2pgsql上传数据遇到Function AddGeometryColumn doesn&#39;t exist</h1>
 		</div>		
 	
 
@@ -111,11 +111,16 @@
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  为post添加tags</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  解决Mac下shp2pgsql上传数据一直报错current transaction is aborted, commands ignored until end of transaction block</div>
 <a id="more"></a>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo 新建一篇文章给它添加分类和标签:</div><div class="line"></div><div class="line">hexo <span class="keyword">new</span> <span class="string">"Hexo教程"</span></div></pre></td></tr></table></figure>
-<p>通过编辑器打开：添加tags和categories</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">title:</span> <span class="string">title</span> <span class="comment">#文章標題</span></div><div class="line"><span class="attr">date:</span> <span class="number">2016</span><span class="bullet">-06</span><span class="bullet">-01</span> <span class="number">23</span><span class="string">:47:44</span> <span class="comment">#文章生成時間</span></div><div class="line"><span class="attr">categories:</span> <span class="string">"Hexo教程"</span> <span class="comment">#文章分類目錄 可以省略</span></div><div class="line"><span class="attr">tags:</span> <span class="comment">#文章標籤 可以省略</span></div><div class="line"><span class="bullet">     -</span> <span class="string">标签1</span></div><div class="line"><span class="bullet">     -</span> <span class="string">标签2</span></div><div class="line"><span class="attr">description:</span> <span class="comment">#你對本頁的描述 可以省略</span></div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure>
+<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>使用shp2pgsql将shp文件导入到postgresql<br>命令：<br><code>shp2pgsql -s 4326 -I lulc_after.shp caupd.lulc_WGS | psql -h localhost -p 5433 -d postgres -U postgres -W</code></p>
+<p>出现错误<strong>Function AddGeometryColumn doesn’t exist</strong><br><br>之后插入的每一条数据一直报错：<code>current transaction is aborted, commands ignored until end of transaction block</code></p>
+<h3 id="问题原因："><a href="#问题原因：" class="headerlink" title="问题原因："></a>问题原因：</h3><p>由于postgresql和postgis没有进行关联</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>首先，使用<code>psql -U postgres mydbname</code>进入数据库</p>
+<blockquote>
+<p>如果提示没有创建角色，可以使用<code>createuser postgres</code> 创建一个角色</p>
+</blockquote>
+<p>然后，进入数据库以后使用<code>CREATE EXTENSION postgis;</code>将postgresql和postGIS进行关联</p>
 	  
 	</div>
 
@@ -125,13 +130,13 @@
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/04/17/hello-world/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/07/09/Linux下screen命令的使用技巧/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/05/05/校园网无法获得ipv6地址/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -182,7 +187,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-04-18 
+	2017-07-11 
 	</div>
 	
 
@@ -193,7 +198,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/technology/">technology<span>4</span></a></li>
+    <li><a href="/categories/数据库/">数据库<span>3</span></a></li>
   </li>
 
     </ul>
@@ -206,7 +211,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/技术/">技术<span>16</span></a></li> <li><a href="/tags/教程/">教程<span>14</span></a></li>
+  <li><a href="/tags/教程/">教程<span>14</span></a></li> <li><a href="/tags/问题/">问题<span>9</span></a></li>
     </ul>
 	</div>
 		
