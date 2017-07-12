@@ -3,6 +3,233 @@
   
     
     <entry>
+      <title><![CDATA[GIS数据处理常用工具及介绍]]></title>
+      <url>/2017/07/12/GIS%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%8F%8A%E4%BB%8B%E7%BB%8D/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  shp数据导入、导出Postgresql，数据偏移、切图工具等</div>
+<a id="more"></a>
+<h3 id="shp数据导入Postgresql"><a href="#shp数据导入Postgresql" class="headerlink" title="shp数据导入Postgresql"></a>shp数据导入Postgresql</h3><p>工具：shp2pgsql<br>环境：安装postGIS，postgresql，并进行关联<br>命令(<strong>进入shp所在的文件夹内执行</strong>)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">shp2pgsql <span class="_">-s</span> 4326 -I <span class="string">"continent"</span> staging.world_continent | psql -h localhost -p 5432 <span class="_">-d</span> postgis_in_action -U postgres -W</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-s</td>
+<td>坐标系的EPSG代码</td>
+</tr>
+<tr>
+<td>-I</td>
+<td>创建空间索引</td>
+</tr>
+<tr>
+<td>“continent”</td>
+<td>shp文件的名称</td>
+</tr>
+<tr>
+<td>staging</td>
+<td>目标数据库中存在的schema名称</td>
+</tr>
+<tr>
+<td>world_continent</td>
+<td>shp导入数据库后的表名</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>目标数据库的IP地址</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>目标数据库的端口</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>目标数据库的名称</td>
+</tr>
+<tr>
+<td>-U</td>
+<td>目标数据库的登陆用户</td>
+</tr>
+<tr>
+<td>-W</td>
+<td>编码 默认UTF-8</td>
+</tr>
+</tbody>
+</table>
+<h4 id="shp2pgsql完整帮助文档"><a href="#shp2pgsql完整帮助文档" class="headerlink" title="shp2pgsql完整帮助文档"></a>shp2pgsql完整帮助文档</h4><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">USAGE: shp2pgsql [&lt;options&gt;] &lt;shapefile&gt; [[&lt;schema&gt;.]&lt;table&gt;]</div><div class="line">OPTIONS:</div><div class="line">  -s [&lt;from&gt;:]&lt;srid&gt; Set the SRID field. Defaults <span class="keyword">to</span> <span class="number">0</span>.</div><div class="line">      Optionally reprojects from given SRID (cannot be used <span class="keyword">with</span> -D).</div><div class="line"> (-d|a|c|p) These are mutually exclusive options:</div><div class="line">     -d  Drops the table, <span class="keyword">then</span> recreates it <span class="keyword">and</span> populates</div><div class="line">         it <span class="keyword">with</span> current shape <span class="keyword">file</span> data.</div><div class="line">     -a  Appends shape <span class="keyword">file</span> into current table, must be</div><div class="line">         exactly the same table schema.</div><div class="line">     -c  Creates a <span class="keyword">new</span> table <span class="keyword">and</span> populates it, this <span class="keyword">is</span> the</div><div class="line">         <span class="keyword">default</span> <span class="keyword">if</span> you do <span class="keyword">not</span> specify any options.</div><div class="line">     -p  Prepare mode, only creates the table.</div><div class="line">  -g &lt;geocolumn&gt; Specify the name <span class="keyword">of</span> the geometry/geography column</div><div class="line">      (mostly useful <span class="keyword">in</span> append mode).</div><div class="line">  -D  <span class="keyword">Use</span> postgresql dump format (defaults <span class="keyword">to</span> SQL insert statements).</div><div class="line">  -e  Execute each statement individually, do <span class="keyword">not</span> <span class="keyword">use</span> a transaction.</div><div class="line">      <span class="keyword">Not</span> compatible <span class="keyword">with</span> -D.</div><div class="line">  -G  <span class="keyword">Use</span> geography <span class="keyword">type</span> (requires lon/lat data <span class="keyword">or</span> -s <span class="keyword">to</span> reproject).</div><div class="line">  -k  Keep postgresql identifiers <span class="keyword">case</span>.</div><div class="line">  -i  <span class="keyword">Use</span> int4 <span class="keyword">type</span> <span class="keyword">for</span> <span class="keyword">all</span> <span class="built_in">integer</span> dbf fields.</div><div class="line">  -I  Create a spatial index <span class="keyword">on</span> the geocolumn.</div><div class="line">  -m &lt;filename&gt;  Specify a <span class="keyword">file</span> containing a set <span class="keyword">of</span> mappings <span class="keyword">of</span> (long) column</div><div class="line">     names <span class="keyword">to</span> <span class="number">10</span> <span class="built_in">character</span> DBF column names. The content <span class="keyword">of</span> the <span class="keyword">file</span> <span class="keyword">is</span> one <span class="keyword">or</span></div><div class="line">     more lines <span class="keyword">of</span> two names separated by white space <span class="keyword">and</span> no trailing <span class="keyword">or</span></div><div class="line">     leading space. <span class="keyword">For</span> example:</div><div class="line">         COLUMNNAME DBFFIELD1</div><div class="line">         AVERYLONGCOLUMNNAME DBFFIELD2</div><div class="line">  -S  <span class="keyword">Generate</span> simple geometries instead <span class="keyword">of</span> MULTI geometries.</div><div class="line">  -t &lt;dimensionality&gt; <span class="keyword">Force</span> geometry <span class="keyword">to</span> be one <span class="keyword">of</span> '<span class="number">2</span>D', '<span class="number">3</span>DZ', '<span class="number">3</span>DM', <span class="keyword">or</span> '<span class="number">4</span>D'</div><div class="line">  -w  Output WKT instead <span class="keyword">of</span> WKB.  <span class="literal">Note</span> that this can result <span class="keyword">in</span></div><div class="line">      coordinate drift.</div><div class="line">  -W &lt;encoding&gt; Specify the <span class="built_in">character</span> encoding <span class="keyword">of</span> Shape<span class="symbol">'s</span></div><div class="line">      <span class="keyword">attribute</span> column. (<span class="keyword">default</span>: <span class="string">"UTF-8"</span>)</div><div class="line">  -N &lt;policy&gt; <span class="keyword">NULL</span> geometries handling policy (insert*,skip,abort).</div><div class="line">  -n  Only import DBF <span class="keyword">file</span>.</div><div class="line">  -T &lt;tablespace&gt; Specify the tablespace <span class="keyword">for</span> the <span class="keyword">new</span> table.</div><div class="line">      <span class="literal">Note</span> that indexes will still <span class="keyword">use</span> the <span class="keyword">default</span> tablespace unless the</div><div class="line">      -X flag <span class="keyword">is</span> also used.</div><div class="line">  -X &lt;tablespace&gt; Specify the tablespace <span class="keyword">for</span> the table<span class="symbol">'s</span> indexes.</div><div class="line">      This applies <span class="keyword">to</span> the primary key, <span class="keyword">and</span> the spatial index <span class="keyword">if</span></div><div class="line">      the -I flag <span class="keyword">is</span> used.</div><div class="line">  -?  Display this help screen.</div><div class="line"></div><div class="line">  An argument <span class="keyword">of</span> `<span class="comment">--' disables further option processing.</span></div><div class="line">  (useful <span class="keyword">for</span> unusual <span class="keyword">file</span> names starting <span class="keyword">with</span> <span class="string">'-'</span>)</div></pre></td></tr></table></figure>
+<h3 id="坐标系转换为WGS84"><a href="#坐标系转换为WGS84" class="headerlink" title="坐标系转换为WGS84"></a>坐标系转换为WGS84</h3><p>工具：st_transform</p>
+<ul>
+<li>名称<br>ST_Transform — Return a new geometry with its coordinates transformed to a different spatial reference.</li>
+</ul>
+<ul>
+<li><p>语法</p>
+<p>geometry ST_Transform(geometry g1, integer srid);</p>
+<p>geometry ST_Transform(geometry geom, text to_proj);</p>
+<p>geometry ST_Transform(geometry geom, text from_proj, text to_proj);</p>
+<p>geometry ST_Transform(geometry geom, text from_proj, integer to_srid);</p>
+</li>
+</ul>
+<p>命令：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">update caupd.lulc <span class="keyword">set</span> geom <span class="comment">= st_transform(geom,4326)</span></div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>caupd</td>
+<td>数据所在的schema名称</td>
+</tr>
+<tr>
+<td>lulc</td>
+<td>数据所在的表名</td>
+</tr>
+<tr>
+<td>st_transform</td>
+<td>pgsql里的坐标转换函数</td>
+</tr>
+<tr>
+<td>geom</td>
+<td>数据表里的geometry字段</td>
+</tr>
+<tr>
+<td>4326</td>
+<td>目标坐标系的EPSG代码</td>
+</tr>
+</tbody>
+</table>
+<h3 id="在数据库里使用函数将导入的数据进行火星坐标系偏移"><a href="#在数据库里使用函数将导入的数据进行火星坐标系偏移" class="headerlink" title="在数据库里使用函数将导入的数据进行火星坐标系偏移"></a>在数据库里使用函数将导入的数据进行火星坐标系偏移</h3><p>工具：geohey_offset_geometry（平台函数）<br>命令：</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">with ori AS</div><div class="line">(<span class="keyword">SELECT</span></div><div class="line">   <span class="keyword">id</span>,geom</div><div class="line"> <span class="keyword">FROM</span> data.lulc)</div><div class="line"><span class="keyword">update</span> data.lulc t1 <span class="keyword">set</span> geom = geohey_offset_geometry(t2.geom,<span class="string">'wgs'</span>,<span class="string">'gcj'</span>) <span class="keyword">from</span> ori t2 <span class="keyword">where</span> t2.id=t1.id;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>数据所在的schema名称</td>
+</tr>
+<tr>
+<td>lulc</td>
+<td>数据所在的表名</td>
+</tr>
+<tr>
+<td>geohey_offset_geometry</td>
+<td>平台里的坐标转换函数</td>
+</tr>
+<tr>
+<td>geom</td>
+<td>数据表里的geometry字段</td>
+</tr>
+<tr>
+<td>wgs</td>
+<td>数据的原始坐标系</td>
+</tr>
+<tr>
+<td>gcj</td>
+<td>数据的偏移坐标系</td>
+</tr>
+</tbody>
+</table>
+<h3 id="坐标系转换为web-mercator"><a href="#坐标系转换为web-mercator" class="headerlink" title="坐标系转换为web_mercator"></a>坐标系转换为web_mercator</h3><p>工具：st_transform</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">update caupd.lulc <span class="keyword">set</span> geom <span class="comment">= st_transform(geom,3857)</span></div></pre></td></tr></table></figure>
+<p>参考坐标系转换为WGS84</p>
+<h3 id="数据库内的数据导出为shp"><a href="#数据库内的数据导出为shp" class="headerlink" title="数据库内的数据导出为shp"></a>数据库内的数据导出为shp</h3><p>工具：pgsql2shp<br>命令：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pgsql2shp -f <span class="regexp">/mnt/</span>data<span class="regexp">/caupd/</span><span class="number">02</span>_result<span class="regexp">/lulc_after -h localhost -p 5432 -u projx -P xx postgres caupd.lulc</span></div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>导出shp保存的文件夹路径</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>数据所在数据库的IP地址</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>数据所在数据库的端口</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>数据所在数据库的名称</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>数据所在数据库的登陆用户</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>数据所在数据库的用户密码</td>
+</tr>
+<tr>
+<td>projx</td>
+<td>数据在的数据库名称</td>
+</tr>
+<tr>
+<td>caupd</td>
+<td>数据在数据库中的schema名称</td>
+</tr>
+<tr>
+<td>lulc</td>
+<td>数据数据库中的表名</td>
+</tr>
+</tbody>
+</table>
+<h3 id="shp数据切图"><a href="#shp数据切图" class="headerlink" title="shp数据切图"></a>shp数据切图</h3><p>工具存放/app/tiler_program</p>
+<h4 id="需要配置的地方"><a href="#需要配置的地方" class="headerlink" title="需要配置的地方"></a>需要配置的地方</h4><ul>
+<li><p>数据准备<br>首先将需要切片的web mercator格式的shapefile数据放到data目录下。<br>数据最好在QGIS或ArcGIS里建好索引，否则生成会比较慢。</p>
+</li>
+<li><p>切片程序参数配置</p>
+<ul>
+<li><p>打开 style.json 配置切片的样式。需要注意的几个地方：<br>data_name 这个属性要指定为拷贝到 data 目录下的shapefile 的名字。<br>res_max 和 res_min 指定的是显示的分辨率的范围，不同级别的分辨率可以在 lod.json 中查找。</p>
+</li>
+<li><p>lod.json中的分辨率等级为从上到下第0级开始</p>
+</li>
+<li><p>打开 tiler_parameter.json 配置切片的级别（levels）和范围（boundary）</p>
+</li>
+</ul>
+</li>
+<li><p>打包程序参数配置<br>打开 gen_bundle.bash 修改第18行配置打包的瓦片级别。</p>
+</li>
+</ul>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>在切图工具目录下执行 <code>sh gen_bundle.bash</code>或<code>./gen_bundle.bash</code><br>想要后台执行脚本可使用 <code>nohup sh gen_bundle.bash</code>或<code>nohup ./gen_bundle.bash</code></p>
+<p><strong>提示：*</strong>切图等级从13级开始工作量非常大，可以先切至12级*</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 数据库 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac下shp2pgsql上传数据遇到Function AddGeometryColumn doesn't exist]]></title>
       <url>/2017/07/11/%E8%A7%A3%E5%86%B3Mac%E4%B8%8Bshp2pgsql%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE%E9%81%87%E5%88%B0Function-AddGeometryColumn-doesn-t-exist/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  解决Mac下shp2pgsql上传数据一直报错current transaction is aborted, commands ignored until end of transaction block</div>
@@ -26,9 +253,9 @@
         
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -1029,9 +1256,9 @@
         
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -1178,9 +1405,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -1215,9 +1442,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -1299,9 +1526,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
@@ -1345,9 +1572,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> 问题 </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
         
