@@ -3,6 +3,34 @@
   
     
     <entry>
+      <title><![CDATA[杂七杂八的Linux命令]]></title>
+      <url>/2017/07/14/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84Linux%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  </div>
+<a id="more"></a>
+<h3 id="根据进程号，找对应的进程"><a href="#根据进程号，找对应的进程" class="headerlink" title="根据进程号，找对应的进程"></a>根据进程号，找对应的进程</h3><p>ls -l  /proc/PID/exe </p>
+<h3 id="杀死进程"><a href="#杀死进程" class="headerlink" title="杀死进程"></a>杀死进程</h3><p>Kill:中断一个处理进程(process)<br>当中断一个前台进程是通常用ctrl+c；对于后台进程用kill命令<br>kill命令是通过向进程发送指定的信号来结束的。默认为TERM信号。TERM信号将终止所有不能捕获该信号的进程，对于能捕获该信号的进程需要使用kill –9信号，该信号是不能被捕获的。<br>kill杀终端，只能可以把终端的shell杀死，而退出终端，但终端不关闭<br>pkill 命令名 可以直接杀死进程<br>pkill qmail //直接杀死qmail程序进程</p>
+<h3 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h3><p>ps命令进程查看命令<br>ps命令：process status<br>-e 显示所有进程<br>-f 全格式<br>-h 不显示标题<br>-l 长格式<br>-w 宽输出<br>a 显示终端上的所有进程，包括其他用户的进程<br>r 只显示正在运行的进程<br>x 显示没有控制终端的进程</p>
+<h3 id="清理Linux系统缓存"><a href="#清理Linux系统缓存" class="headerlink" title="清理Linux系统缓存"></a>清理Linux系统缓存</h3><p>echo 1 &gt; /proc/sys/vm/drop_caches</p>
+<p>0 – 不释放1 – 释放页缓存2 – 释放文件节点缓存和目录项缓存<br>3 – 释放所有缓存</p>
+<h3 id="进程暂停与恢复"><a href="#进程暂停与恢复" class="headerlink" title="进程暂停与恢复"></a>进程暂停与恢复</h3><p>kill -STOP PID<br>kill -CONT PID</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[GIS数据处理常用工具及介绍]]></title>
       <url>/2017/07/12/GIS%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%8F%8A%E4%BB%8B%E7%BB%8D/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  shp数据导入、导出Postgresql，数据偏移、切图工具等</div>
