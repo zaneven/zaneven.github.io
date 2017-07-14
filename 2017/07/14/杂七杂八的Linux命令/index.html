@@ -111,7 +111,7 @@
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  </div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  根据进程号，找对应的进程、杀死进程、清理缓存、暂停进程等</div>
 <a id="more"></a>
 <h3 id="根据进程号，找对应的进程"><a href="#根据进程号，找对应的进程" class="headerlink" title="根据进程号，找对应的进程"></a>根据进程号，找对应的进程</h3><p>ls -l  /proc/PID/exe </p>
 <h3 id="杀死进程"><a href="#杀死进程" class="headerlink" title="杀死进程"></a>杀死进程</h3><p>Kill:中断一个处理进程(process)<br>当中断一个前台进程是通常用ctrl+c；对于后台进程用kill命令<br>kill命令是通过向进程发送指定的信号来结束的。默认为TERM信号。TERM信号将终止所有不能捕获该信号的进程，对于能捕获该信号的进程需要使用kill –9信号，该信号是不能被捕获的。<br>kill杀终端，只能可以把终端的shell杀死，而退出终端，但终端不关闭<br>pkill 命令名 可以直接杀死进程<br>pkill qmail //直接杀死qmail程序进程</p>
