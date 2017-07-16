@@ -13,6 +13,9 @@
 <h3 id="清理Linux系统缓存"><a href="#清理Linux系统缓存" class="headerlink" title="清理Linux系统缓存"></a>清理Linux系统缓存</h3><p>echo 1 &gt; /proc/sys/vm/drop_caches</p>
 <p>0 – 不释放1 – 释放页缓存2 – 释放文件节点缓存和目录项缓存<br>3 – 释放所有缓存</p>
 <h3 id="进程暂停与恢复"><a href="#进程暂停与恢复" class="headerlink" title="进程暂停与恢复"></a>进程暂停与恢复</h3><p>kill -STOP PID<br>kill -CONT PID</p>
+<!-- UY BEGIN -->
+<p><div id="uyan_frame"></div></p>
+<p><script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2131300"></script><br><!-- UY END --></p>
 ]]></content>
       
         <categories>
