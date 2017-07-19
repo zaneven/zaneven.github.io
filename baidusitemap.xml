@@ -3,6 +3,28 @@
 
 
     
+  <url>
+    <loc>https://zane.igrocery.cn/2017/07/19/SQl%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%B8%B8%E7%94%A8%E5%AD%90%E5%8F%A5/</loc>
+    <lastmod>2017-07-19T07:38:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>SQl单表查询常用子句</title>
+        <pubTime>2017-07-19T07:25:42.000Z</pubTime>
+        
+        <tag>技术</tag>
+         
+        <tag>学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="https://zane.igrocery.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://zane.igrocery.cn/2017/07/14/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84Linux%E5%91%BD%E4%BB%A4/</loc>
@@ -58,9 +80,9 @@
         <title>Mac下shp2pgsql上传数据遇到Function AddGeometryColumn doesn't exist</title>
         <pubTime>2017-07-11T03:15:58.000Z</pubTime>
         
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -436,9 +458,9 @@
         
         <tag>技术</tag>
          
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -460,9 +482,9 @@
         
         <tag>技术</tag>
          
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -484,9 +506,9 @@
         
         <tag>技术</tag>
          
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -508,9 +530,9 @@
         
         <tag>技术</tag>
          
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -530,9 +552,9 @@
         <title>关于连接github出现Permission denied（publickey）</title>
         <pubTime>2017-05-10T04:11:59.000Z</pubTime>
         
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            

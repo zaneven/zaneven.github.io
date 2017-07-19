@@ -3,6 +3,147 @@
   
     
     <entry>
+      <title><![CDATA[SQl单表查询常用子句]]></title>
+      <url>/2017/07/19/SQl%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%B8%B8%E7%94%A8%E5%AD%90%E5%8F%A5/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  SQL单表查询常用子句,如select、where、order by、聚集函数等</div>
+<a id="more"></a>
+<h3 id="1-select子句"><a href="#1-select子句" class="headerlink" title="1. select子句"></a>1. select子句</h3><hr>
+<p> 列名重命名 旧名 AS 新名；AS可以省略</p>
+<p> 过滤重复元素 在select子句中加上distinct select distinct * from student;</p>
+<h3 id="2-where子句"><a href="#2-where子句" class="headerlink" title="2. where子句"></a>2. where子句</h3><hr>
+<table>
+<thead>
+<tr>
+<th>查询条件</th>
+<th>谓词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>比较</td>
+<td>=，&gt;=,&lt;=,&gt;,&lt;,&lt;&gt;</td>
+</tr>
+<tr>
+<td>确定范围</td>
+<td>between and，not between and</td>
+</tr>
+<tr>
+<td>确定集合</td>
+<td>in，not in</td>
+</tr>
+<tr>
+<td>字符匹配</td>
+<td>like，not like</td>
+</tr>
+<tr>
+<td>空值</td>
+<td>is null，is not null</td>
+</tr>
+<tr>
+<td>逻辑运算符</td>
+<td>and，or，not</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>比较大小</p>
+<p> where age &gt; 19;</p>
+</li>
+<li><p>确定范围</p>
+<p>列名 between···and    <br>where age  between 19 and 20;</p>
+</li>
+<li><p>确定集合</p>
+<p>列名 in 集合    <br>where dept in (“‘计算机’,’管理’”);</p>
+</li>
+<li><p>字符串匹配<br></p>
+<p> 列名 like ‘&lt;匹配串&gt;’ [escape’&lt;换码字符&gt;’] %代表任意长度字符 _代表任意带个字符</p>
+<p>where name like ‘王%’;</p>
+</li>
+<li><p>空值判断</p>
+<p> where date is null;</p>
+</li>
+<li><p>逻辑运算</p>
+<p> and or 连接多个查询语句</p>
+</li>
+</ul>
+<h3 id="3-order-by-子句"><a href="#3-order-by-子句" class="headerlink" title="3. order by 子句"></a>3. order by 子句</h3><hr>
+<p> 用于对查询结果进行排序，可以按照一个或多个属性列的升序(ASC)或降序(DESC)</p>
+<p> <code>SELECT id,address,city,name,price FROM realestate_residential_info_price201707
+WHERE  city = &#39;东莞市&#39;
+ORDER BY price;</code></p>
+<h3 id="4-聚集函数"><a href="#4-聚集函数" class="headerlink" title="4. 聚集函数"></a>4. 聚集函数</h3><hr>
+<table>
+<thead>
+<tr>
+<th>聚集函数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count([distinct/all] *)</td>
+<td>统计元组个数</td>
+</tr>
+<tr>
+<td>count([distinct/all] 列名)</td>
+<td>统计一列中值的个数</td>
+</tr>
+<tr>
+<td>sum([distinct/all] 列名)</td>
+<td>计算一列值的总和</td>
+</tr>
+<tr>
+<td>avg([distinct/all] 列名)</td>
+<td>计算一列值的平均值</td>
+</tr>
+<tr>
+<td>max([distinct/all] 列名)</td>
+<td>求一列值中的最大值</td>
+</tr>
+<tr>
+<td>min([distinct/all] 列名)</td>
+<td>求一列值中的最小值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-group-by"><a href="#5-group-by" class="headerlink" title="5. group by"></a>5. group by</h3><hr>
+<p> 分组就是将具有相同特征（在一个或多个列上的值相同）的元组分配到同一个组，作为一个整体进行处理<br> group by &lt;列名&gt;</p>
+<p> select语句中出现了group by 子句后，在select子句中只能中出现分组列的列名以及聚集函数</p>
+<p> <code>select dept,sex count(*)
+ from student
+ group by dept,sex
+ order by dept</code></p>
+<h3 id="6-having-子句"><a href="#6-having-子句" class="headerlink" title="6. having 子句"></a>6. having 子句</h3><hr>
+<p> where子句与having子句的区别在于作用对象不同。where子句对select-from语句查询结果的元组进行选择，从中选择满足条件的元组。having子句作用于执行select-from-where-group by语句后得到的分组，从中选择满足条件的分组</p>
+<p> having &lt;条件表达式&gt;</p>
+<p> 条件表达式是由分组列、聚集函数和常数构成的有意义的句子。<br> <code>select cno,count(*)
+ from sc
+ group by no
+ having count(*) &gt;2 and cno like &#39;%7%&#39;</code></p>
+<h3 id="7-注释"><a href="#7-注释" class="headerlink" title="7. 注释"></a>7. 注释</h3><hr>
+<p> 注释以两个减号开始，回车结束<br><code>--查询东莞市的POI
+SELECT id,address,city,name FROM t_base_poi
+WHERE  city = &#39;东莞市&#39; and ntype LIKE &#39;120%&#39;;</code></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 数据库 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[杂七杂八的Linux命令]]></title>
       <url>/2017/07/14/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84Linux%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  根据进程号，找对应的进程、杀死进程、清理缓存、暂停进程等</div>
@@ -281,9 +422,9 @@
         
         <tags>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -1284,9 +1425,9 @@
         
         <tags>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -1433,9 +1574,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -1470,9 +1611,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -1554,9 +1695,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -1600,9 +1741,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mac下shp2pgsql上传数据遇到Function AddGeometryColumn doesn&#39;t exist | Zane&#39;s Grocery</title>
+  <title>SQl单表查询常用子句 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Mac下shp2pgsql上传数据遇到Function AddGeometryColumn doesn&#39;t exist"/>
+  <meta property="og:title" content="SQl单表查询常用子句"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -122,7 +122,7 @@ var _hmt = _hmt || [];
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Mac下shp2pgsql上传数据遇到Function AddGeometryColumn doesn&#39;t exist</h1>
+			<h1 class="title title-inverse "> SQl单表查询常用子句</h1>
 		</div>		
 	
 
@@ -142,16 +142,125 @@ var _hmt = _hmt || [];
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  解决Mac下shp2pgsql上传数据一直报错current transaction is aborted, commands ignored until end of transaction block</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  SQL单表查询常用子句,如select、where、order by、聚集函数等</div>
 <a id="more"></a>
-<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>使用shp2pgsql将shp文件导入到postgresql<br>命令：<br><code>shp2pgsql -s 4326 -I lulc_after.shp caupd.lulc_WGS | psql -h localhost -p 5433 -d postgres -U postgres -W</code></p>
-<p>出现错误<strong>Function AddGeometryColumn doesn’t exist</strong><br><br>之后插入的每一条数据一直报错：<code>current transaction is aborted, commands ignored until end of transaction block</code></p>
-<h3 id="问题原因："><a href="#问题原因：" class="headerlink" title="问题原因："></a>问题原因：</h3><p>由于postgresql和postgis没有进行关联</p>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>首先，使用<code>psql -U postgres mydbname</code>进入数据库</p>
-<blockquote>
-<p>如果提示没有创建角色，可以使用<code>createuser postgres</code> 创建一个角色</p>
-</blockquote>
-<p>然后，进入数据库以后使用<code>CREATE EXTENSION postgis;</code>将postgresql和postGIS进行关联</p>
+<h3 id="1-select子句"><a href="#1-select子句" class="headerlink" title="1. select子句"></a>1. select子句</h3><hr>
+<p> 列名重命名 旧名 AS 新名；AS可以省略</p>
+<p> 过滤重复元素 在select子句中加上distinct select distinct * from student;</p>
+<h3 id="2-where子句"><a href="#2-where子句" class="headerlink" title="2. where子句"></a>2. where子句</h3><hr>
+<table>
+<thead>
+<tr>
+<th>查询条件</th>
+<th>谓词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>比较</td>
+<td>=，&gt;=,&lt;=,&gt;,&lt;,&lt;&gt;</td>
+</tr>
+<tr>
+<td>确定范围</td>
+<td>between and，not between and</td>
+</tr>
+<tr>
+<td>确定集合</td>
+<td>in，not in</td>
+</tr>
+<tr>
+<td>字符匹配</td>
+<td>like，not like</td>
+</tr>
+<tr>
+<td>空值</td>
+<td>is null，is not null</td>
+</tr>
+<tr>
+<td>逻辑运算符</td>
+<td>and，or，not</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>比较大小</p>
+<p> where age &gt; 19;</p>
+</li>
+<li><p>确定范围</p>
+<p>列名 between···and    <br>where age  between 19 and 20;</p>
+</li>
+<li><p>确定集合</p>
+<p>列名 in 集合    <br>where dept in (“‘计算机’,’管理’”);</p>
+</li>
+<li><p>字符串匹配<br></p>
+<p> 列名 like ‘&lt;匹配串&gt;’ [escape’&lt;换码字符&gt;’] %代表任意长度字符 _代表任意带个字符</p>
+<p>where name like ‘王%’;</p>
+</li>
+<li><p>空值判断</p>
+<p> where date is null;</p>
+</li>
+<li><p>逻辑运算</p>
+<p> and or 连接多个查询语句</p>
+</li>
+</ul>
+<h3 id="3-order-by-子句"><a href="#3-order-by-子句" class="headerlink" title="3. order by 子句"></a>3. order by 子句</h3><hr>
+<p> 用于对查询结果进行排序，可以按照一个或多个属性列的升序(ASC)或降序(DESC)</p>
+<p> <code>SELECT id,address,city,name,price FROM realestate_residential_info_price201707
+WHERE  city = &#39;东莞市&#39;
+ORDER BY price;</code></p>
+<h3 id="4-聚集函数"><a href="#4-聚集函数" class="headerlink" title="4. 聚集函数"></a>4. 聚集函数</h3><hr>
+<table>
+<thead>
+<tr>
+<th>聚集函数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count([distinct/all] *)</td>
+<td>统计元组个数</td>
+</tr>
+<tr>
+<td>count([distinct/all] 列名)</td>
+<td>统计一列中值的个数</td>
+</tr>
+<tr>
+<td>sum([distinct/all] 列名)</td>
+<td>计算一列值的总和</td>
+</tr>
+<tr>
+<td>avg([distinct/all] 列名)</td>
+<td>计算一列值的平均值</td>
+</tr>
+<tr>
+<td>max([distinct/all] 列名)</td>
+<td>求一列值中的最大值</td>
+</tr>
+<tr>
+<td>min([distinct/all] 列名)</td>
+<td>求一列值中的最小值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-group-by"><a href="#5-group-by" class="headerlink" title="5. group by"></a>5. group by</h3><hr>
+<p> 分组就是将具有相同特征（在一个或多个列上的值相同）的元组分配到同一个组，作为一个整体进行处理<br> group by &lt;列名&gt;</p>
+<p> select语句中出现了group by 子句后，在select子句中只能中出现分组列的列名以及聚集函数</p>
+<p> <code>select dept,sex count(*)
+ from student
+ group by dept,sex
+ order by dept</code></p>
+<h3 id="6-having-子句"><a href="#6-having-子句" class="headerlink" title="6. having 子句"></a>6. having 子句</h3><hr>
+<p> where子句与having子句的区别在于作用对象不同。where子句对select-from语句查询结果的元组进行选择，从中选择满足条件的元组。having子句作用于执行select-from-where-group by语句后得到的分组，从中选择满足条件的分组</p>
+<p> having &lt;条件表达式&gt;</p>
+<p> 条件表达式是由分组列、聚集函数和常数构成的有意义的句子。<br> <code>select cno,count(*)
+ from sc
+ group by no
+ having count(*) &gt;2 and cno like &#39;%7%&#39;</code></p>
+<h3 id="7-注释"><a href="#7-注释" class="headerlink" title="7. 注释"></a>7. 注释</h3><hr>
+<p> 注释以两个减号开始，回车结束<br><code>--查询东莞市的POI
+SELECT id,address,city,name FROM t_base_poi
+WHERE  city = &#39;东莞市&#39; and ntype LIKE &#39;120%&#39;;</code></p>
 	  
 	</div>
 
@@ -161,13 +270,13 @@ var _hmt = _hmt || [];
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/07/09/Linux下screen命令的使用技巧/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/07/14/杂七杂八的Linux命令/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/07/12/GIS数据处理常用工具及介绍/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -230,7 +339,7 @@ var _hmt = _hmt || [];
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-07-11 
+	2017-07-19 
 	</div>
 	
 
@@ -254,13 +363,18 @@ var _hmt = _hmt || [];
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/教程/">教程<span>15</span></a></li> <li><a href="/tags/问题/">问题<span>9</span></a></li>
+  <li><a href="/tags/技术/">技术<span>18</span></a></li> <li><a href="/tags/学习/">学习<span>11</span></a></li>
     </ul>
 	</div>
 		
 
 	<!-- toc -->
 	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#1-select子句"><span class="toc-article-text">1. select子句</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#2-where子句"><span class="toc-article-text">2. where子句</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#3-order-by-子句"><span class="toc-article-text">3. order by 子句</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#4-聚集函数"><span class="toc-article-text">4. 聚集函数</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#5-group-by"><span class="toc-article-text">5. group by</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#6-having-子句"><span class="toc-article-text">6. having 子句</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#7-注释"><span class="toc-article-text">7. 注释</span></a></li></ol>
+		</div>
 	
 	</div>
 	
