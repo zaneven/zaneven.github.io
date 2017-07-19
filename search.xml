@@ -3,8 +3,103 @@
   
     
     <entry>
-      <title><![CDATA[SQl单表查询常用子句]]></title>
-      <url>/2017/07/19/SQl%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%B8%B8%E7%94%A8%E5%AD%90%E5%8F%A5/</url>
+      <title><![CDATA[SQL语句-表的定义]]></title>
+      <url>/2017/07/19/SQL%E8%AF%AD%E5%8F%A5-%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  定义表、修改表、删除表</div>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th>操作对象</th>
+<th>创建</th>
+<th>删除</th>
+<th>修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表</td>
+<td>CREATE TABLE</td>
+<td>DROP TABLE</td>
+<td>ALTER TABLE</td>
+</tr>
+<tr>
+<td>视图</td>
+<td>CREATE VIEW</td>
+<td>DROP VIEW</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>索引</td>
+<td>CREATE INDEX</td>
+<td>DROP INDEX</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="定义表"><a href="#定义表" class="headerlink" title="定义表"></a>定义表</h3><hr>
+<p>CREATE TABLE &lt;表名&gt;（&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件]，&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件]，&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件]···）<br>[,&lt;表级完整性约束条件&gt;];</p>
+<ol>
+<li><p>数据类型</p>
+<p><img src="http://picly.igrocery.cn/WX20170719-183528.png" alt=""></p>
+</li>
+<li><p>实体完整性</p>
+<p>为表确定主键<br><code>CREATE TABLE Student 
+(Sno CHAR(7) PRIMARY KEY,
+Sname CHAR(8),
+Ssex CHAR(2),
+Sage SMALLINT,
+Sdept CHAR(20));</code></p>
+<p>如果多个列构成主码，仍然使用PRIMARY KEY子句定义主码，但该子句要作为单独的一行<br><code>CREATE TABLE SC 
+(Sno CHAR(7),
+Cno CHAR(8),
+Grade SMALLINT,
+PRIMARY KEY(Sno,Cno));</code></p>
+</li>
+<li><p>参照完整性</p>
+</li>
+<li><p>属性值约束</p>
+<ul>
+<li><p>非空值限制</p>
+<p><code>Grade INT NOT NULL</code></p>
+</li>
+<li><p>指定允许取值范围</p>
+<p><code>SSex CHAR(2) CHECK (Ssex IN (&#39;男&#39;,&#39;女&#39;))</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><hr>
+<p><code>ALTER TABLE &lt;表名&gt;
+[ ADD &lt;列名&gt;&lt;数据类型&gt;[完整性约束]]
+[ DROP &lt;完整性约束&gt;]
+[ MODIFY &lt;列名&gt;&lt;数据类型&gt;];</code></p>
+<p>其中&lt;表名&gt;是要修改的表<br>ADD子句用于增加新列和新的完整性约束条件<br>DROP子句用于删除指定的完整性约束条件<br>MODIFY子句用于修改原有的列的定义</p>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><hr>
+<p><code>DROP TABLE &lt;表名&gt;</code></p>
+<div class="alert alert-warning"><i class="fa fa-bell"></i>  慎用</div>
+]]></content>
+      
+        <categories>
+            
+            <category> 数据库 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[SQL语句-单表查询常用子句]]></title>
+      <url>/2017/07/19/SQL%E8%AF%AD%E5%8F%A5-%E5%8D%95%E8%A1%A8%E6%9F%A5%E8%AF%A2%E5%B8%B8%E7%94%A8%E5%AD%90%E5%8F%A5/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  SQL单表查询常用子句,如select、where、order by、聚集函数等</div>
 <a id="more"></a>
 <h3 id="1-select子句"><a href="#1-select子句" class="headerlink" title="1. select子句"></a>1. select子句</h3><hr>

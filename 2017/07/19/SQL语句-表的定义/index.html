@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Excel基础训练-函数深入浅出 | Zane&#39;s Grocery</title>
+  <title>SQL语句-表的定义 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Excel基础训练-函数深入浅出"/>
+  <meta property="og:title" content="SQL语句-表的定义"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -122,7 +122,7 @@ var _hmt = _hmt || [];
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Excel基础训练-函数深入浅出</h1>
+			<h1 class="title title-inverse "> SQL语句-表的定义</h1>
 		</div>		
 	
 
@@ -142,37 +142,79 @@ var _hmt = _hmt || [];
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  公式和函数基本概念及其关系，以及函数的使用方式</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  定义表、修改表、删除表</div>
 <a id="more"></a>
-<h3 id="公式的基本概念"><a href="#公式的基本概念" class="headerlink" title="公式的基本概念"></a>公式的基本概念</h3><hr>
-<p>公式是由用户自行设计对工作表进行计算和处理的计算式。在Excel中以等号开头的式子。</p>
-<p>比如，在单元格内键入 =2+2 在按下回车以后便会输出公式的结果<br>只要拥有运算符号并且符合运算标准，都可以得到相应的运算结果</p>
-<h3 id="函数与公式的关系"><a href="#函数与公式的关系" class="headerlink" title="函数与公式的关系"></a>函数与公式的关系</h3><hr>
-<p>函数与公式既有区别又互相联系。函数是公式的一部分，函数的出现可以辅助我们进行公式的运算。<br>比如简单的求和，利用公式需要点击所有想要求和的单元格。而利用SUM函数可以快速的求一部分单元格内数据的总和。</p>
-<h3 id="函数的基础概念和录入方式"><a href="#函数的基础概念和录入方式" class="headerlink" title="函数的基础概念和录入方式"></a>函数的基础概念和录入方式</h3><hr>
-<p>Excel函数即是预先定义，执行计算、分析等处理数据任务的特殊公式。从字面意思上理解，函数（function），代表了一个功能模块。<br>以常用的求和函数SUM为例，它的语法是“SUM（number1，number2，．．．．．．）”。其中“SUM”称为函数名称，一个函数只有唯一的一个名称，它决定了函数的功能和用途。函数名称后紧跟左括号，接着是用逗号分隔的称为参数的内容，最后用一个右括号表示函数结束。</p>
-<p>函数的录入方式是，首先输入 “=”，然后输入函数名，内容高亮的同时按下Tab键便可插入函数。</p>
-<h3 id="基础条件计数"><a href="#基础条件计数" class="headerlink" title="基础条件计数"></a>基础条件计数</h3><hr>
-<h4 id="countif函数"><a href="#countif函数" class="headerlink" title="countif函数"></a>countif函数</h4><p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-222924.png" alt=""><br>想要统计一列数据中某个名称出现的个数<br><br></p>
+<table>
+<thead>
+<tr>
+<th>操作对象</th>
+<th>创建</th>
+<th>删除</th>
+<th>修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表</td>
+<td>CREATE TABLE</td>
+<td>DROP TABLE</td>
+<td>ALTER TABLE</td>
+</tr>
+<tr>
+<td>视图</td>
+<td>CREATE VIEW</td>
+<td>DROP VIEW</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>索引</td>
+<td>CREATE INDEX</td>
+<td>DROP INDEX</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="定义表"><a href="#定义表" class="headerlink" title="定义表"></a>定义表</h3><hr>
+<p>CREATE TABLE &lt;表名&gt;（&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件]，&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件]，&lt;列名&gt;&lt;数据类型&gt;[列级完整性约束条件]···）<br>[,&lt;表级完整性约束条件&gt;];</p>
 <ol>
-<li><p>在想要输出结果的单元格内输入“=countif“按下Tab键<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-223059.png" alt=""></p>
+<li><p>数据类型</p>
+<p><img src="http://picly.igrocery.cn/WX20170719-183528.png" alt=""></p>
 </li>
-<li><p>然后点击上方区域的插入函数<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224052.png" alt=""></p>
+<li><p>实体完整性</p>
+<p>为表确定主键<br><code>CREATE TABLE Student 
+(Sno CHAR(7) PRIMARY KEY,
+Sname CHAR(8),
+Ssex CHAR(2),
+Sage SMALLINT,
+Sdept CHAR(20));</code></p>
+<p>如果多个列构成主码，仍然使用PRIMARY KEY子句定义主码，但该子句要作为单独的一行<br><code>CREATE TABLE SC 
+(Sno CHAR(7),
+Cno CHAR(8),
+Grade SMALLINT,
+PRIMARY KEY(Sno,Cno));</code></p>
 </li>
-<li><p>在出现的对话框第一个选择行选择需要计数的列表，第二个选择行选择需要计数的对象<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-223632.png" alt=""></p>
+<li><p>参照完整性</p>
 </li>
-<li><p>在计数后的数据表格右下角双击，可以直接对接下来需要计数的数据进行快速填充<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224449.png" alt=""></p>
+<li><p>属性值约束</p>
+<ul>
+<li><p>非空值限制</p>
+<p><code>Grade INT NOT NULL</code></p>
+</li>
+<li><p>指定允许取值范围</p>
+<p><code>SSex CHAR(2) CHECK (Ssex IN (&#39;男&#39;,&#39;女&#39;))</code></p>
+</li>
+</ul>
 </li>
 </ol>
-<h3 id="数据核对"><a href="#数据核对" class="headerlink" title="数据核对"></a>数据核对</h3><hr>
-<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224713.png" alt=""><br>想要筛选出未签到的人员名单进行信息核对。</p>
-<ol>
-<li>新建一个辅助列</li>
-<li>在想要输出结果的单元格内输入“=countif“按下Tab键</li>
-<li>然后点击上方区域的插入函数</li>
-<li>在出现的对话框第一个选择行选择需要计数的列表，第二个选择行选择需要计数的对象</li>
-<li>在计数后的数据表格右下角双击，可以直接对接下来需要计数的数据进行快速填充</li>
-</ol>
+<h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><hr>
+<p><code>ALTER TABLE &lt;表名&gt;
+[ ADD &lt;列名&gt;&lt;数据类型&gt;[完整性约束]]
+[ DROP &lt;完整性约束&gt;]
+[ MODIFY &lt;列名&gt;&lt;数据类型&gt;];</code></p>
+<p>其中&lt;表名&gt;是要修改的表<br>ADD子句用于增加新列和新的完整性约束条件<br>DROP子句用于删除指定的完整性约束条件<br>MODIFY子句用于修改原有的列的定义</p>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><hr>
+<p><code>DROP TABLE &lt;表名&gt;</code></p>
+<div class="alert alert-warning"><i class="fa fa-bell"></i>  慎用</div>
 	  
 	</div>
 
@@ -182,13 +224,13 @@ var _hmt = _hmt || [];
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/05/23/Excel基础训练-视图和打印/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/07/19/SQL语句-单表查询常用子句/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/06/01/HTML5文件操作API/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -251,7 +293,7 @@ var _hmt = _hmt || [];
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-05-29 
+	2017-07-19 
 	</div>
 	
 
@@ -262,7 +304,7 @@ var _hmt = _hmt || [];
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Excel/">Excel<span>6</span></a></li>
+    <li><a href="/categories/数据库/">数据库<span>6</span></a></li>
   </li>
 
     </ul>
@@ -275,13 +317,18 @@ var _hmt = _hmt || [];
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/学习/">学习<span>12</span></a></li>
+  <li><a href="/tags/技术/">技术<span>19</span></a></li> <li><a href="/tags/学习/">学习<span>12</span></a></li>
     </ul>
 	</div>
 		
 
 	<!-- toc -->
 	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#定义表"><span class="toc-article-text">定义表</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#修改表"><span class="toc-article-text">修改表</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#删除表"><span class="toc-article-text">删除表</span></a></li></ol>
+		</div>
 	
 	</div>
 	

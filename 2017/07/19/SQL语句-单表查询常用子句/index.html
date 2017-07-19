@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Excel基础训练-函数深入浅出 | Zane&#39;s Grocery</title>
+  <title>SQL语句-单表查询常用子句 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Excel基础训练-函数深入浅出"/>
+  <meta property="og:title" content="SQL语句-单表查询常用子句"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -122,7 +122,7 @@ var _hmt = _hmt || [];
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Excel基础训练-函数深入浅出</h1>
+			<h1 class="title title-inverse "> SQL语句-单表查询常用子句</h1>
 		</div>		
 	
 
@@ -142,37 +142,125 @@ var _hmt = _hmt || [];
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  公式和函数基本概念及其关系，以及函数的使用方式</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  SQL单表查询常用子句,如select、where、order by、聚集函数等</div>
 <a id="more"></a>
-<h3 id="公式的基本概念"><a href="#公式的基本概念" class="headerlink" title="公式的基本概念"></a>公式的基本概念</h3><hr>
-<p>公式是由用户自行设计对工作表进行计算和处理的计算式。在Excel中以等号开头的式子。</p>
-<p>比如，在单元格内键入 =2+2 在按下回车以后便会输出公式的结果<br>只要拥有运算符号并且符合运算标准，都可以得到相应的运算结果</p>
-<h3 id="函数与公式的关系"><a href="#函数与公式的关系" class="headerlink" title="函数与公式的关系"></a>函数与公式的关系</h3><hr>
-<p>函数与公式既有区别又互相联系。函数是公式的一部分，函数的出现可以辅助我们进行公式的运算。<br>比如简单的求和，利用公式需要点击所有想要求和的单元格。而利用SUM函数可以快速的求一部分单元格内数据的总和。</p>
-<h3 id="函数的基础概念和录入方式"><a href="#函数的基础概念和录入方式" class="headerlink" title="函数的基础概念和录入方式"></a>函数的基础概念和录入方式</h3><hr>
-<p>Excel函数即是预先定义，执行计算、分析等处理数据任务的特殊公式。从字面意思上理解，函数（function），代表了一个功能模块。<br>以常用的求和函数SUM为例，它的语法是“SUM（number1，number2，．．．．．．）”。其中“SUM”称为函数名称，一个函数只有唯一的一个名称，它决定了函数的功能和用途。函数名称后紧跟左括号，接着是用逗号分隔的称为参数的内容，最后用一个右括号表示函数结束。</p>
-<p>函数的录入方式是，首先输入 “=”，然后输入函数名，内容高亮的同时按下Tab键便可插入函数。</p>
-<h3 id="基础条件计数"><a href="#基础条件计数" class="headerlink" title="基础条件计数"></a>基础条件计数</h3><hr>
-<h4 id="countif函数"><a href="#countif函数" class="headerlink" title="countif函数"></a>countif函数</h4><p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-222924.png" alt=""><br>想要统计一列数据中某个名称出现的个数<br><br></p>
-<ol>
-<li><p>在想要输出结果的单元格内输入“=countif“按下Tab键<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-223059.png" alt=""></p>
+<h3 id="1-select子句"><a href="#1-select子句" class="headerlink" title="1. select子句"></a>1. select子句</h3><hr>
+<p> 列名重命名 旧名 AS 新名；AS可以省略</p>
+<p> 过滤重复元素 在select子句中加上distinct select distinct * from student;</p>
+<h3 id="2-where子句"><a href="#2-where子句" class="headerlink" title="2. where子句"></a>2. where子句</h3><hr>
+<table>
+<thead>
+<tr>
+<th>查询条件</th>
+<th>谓词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>比较</td>
+<td>=，&gt;=,&lt;=,&gt;,&lt;,&lt;&gt;</td>
+</tr>
+<tr>
+<td>确定范围</td>
+<td>between and，not between and</td>
+</tr>
+<tr>
+<td>确定集合</td>
+<td>in，not in</td>
+</tr>
+<tr>
+<td>字符匹配</td>
+<td>like，not like</td>
+</tr>
+<tr>
+<td>空值</td>
+<td>is null，is not null</td>
+</tr>
+<tr>
+<td>逻辑运算符</td>
+<td>and，or，not</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>比较大小</p>
+<p> where age &gt; 19;</p>
 </li>
-<li><p>然后点击上方区域的插入函数<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224052.png" alt=""></p>
+<li><p>确定范围</p>
+<p>列名 between···and    <br>where age  between 19 and 20;</p>
 </li>
-<li><p>在出现的对话框第一个选择行选择需要计数的列表，第二个选择行选择需要计数的对象<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-223632.png" alt=""></p>
+<li><p>确定集合</p>
+<p>列名 in 集合    <br>where dept in (“‘计算机’,’管理’”);</p>
 </li>
-<li><p>在计数后的数据表格右下角双击，可以直接对接下来需要计数的数据进行快速填充<br><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224449.png" alt=""></p>
+<li><p>字符串匹配<br></p>
+<p> 列名 like ‘&lt;匹配串&gt;’ [escape’&lt;换码字符&gt;’] %代表任意长度字符 _代表任意带个字符</p>
+<p>where name like ‘王%’;</p>
 </li>
-</ol>
-<h3 id="数据核对"><a href="#数据核对" class="headerlink" title="数据核对"></a>数据核对</h3><hr>
-<p><img src="http://omdpnsgk3.bkt.clouddn.com/QQ20170529-224713.png" alt=""><br>想要筛选出未签到的人员名单进行信息核对。</p>
-<ol>
-<li>新建一个辅助列</li>
-<li>在想要输出结果的单元格内输入“=countif“按下Tab键</li>
-<li>然后点击上方区域的插入函数</li>
-<li>在出现的对话框第一个选择行选择需要计数的列表，第二个选择行选择需要计数的对象</li>
-<li>在计数后的数据表格右下角双击，可以直接对接下来需要计数的数据进行快速填充</li>
-</ol>
+<li><p>空值判断</p>
+<p> where date is null;</p>
+</li>
+<li><p>逻辑运算</p>
+<p> and or 连接多个查询语句</p>
+</li>
+</ul>
+<h3 id="3-order-by-子句"><a href="#3-order-by-子句" class="headerlink" title="3. order by 子句"></a>3. order by 子句</h3><hr>
+<p> 用于对查询结果进行排序，可以按照一个或多个属性列的升序(ASC)或降序(DESC)</p>
+<p> <code>SELECT id,address,city,name,price FROM realestate_residential_info_price201707
+WHERE  city = &#39;东莞市&#39;
+ORDER BY price;</code></p>
+<h3 id="4-聚集函数"><a href="#4-聚集函数" class="headerlink" title="4. 聚集函数"></a>4. 聚集函数</h3><hr>
+<table>
+<thead>
+<tr>
+<th>聚集函数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count([distinct/all] *)</td>
+<td>统计元组个数</td>
+</tr>
+<tr>
+<td>count([distinct/all] 列名)</td>
+<td>统计一列中值的个数</td>
+</tr>
+<tr>
+<td>sum([distinct/all] 列名)</td>
+<td>计算一列值的总和</td>
+</tr>
+<tr>
+<td>avg([distinct/all] 列名)</td>
+<td>计算一列值的平均值</td>
+</tr>
+<tr>
+<td>max([distinct/all] 列名)</td>
+<td>求一列值中的最大值</td>
+</tr>
+<tr>
+<td>min([distinct/all] 列名)</td>
+<td>求一列值中的最小值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-group-by"><a href="#5-group-by" class="headerlink" title="5. group by"></a>5. group by</h3><hr>
+<p> 分组就是将具有相同特征（在一个或多个列上的值相同）的元组分配到同一个组，作为一个整体进行处理<br> group by &lt;列名&gt;</p>
+<p> select语句中出现了group by 子句后，在select子句中只能中出现分组列的列名以及聚集函数</p>
+<p> <code>select dept,sex count(*)
+ from student
+ group by dept,sex
+ order by dept</code></p>
+<h3 id="6-having-子句"><a href="#6-having-子句" class="headerlink" title="6. having 子句"></a>6. having 子句</h3><hr>
+<p> where子句与having子句的区别在于作用对象不同。where子句对select-from语句查询结果的元组进行选择，从中选择满足条件的元组。having子句作用于执行select-from-where-group by语句后得到的分组，从中选择满足条件的分组</p>
+<p> having &lt;条件表达式&gt;</p>
+<p> 条件表达式是由分组列、聚集函数和常数构成的有意义的句子。<br> <code>select cno,count(*)
+ from sc
+ group by no
+ having count(*) &gt;2 and cno like &#39;%7%&#39;</code></p>
+<h3 id="7-注释"><a href="#7-注释" class="headerlink" title="7. 注释"></a>7. 注释</h3><hr>
+<p> 注释以两个减号开始，回车结束<br><code>--查询东莞市的POI
+SELECT id,address,city,name FROM t_base_poi
+WHERE  city = &#39;东莞市&#39; and ntype LIKE &#39;120%&#39;;</code></p>
 	  
 	</div>
 
@@ -182,13 +270,13 @@ var _hmt = _hmt || [];
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/05/23/Excel基础训练-视图和打印/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/07/14/杂七杂八的Linux命令/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/06/01/HTML5文件操作API/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2017/07/19/SQL语句-表的定义/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -251,7 +339,7 @@ var _hmt = _hmt || [];
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-05-29 
+	2017-07-19 
 	</div>
 	
 
@@ -262,7 +350,7 @@ var _hmt = _hmt || [];
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Excel/">Excel<span>6</span></a></li>
+    <li><a href="/categories/数据库/">数据库<span>6</span></a></li>
   </li>
 
     </ul>
@@ -275,13 +363,18 @@ var _hmt = _hmt || [];
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/学习/">学习<span>12</span></a></li>
+  <li><a href="/tags/技术/">技术<span>19</span></a></li> <li><a href="/tags/学习/">学习<span>12</span></a></li>
     </ul>
 	</div>
 		
 
 	<!-- toc -->
 	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#1-select子句"><span class="toc-article-text">1. select子句</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#2-where子句"><span class="toc-article-text">2. where子句</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#3-order-by-子句"><span class="toc-article-text">3. order by 子句</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#4-聚集函数"><span class="toc-article-text">4. 聚集函数</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#5-group-by"><span class="toc-article-text">5. group by</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#6-having-子句"><span class="toc-article-text">6. having 子句</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#7-注释"><span class="toc-article-text">7. 注释</span></a></li></ol>
+		</div>
 	
 	</div>
 	
