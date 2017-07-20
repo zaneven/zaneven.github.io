@@ -3,6 +3,38 @@
   
     
     <entry>
+      <title><![CDATA[postgresql中如何杀掉正在执行的SQL语句]]></title>
+      <url>/2017/07/20/postgresql%E4%B8%AD%E5%A6%82%E4%BD%95%E6%9D%80%E6%8E%89%E6%AD%A3%E5%9C%A8%E6%89%A7%E8%A1%8C%E7%9A%84SQL%E8%AF%AD%E5%8F%A5/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  postgresql中杀掉正在执行的SQL语句，杀掉多余的连接数</div>
+<a id="more"></a>
+<p>查看哪些SQL语句正在执行，语句如下：</p>
+<p><code>select * from pg_stat_activity;</code><br><img src="http://picly.igrocery.cn/WX20170720-143352.png" alt=""></p>
+<p>可以看到正在执行的进程的条目，根据进程的PID对语句进行kill</p>
+<p>kill有两种方式</p>
+<p>第一种是：<br><code>SELECT pg_cancel_backend(PID);</code><br>这种方式只能kill select查询，对update、delete 及DML不生效)</p>
+<p>第二种是：<br><code>SELECT pg_terminate_backend(PID);</code><br>这种可以kill掉各种操作(select、update、delete、drop等)操作</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 数据库 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[SQL语句-表的定义]]></title>
       <url>/2017/07/19/SQL%E8%AF%AD%E5%8F%A5-%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  定义表、修改表、删除表</div>
