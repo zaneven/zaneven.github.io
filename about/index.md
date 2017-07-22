@@ -16,11 +16,15 @@ date: 2017-04-18 19:06:44
 			<div class="panel-group" id="panel-721539">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						 <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-721539" href="#panel-element-678473">WeChat</a>
+					   <div class="text-center font-size: 40px">
+						 <a class="panel-title collapsed " data-toggle="collapse" data-parent="#panel-721539" href="#panel-element-678473">WeChat</a>
+						 </div>
 					</div>
 					<div id="panel-element-678473" class="panel-collapse collapse">
 						<div class="panel-body">
-							Anim pariatur cliche...
+							<figure>
+   <img src="http://omdpnsgk3.bkt.clouddn.com/671500353300_.pic.png" alt="figure标签"  title="figure标签" />
+                    </figure>
 						</div>
 					</div>
 				</div>
