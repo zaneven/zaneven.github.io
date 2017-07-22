@@ -91,6 +91,12 @@ var _hmt = _hmt || [];
 		  </li>
 		  
 		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
 			<a href="/Books" title="Reading List">
 			  <i class="fa fa-book"></i>Books
 			</a>
@@ -99,12 +105,6 @@ var _hmt = _hmt || [];
 		  <li>
 			<a href="/Movies" title="">
 			  <i class="fa fa-film"></i>Movies
-			</a>
-		  </li>
-		  
-		  <li>
-			<a href="/tags" title="All the tags.">
-			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
@@ -1618,13 +1618,13 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/plugins/">plugins<span>1</span></a></li>
-		
 			<li><a href="/tags/问题/">问题<span>9</span></a></li>
 		
-			<li><a href="/tags/技术/">技术<span>20</span></a></li>
-		
 			<li><a href="/tags/学习/">学习<span>13</span></a></li>
+		
+			<li><a href="/tags/plugins/">plugins<span>1</span></a></li>
+		
+			<li><a href="/tags/技术/">技术<span>20</span></a></li>
 		
 			<li><a href="/tags/教程/">教程<span>16</span></a></li>
 		
@@ -1728,6 +1728,21 @@ var _hmt = _hmt || [];
 	 var path = "/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 
 </body>
    </html>
