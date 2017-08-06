@@ -1,0 +1,448 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MAC上批量同步文件至腾讯云对象存储空间 | Zane&#39;s Grocery</title>
+  <meta name="author" content="赵小文">
+  
+  <meta name="description" content="记录 博客 编程 写作">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="MAC上批量同步文件至腾讯云对象存储空间"/>
+  <meta property="og:site_name" content="Zane&#39;s Grocery"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'null', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?10956982";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Zane&#39;s Grocery</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/Books" title="Reading List">
+			  <i class="fa fa-book"></i>Books
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/Movies" title="">
+			  <i class="fa fa-film"></i>Movies
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> MAC上批量同步文件至腾讯云对象存储空间</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  MAC上利用工具批量同步文件至腾讯云对象存储，支持保持目录结构同步文件夹</div>
+<a id="more"></a>
+<p>腾讯云推出了对象存储空间V4，并且提供了静态页面功能。免费空间有50G，这样不管是静态博客还是图床都有了新的存储方案。</p>
+<p>但是利用对象存储空间的页面上传文件非常的慢并且文件容易上传失败，好在提供的有开发者工具，有一些编程语言的SDK，也提供了一些使用SDK开发好的工具。</p>
+<p><img src="http://picly.igrocery.cn/WX20170806-221848.png" alt=""></p>
+<h1 id="本地同步工具"><a href="#本地同步工具" class="headerlink" title="本地同步工具"></a>本地同步工具</h1><hr>
+<h2 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h2><p>将本地目录下的子文件和子目录同步到 COS 上。</p>
+<h2 id="实现机制"><a href="#实现机制" class="headerlink" title="实现机制"></a>实现机制</h2><p>COS 本地同步工具会获取用户本地的文件列表，执行上传并将上传的结果记录在本地。每次运行工具都会重新拉取本地文件列表，并与已成功的本地数据库进行比对和同步（上传或删除）。</p>
+<h2 id="使用限制"><a href="#使用限制" class="headerlink" title="使用限制"></a>使用限制</h2><p>只适用于 COS V4 版本</p>
+<h2 id="使用环境"><a href="#使用环境" class="headerlink" title="使用环境"></a>使用环境</h2><h3 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h3><p>MacOS</p>
+<h3 id="软件依赖"><a href="#软件依赖" class="headerlink" title="软件依赖"></a>软件依赖</h3><p>JDK 1.7 或 1.8</p>
+<h3 id="软件安装与配置"><a href="#软件安装与配置" class="headerlink" title="软件安装与配置"></a>软件安装与配置</h3><h4 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h4><p>去<a href="https://www.oracle.com/downloads/index.html" target="_blank" rel="external">Oracle官网</a>下载JDK安装即可</p>
+<p>输入<code>java -version</code>查看是否安装成功<br><img src="http://picly.igrocery.cn/WX20170806-222958.png" alt=""></p>
+<h4 id="获取工具包"><a href="#获取工具包" class="headerlink" title="获取工具包"></a>获取工具包</h4><p>下载链接：<a href="https://mc.qcloudimg.com/static/archive/ebda1aaa8fe077ae98bc0de7591b686f/cos_sync.zip" target="_blank" rel="external">本地同步工具</a></p>
+<p>解压缩工具包并进入工具包路径：</p>
+<figure class="highlight plain"><figcaption><span>cos_sync.zip && cd cos_sync```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### 配置说明</div><div class="line">配置文件位于工具包目录 `conf/config.json`</div><div class="line"></div><div class="line"></div><div class="line">```&#123;</div><div class="line">    &quot;appid&quot;            : &quot;xxxxxx&quot;,</div><div class="line">    &quot;secret_id&quot;        : &quot;xxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;,</div><div class="line">    &quot;secret_key&quot;       : &quot;xxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;,</div><div class="line">    &quot;bucket&quot;           : &quot;xxxxxx&quot;,</div><div class="line">    &quot;timeout&quot;          : &quot;60&quot;,</div><div class="line">    &quot;thread_num&quot;       : &quot;20&quot;,</div><div class="line">    &quot;delete_sync&quot;      : &quot;1&quot;, </div><div class="line">    &quot;daemon_mode&quot;      : &quot;0&quot;,</div><div class="line">    &quot;daemon_interval&quot;  : &quot;60&quot;, </div><div class="line">    &quot;enable_https&quot;     : &quot;0&quot;,</div><div class="line">    &quot;region&quot;           : &quot;gz&quot;,</div><div class="line"></div><div class="line">    &quot;local_path&quot;       : &quot;/home/test/data&quot;,</div><div class="line">    &quot;cos_path&quot;         : &quot;/mysyncfolder/&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>配置信息说明：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+<th>有效值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appid</td>
+<td>需要进行操作的 APPID，可从控制台获取，参考 <a href="https://www.qcloud.com/document/product/436/6225" target="_blank" rel="external">基本概念</a>。</td>
+<td>APPID 数字</td>
+</tr>
+<tr>
+<td>secret_id</td>
+<td>APPID 对应的秘钥 ID，可从控制台获取，参考 <a href="https://www.qcloud.com/document/product/436/6225" target="_blank" rel="external">基本概念</a>。</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>secret_key</td>
+<td>APPID 对应的秘钥 Key，可从控制台获取，参考 <a href="https://www.qcloud.com/document/product/436/6225" target="_blank" rel="external">基本概念</a>。</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>bucket</td>
+<td>指定要同步的存储桶名称， 需要提前在控制台建立，参考 <a href="https://www.qcloud.com/doc/api/436/6232" target="_blank" rel="external">创建存储桶</a>。</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>连接 COS 的超时时间，在网络状况不佳的情况下可以增大该值。单位: 秒</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>thread_num</td>
+<td>并发的线程数，表示同时上传的文件，对于大量的小文件(如图片类) 可以增大改值（如 50），提高上传速度。对于大文件，建议设置较小值（如 5，取决于文件大小)，否则有可能引起内存溢出 OOM。</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>delete_sync</td>
+<td>删除本地文件时同步删除 COS 文件。 1：本地删除时同步删除远程文件；0：忽略本地已删除文件</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>daemon_mode</td>
+<td>后台进程模式运行。1：循环运行同步工具； 0：运行一次后退出。</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>daemon_interval</td>
+<td>后台进程模式下，检查本地文件变化的时间间隔。单位：秒</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>enable_https</td>
+<td>启用 https 进行传输。1：使用 https \</td>
+<td>0：使用 http</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>region</td>
+<td>存储桶所属地域。如华北天津(tj), 华东上海(sh), 华南广州(gz)，参考 <a href="https://www.qcloud.com/document/product/436/6224" target="_blank" rel="external">可用地域</a>。</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>local_path</td>
+<td>需要同步的本地绝对路径。范例：/home/user/dir</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>cos_path</td>
+<td>同步到 COS 的目的路径，需以 / 为结尾以表示目录，根目录为 /。</td>
+<td>字符串</td>
+</tr>
+</tbody>
+</table>
+<h4 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h4><p>执行同步工具： </p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">sh</span> start_cos_sync.<span class="keyword">sh</span></div></pre></td></tr></table></figure>
+<p>执行完成后，会输出创建和删除成功与失败的统计，以及全部执行的时间。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="string">apple:</span>txy apple$ sh start_cos_sync.sh</div><div class="line"></div><div class="line">sync over! op <span class="string">statistics:</span></div><div class="line">                     <span class="string">op_status :</span> ALL_OK</div><div class="line">              <span class="string">create_folder_ok :</span> <span class="number">0</span></div><div class="line">            <span class="string">create_folder_fail :</span> <span class="number">0</span></div><div class="line">                 <span class="string">del_folder_ok :</span> <span class="number">0</span></div><div class="line">               <span class="string">del_folder_fail :</span> <span class="number">0</span></div><div class="line">                <span class="string">upload_file_ok :</span> <span class="number">0</span></div><div class="line">              <span class="string">upload_file_fail :</span> <span class="number">0</span></div><div class="line">                   <span class="string">del_file_ok :</span> <span class="number">0</span></div><div class="line">                 <span class="string">del_file_fail :</span> <span class="number">0</span></div><div class="line">                    <span class="string">start_time :</span> <span class="number">2017</span><span class="number">-08</span><span class="number">-06</span> <span class="number">22</span>:<span class="number">45</span>:<span class="number">03</span></div><div class="line">                      <span class="string">end_time :</span> <span class="number">2017</span><span class="number">-08</span><span class="number">-06</span> <span class="number">22</span>:<span class="number">45</span>:<span class="number">03</span></div><div class="line">                     <span class="string">used_time :</span> <span class="number">0</span> s</div></pre></td></tr></table></figure>
+<a class="btn btn-success" href="https://www.qcloud.com/document/product/436/7133" target="_blank" rel="external">参考文章</a>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2017/07/20/postgresql中如何杀掉正在执行的SQL语句/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 
+	 			<!--PC版-->
+	<div id="SOHUCS" ></div>
+	<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+	<script type="text/javascript">
+	window.changyan.api.config({
+	appid: 'cyt7k47F7',
+	conf: 'prod_3f345f8e284d36915247777470e2e8d1'
+	});
+	</script>
+
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-08-06 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/technology/">technology<span>5</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/技术/">技术<span>21</span></a></li> <li><a href="/tags/教程/">教程<span>17</span></a></li>
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#本地同步工具"><span class="toc-article-text">本地同步工具</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#功能说明"><span class="toc-article-text">功能说明</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#实现机制"><span class="toc-article-text">实现机制</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#使用限制"><span class="toc-article-text">使用限制</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#使用环境"><span class="toc-article-text">使用环境</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#系统环境"><span class="toc-article-text">系统环境</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#软件依赖"><span class="toc-article-text">软件依赖</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#软件安装与配置"><span class="toc-article-text">软件安装与配置</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#安装JDK"><span class="toc-article-text">安装JDK</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#获取工具包"><span class="toc-article-text">获取工具包</span></a></li><li class="toc-article-item toc-article-level-4"><a class="toc-article-link" href="#使用软件"><span class="toc-article-text">使用软件</span></a></li></ol></li></ol></li></ol></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: '1' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 赵小文
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.<p>Hosted by <a href="https://pages.coding.me">Coding Pages</a></p>    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+</body>
+   </html>
