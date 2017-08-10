@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>WordPress修改固定链接后页面404 | Zane&#39;s Grocery</title>
+  <title>gdal2tiles.py ERROR 6: EPSG PCS/GCS code 900913 not found in EPSG support files. | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="WordPress修改固定链接后页面404"/>
+  <meta property="og:title" content="gdal2tiles.py ERROR 6: EPSG PCS/GCS code 900913 not found in EPSG support files."/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -127,7 +127,7 @@ var _hmt = _hmt || [];
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> WordPress修改固定链接后页面404</h1>
+			<h1 class="title title-inverse "> gdal2tiles.py ERROR 6: EPSG PCS/GCS code 900913 not found in EPSG support files.</h1>
 		</div>		
 	
 
@@ -147,28 +147,16 @@ var _hmt = _hmt || [];
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  解决WordPress修改页面固定链接后页面丢失问题</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  解决使用gdal2tiles.py切图的时候报错ERROR 6: EPSG PCS/GCS code 900913 not found in EPSG support files的问题</div>
 <a id="more"></a>
-<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><hr>
-<p><img src="http://omdpnsgk3.bkt.clouddn.com/WX20170514-195407.png" alt=""><br>在WordPress仪表盘内设置固定链接后，之前生成的所有页面都找不到相应的URL<br>重启了httpd服务仍然没有解决问题</p>
-<p>百度了一通找到一些解决方案</p>
+<h1 id="gdal2tiles-py-ERROR-6-EPSG-PCS-GCS-code-900913-not-found-in-EPSG-support-files"><a href="#gdal2tiles-py-ERROR-6-EPSG-PCS-GCS-code-900913-not-found-in-EPSG-support-files" class="headerlink" title="gdal2tiles.py ERROR 6: EPSG PCS/GCS code 900913 not found in EPSG support files."></a>gdal2tiles.py ERROR 6: EPSG PCS/GCS code 900913 not found in EPSG support files.</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在使用gdal2tiles.py进行切图的时候执行<code>gdal2tiles.py -z 3-8 -n -w openlayers dayulingdujiwen_q.tif</code>出现以下错误：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">caupd@caupd-Precision-Tower<span class="string">-5810</span>:~/data/03done/气候$ gdal2tiles.py -z 3<span class="string">-8</span> -n -w openlayers dayulingdujiwen_q.tif </div><div class="line"><span class="keyword">ERROR </span>6: EPSG PCS/GCS code 900913 not found in EPSG support files.  Is this a valid</div><div class="line">EPSG coordinate system?</div><div class="line"><span class="keyword">ERROR </span>6: No translation for an empty SRS to PROJ.4 format is known.</div><div class="line"><span class="keyword">ERROR </span>6: No translation for an empty SRS to PROJ.4 format is known.</div><div class="line">Generating Base Tiles:</div><div class="line"><span class="keyword">ERROR </span>5: Illegal values for buffer size</div><div class="line"><span class="keyword">ERROR </span>5: Illegal values for buffer size</div><div class="line">Traceback (most recent call last):</div><div class="line">  File "/usr/bin/gdal2tiles.py", line 2278, in &lt;module&gt;</div><div class="line">    gdal2tiles.process()</div><div class="line">  File "/usr/bin/gdal2tiles.py", line 488, in process</div><div class="line">    self.generate_base_tiles()</div><div class="line">  File "/usr/bin/gdal2tiles.py", line 1288, in generate_base_tiles</div><div class="line">    dsquery.WriteRaster(wx, wy, wxsize, wysize, data, band_list=list(range(1,self.dataBandsCount<span class="string">+1</span>)))</div><div class="line">  File "/usr/lib/python2.7/dist-packages/osgeo/gdal.py", line 933, in WriteRaster</div><div class="line">    buf_pixel_space, buf_line_space, buf_band_space )</div><div class="line">TypeError: not a string</div></pre></td></tr></table></figure>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><hr>
-<p>由于使用的是Apache搭建的WordPress，可能是服务器没打开AllowOverride<br>httpd.config的AllowOverride设置的是None，那.htaccess将被忽略</p>
-<h4 id="htaccess文件"><a href="#htaccess文件" class="headerlink" title=".htaccess文件"></a>.htaccess文件</h4><hr>
-<blockquote>
-<p>概述来说，htaccess文件是Apache服务器中的一个配置文件，它负责相关目录下的网页配置。通过htaccess文件，可以帮我们实现：网页301重定向、自定义404错误页面、改变文件扩展名、允许/阻止 特定的用户或者目录的访问、禁止目录列表、配置默认文档等功能。</p>
-</blockquote>
-<h3 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h3><hr>
-<ol>
-<li><p>首先 <code>vi /usr/local/apache2/conf/httpd.conf</code> 编辑httpd.conf文件</p>
-</li>
-<li><p>找到 <code>LoadModule rewrite_module modules/mod_rewrite.so</code> 去掉前面的#</p>
-</li>
-<li><p>找到 <code>AllowOverride None</code>将”None”改为”All”</p>
-</li>
-<li><p>然后 <code>service httpd restart</code> 重启服务</p>
-</li>
-</ol>
+<p>可以看出主要是说EPSG PCS/GCS code 900913 not found in EPSG support files. 这是gdal2tiles.py 告诉gdal将EPSG:900913作为’mercator’输出。</p>
+<p>只需要打开gdal2tile.py (大约在790行)将</p>
+<p><code>if self.options.profile == &#39;mercator&#39;:
+    self.out_srs.ImportFromEPSG(900913)</code><br>改为<br><code>if self.options.profile == &#39;mercator&#39;:
+    self.out_srs.ImportFromEPSG(3857)</code><br>这样便可以解决这种错误</p>
 	  
 	</div>
 
@@ -178,13 +166,13 @@ var _hmt = _hmt || [];
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/05/10/关于连接github出现Permission-denied（publickey）/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/08/06/MAC上批量同步文件至腾讯云对象存储空间/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/05/16/Excel基础训练-快速填充/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -247,7 +235,7 @@ var _hmt = _hmt || [];
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-05-14 
+	2017-08-10 
 	</div>
 	
 
@@ -258,7 +246,7 @@ var _hmt = _hmt || [];
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/WordPress/">WordPress<span>4</span></a></li>
+    <li><a href="/categories/GDAL/">GDAL<span>1</span></a></li>
   </li>
 
     </ul>
