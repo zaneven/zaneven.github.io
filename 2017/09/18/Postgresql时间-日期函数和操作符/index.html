@@ -1,0 +1,660 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Postgresql时间/日期函数和操作符 | Zane&#39;s Grocery</title>
+  <meta name="author" content="赵小文">
+  
+  <meta name="description" content="记录 博客 编程 写作">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Postgresql时间/日期函数和操作符"/>
+  <meta property="og:site_name" content="Zane&#39;s Grocery"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'null', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?10956982";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Zane&#39;s Grocery</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/Books" title="Reading List">
+			  <i class="fa fa-book"></i>Books
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/Movies" title="">
+			  <i class="fa fa-film"></i>Movies
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Postgresql时间/日期函数和操作符</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  Postgresql时间/日期函数和操作符，用于时间运算，提取等</div>
+<a id="more"></a>
+<h1 id="Postgresql时间-日期函数和操作符："><a href="#Postgresql时间-日期函数和操作符：" class="headerlink" title="Postgresql时间/日期函数和操作符："></a>Postgresql时间/日期函数和操作符：</h1><h3 id="1-PostgreSQL中支持的时间-日期操作符的列表："><a href="#1-PostgreSQL中支持的时间-日期操作符的列表：" class="headerlink" title="1.PostgreSQL中支持的时间/日期操作符的列表："></a>1.PostgreSQL中支持的时间/日期操作符的列表：</h3><table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>date ‘2017-09-28’ + integer ‘7’</td>
+<td>date ‘2017-10-05’</td>
+</tr>
+<tr>
+<td>+</td>
+<td>date ‘2017-09-28’ + interval ‘1 hour’</td>
+<td>timestamp ‘2017-09-28 01:00’</td>
+</tr>
+<tr>
+<td>+</td>
+<td>date ‘2017-09-28’ + time ‘03:00’</td>
+<td>timestamp ‘2017-09-28 03:00’</td>
+</tr>
+<tr>
+<td>+</td>
+<td>interval ‘1 day’ + interval ‘1 hour’</td>
+<td>interval ‘1 day 01:00’</td>
+</tr>
+<tr>
+<td>+</td>
+<td>timestamp ‘2017-09-28 01:00’ + interval ‘23 hours’</td>
+<td>timestamp ‘2017-09-29 00:00’</td>
+</tr>
+<tr>
+<td>+</td>
+<td>time ‘01:00’ + interval ‘3 hours’</td>
+<td>time ‘04:00’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>- interval ‘23 hours’</td>
+<td>interval ‘-23:00’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>date ‘2017-10-01’ - date ‘2017-09-28’</td>
+<td>integer ‘3’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>date ‘2017-10-01’ - integer ‘7’</td>
+<td>date ‘2017-09-24’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>date ‘2017-09-28’ - interval ‘1 hour’</td>
+<td>timestamp ‘2017-09-27 23:00’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>time ‘05:00’ - time ‘03:00’</td>
+<td>interval ‘02:00’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>time ‘05:00’ - interval ‘2 hours’</td>
+<td>time ‘03:00’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>timestamp ‘2017-09-28 23:00’ - interval ‘23 hours’</td>
+<td>timestamp ‘2017-09-28 00:00’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>interval ‘1 day’ - interval ‘1 hour’</td>
+<td>interval ‘23:00’</td>
+</tr>
+<tr>
+<td>-</td>
+<td>timestamp ‘2017-09-29 03:00’ - timestamp ‘2017-09-27 12:00’</td>
+<td>interval ‘1 day 15:00’</td>
+</tr>
+<tr>
+<td>*</td>
+<td>interval ‘1 hour’ * double precision ‘3.5’</td>
+<td>interval ‘03:30’</td>
+</tr>
+<tr>
+<td>/</td>
+<td>interval ‘1 hour’ / double precision ‘1.5’</td>
+<td>interval ‘00:40’</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-日期-时间函数："><a href="#2-日期-时间函数：" class="headerlink" title="2. 日期/时间函数："></a>2. 日期/时间函数：</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>返回类型</th>
+<th>描述</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>age(timestamp, timestamp)</td>
+<td>interval</td>
+<td>减去参数，生成一个使用年、月的”符号化”的结果</td>
+<td>age(‘2017-04-10’, timestamp ‘1957-06-13’)</td>
+<td>43 years 9 mons 27 days</td>
+</tr>
+<tr>
+<td>age(timestamp)</td>
+<td>interval</td>
+<td>从current_date减去得到的数值</td>
+<td>age(timestamp ‘1957-06-13’)</td>
+<td>43 years 8 mons 3 days</td>
+</tr>
+<tr>
+<td>current_date</td>
+<td>date</td>
+<td>今天的日期</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>current_time</td>
+<td>time</td>
+<td>现在的时间</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>current_timestamp</td>
+<td>timestamp</td>
+<td>日期和时间</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>date_part(text, timestamp)</td>
+<td>double</td>
+<td>获取子域(等效于extract)</td>
+<td>date_part(‘hour’, timestamp ‘2017-02-16 20:38:40’)</td>
+<td>20</td>
+</tr>
+<tr>
+<td>date_part(text, interval)</td>
+<td>double</td>
+<td>获取子域(等效于extract)</td>
+<td>date_part(‘month’, interval ‘2 years 3 months’)</td>
+<td>3</td>
+</tr>
+<tr>
+<td>date_trunc(text, timestamp)</td>
+<td>timestamp</td>
+<td>截断成指定的精度</td>
+<td>date_trunc(‘hour’, timestamp ‘2017-02-16 20:38:40’)</td>
+<td>2017-02-16 20:00:00+00</td>
+</tr>
+<tr>
+<td>extract(field from timestamp)</td>
+<td>double</td>
+<td>获取子域    e</td>
+<td>xtract(hour from timestamp ‘2017-02-16 20:38:40’)</td>
+<td>20</td>
+</tr>
+<tr>
+<td>extract(field from interval)</td>
+<td>double</td>
+<td>获取子域</td>
+<td>extract(month from interval ‘2 years 3 months’)</td>
+<td>3</td>
+</tr>
+<tr>
+<td>localtime</td>
+<td>time</td>
+<td>今日的时间</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>localtimestamp</td>
+<td>timestamp</td>
+<td>日期和时间</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>now()</td>
+<td>timestamp</td>
+<td>当前的日期和时间(等效于 current_timestamp)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>timeofday()</td>
+<td>text</td>
+<td>当前日期和时间</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-EXTRACT，date-part函数支持的field："><a href="#3-EXTRACT，date-part函数支持的field：" class="headerlink" title="3. EXTRACT，date_part函数支持的field："></a>3. EXTRACT，date_part函数支持的field：</h3><table>
+<thead>
+<tr>
+<th>域</th>
+<th>描述</th>
+<th>例子</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CENTURY</td>
+<td>世纪</td>
+<td>EXTRACT(CENTURY FROM TIMESTAMP ‘2000-12-16 12:21:13’);</td>
+<td>20</td>
+</tr>
+<tr>
+<td>DAY</td>
+<td>(月分)里的日期域(1-31)</td>
+<td>EXTRACT(DAY from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>16</td>
+</tr>
+<tr>
+<td>DECADE</td>
+<td>年份域除以10</td>
+<td>EXTRACT(DECADE from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>200</td>
+</tr>
+<tr>
+<td>DOW</td>
+<td>每周的星期号(0-6；星期天是0) (仅用于timestamp)</td>
+<td>EXTRACT(DOW FROM TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>5</td>
+</tr>
+<tr>
+<td>DOY</td>
+<td>一年的第几天(1 -365/366) (仅用于 timestamp)</td>
+<td>EXTRACT(DOY from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>47</td>
+</tr>
+<tr>
+<td>HOUR</td>
+<td>小时域(0-23)</td>
+<td>EXTRACT(HOUR from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>20</td>
+</tr>
+<tr>
+<td>MICROSECONDS</td>
+<td>秒域，包括小数部分，乘以 1,000,000</td>
+<td>EXTRACT(MICROSECONDS from TIME ‘17:12:28.5’);</td>
+<td>28500000</td>
+</tr>
+<tr>
+<td>MILLENNIUM</td>
+<td>千年</td>
+<td>EXTRACT(MILLENNIUM from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>3</td>
+</tr>
+<tr>
+<td>MILLISECONDS</td>
+<td>秒域，包括小数部分，乘以 1000</td>
+<td>EXTRACT(MILLISECONDS from TIME ‘17:12:28.5’);</td>
+<td>28500</td>
+</tr>
+<tr>
+<td>MINUTE</td>
+<td>分钟域(0-59)</td>
+<td>EXTRACT(MINUTE from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>38</td>
+</tr>
+<tr>
+<td>MONTH</td>
+<td>对于timestamp数值，它是一年里的月份数(1-12)；对于interval数值，它是月的数目，然后对12取模(0-11)</td>
+<td>EXTRACT(MONTH from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>2</td>
+</tr>
+<tr>
+<td>QUARTER</td>
+<td>该天所在的该年的季度(1-4)(仅用于 timestamp)</td>
+<td>EXTRACT(QUARTER from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>1</td>
+</tr>
+<tr>
+<td>SECOND</td>
+<td>秒域，包括小数部分(0-59[1])</td>
+<td>EXTRACT(SECOND from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>40</td>
+</tr>
+<tr>
+<td>WEEK</td>
+<td>该天在所在的年份里是第几周</td>
+<td>EXTRACT(WEEK from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>7</td>
+</tr>
+<tr>
+<td>YEAR</td>
+<td>年份域</td>
+<td>EXTRACT(YEAR from TIMESTAMP ‘2017-02-16 20:38:40’);</td>
+<td>2017</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-当前日期-时间："><a href="#4-当前日期-时间：" class="headerlink" title="4. 当前日期/时间："></a>4. 当前日期/时间：</h3><p>我们可以使用下面的函数获取当前的日期和/或时间∶<br>CURRENT_DATE<br>CURRENT_TIME<br>CURRENT_TIMESTAMP<br>CURRENT_TIME (precision)<br>CURRENT_TIMESTAMP (precision)<br>LOCALTIME<br>LOCALTIMESTAMP<br>LOCALTIME (precision)<br>LOCALTIMESTAMP (precision)</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2017/08/18/Postgresql数据类型格式化函数/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 
+	 			<!--PC版-->
+	<div id="SOHUCS" ></div>
+	<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+	<script type="text/javascript">
+	window.changyan.api.config({
+	appid: 'cyt7k47F7',
+	conf: 'prod_3f345f8e284d36915247777470e2e8d1'
+	});
+	</script>
+
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-09-18 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/数据库/">数据库<span>9</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/技术/">技术<span>24</span></a></li> <li><a href="/tags/教程/">教程<span>19</span></a></li>
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Postgresql时间-日期函数和操作符："><span class="toc-article-text">Postgresql时间/日期函数和操作符：</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#1-PostgreSQL中支持的时间-日期操作符的列表："><span class="toc-article-text">1.PostgreSQL中支持的时间/日期操作符的列表：</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#2-日期-时间函数："><span class="toc-article-text">2. 日期/时间函数：</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#3-EXTRACT，date-part函数支持的field："><span class="toc-article-text">3. EXTRACT，date_part函数支持的field：</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#4-当前日期-时间："><span class="toc-article-text">4. 当前日期/时间：</span></a></li></ol></li></ol></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: '1' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 赵小文
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.<p>Hosted by <a href="https://pages.coding.me">Coding Pages</a></p>    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+</body>
+   </html>

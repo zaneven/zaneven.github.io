@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Linux下screen命令的使用技巧 | Zane&#39;s Grocery</title>
+  <title>Postgresql数据类型格式化函数 | Zane&#39;s Grocery</title>
   <meta name="author" content="赵小文">
   
   <meta name="description" content="记录 博客 编程 写作">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Linux下screen命令的使用技巧"/>
+  <meta property="og:title" content="Postgresql数据类型格式化函数"/>
   <meta property="og:site_name" content="Zane&#39;s Grocery"/>
 
   
@@ -127,7 +127,7 @@ var _hmt = _hmt || [];
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Linux下screen命令的使用技巧</h1>
+			<h1 class="title title-inverse "> Postgresql数据类型格式化函数</h1>
 		</div>		
 	
 
@@ -147,158 +147,265 @@ var _hmt = _hmt || [];
 	<div class="mypage">		
 	  		
 
-	  <div class="alert alert-info"><i class="fa fa-info"></i>  使用 screen 命令使远程登录的Linux可以后台执行作业</div>
+	  <div class="alert alert-info"><i class="fa fa-info"></i>  PostgreSQL格式化函数提供一套有效的工具用于把各种数据类型(日期/时间、integer、floating point和numeric)转换成格式化的字符串以及反过来从格式化的字符串转换成指定的数据类型</div>
 <a id="more"></a>
-<h2 id="linux-screen-命令详解"><a href="#linux-screen-命令详解" class="headerlink" title="linux screen 命令详解"></a>linux screen 命令详解</h2><h3 id="功能说明："><a href="#功能说明：" class="headerlink" title="功能说明："></a>功能说明：</h3><p>使用SSH远程登录linux时，如果连接非正常中断，重新连接时，系统将开一个新的session，无法恢复原来的session.Screen命令可以解决这个问题。Screen工具是一个终端多路转接器，在本质上，这意味着你能够使用一个单一的终端窗口运行多终端 的应用。</p>
-<h3 id="语-法："><a href="#语-法：" class="headerlink" title="语　　法："></a>语　　法：</h3><p>screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]</p>
-<h3 id="补充说明："><a href="#补充说明：" class="headerlink" title="补充说明："></a>补充说明：</h3><p>screen为多重视窗管理程序。此处所谓的视窗，是指一个全屏幕的文字模式画面。通常只有在使用telnet登入主机或是使用老式的终端机时，才有可能用到screen程序。</p>
-<h3 id="参-数："><a href="#参-数：" class="headerlink" title="参　　数："></a>参　　数：</h3><table>
+<p>#Postgresql数据类型格式化函数</p>
+<p>PostgreSQL格式化函数提供一套有效的工具用于把各种数据类型(日期/时间、integer、floating point和numeric)转换成格式化的字符串以及反过来从格式化的字符串转换成指定的数据类型。下面列出了这些函数，它们都遵循一个公共的调用习惯：第一个参数是待格式化的值，而第二个是定义输出或输出格式的模板。</p>
+<table>
 <thead>
 <tr>
-<th>参数</th>
-<th>解释</th>
+<th>函数</th>
+<th>返回类型</th>
+<th>描述</th>
+<th>例子</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>-A</td>
-<td>将所有的视窗都调整为目前终端机的大小。</td>
+<td>to_char(timestamp, text)</td>
+<td>text</td>
+<td>把时间戳转换成字串</td>
+<td>to_char(current_timestamp, ‘HH12:MI:SS’)</td>
 </tr>
 <tr>
-<td>-d &lt;作业名&gt;</td>
-<td>将指定的screen作业离线。</td>
+<td>to_char(interval, text)</td>
+<td>text</td>
+<td>把时间间隔转为字串</td>
+<td>to_char(interval ‘15h 2m 12s’, ‘HH24:MI:SS’)</td>
 </tr>
 <tr>
-<td>-h &lt;行数&gt;</td>
-<td>指定视窗的缓冲区行数。</td>
+<td>to_char(int, text)</td>
+<td>text</td>
+<td>把整数转换成字串</td>
+<td>to_char(125, ‘999’)</td>
 </tr>
 <tr>
-<td>-m 　</td>
-<td>即使目前已在作业中的screen作业，仍强制建立新的screen作业。</td>
+<td>to_char(double precision, text)</td>
+<td>text</td>
+<td>把实数/双精度数转换成字串</td>
+<td>to_char(125.8::real, ‘999D9’)</td>
 </tr>
 <tr>
-<td>-r &lt;作业名称&gt;</td>
-<td>恢复离线的screen作业。</td>
+<td>to_char(numeric, text)</td>
+<td>text</td>
+<td>把numeric转换成字串</td>
+<td>to_char(-125.8, ‘999D99S’)</td>
 </tr>
 <tr>
-<td>-R 　</td>
-<td>先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。</td>
+<td>to_date(text, text)</td>
+<td>date</td>
+<td>把字串转换成日期</td>
+<td>to_date(‘05 Dec 2000’, ‘DD Mon YYYY’)</td>
 </tr>
 <tr>
-<td>-s 　</td>
-<td>指定建立新视窗时，所要执行的shell。</td>
+<td>to_timestamp(text, text)</td>
+<td>timestamp</td>
+<td>把字串转换成时间戳</td>
+<td>to_timestamp(‘05 Dec 2000’, ‘DD Mon YYYY’)</td>
 </tr>
 <tr>
-<td>-S &lt;作业名称&gt; 　</td>
-<td>指定screen作业的名称。</td>
+<td>to_timestamp(double)</td>
+<td>timestamp</td>
+<td>把UNIX纪元转换成时间戳</td>
+<td>to_timestamp(201720400)</td>
 </tr>
 <tr>
-<td>-v 　</td>
-<td>显示版本信息。</td>
-</tr>
-<tr>
-<td>-x 　</td>
-<td>恢复之前离线的screen作业。</td>
-</tr>
-<tr>
-<td>-ls或–list 　</td>
-<td>显示目前所有的screen作业。</td>
-</tr>
-<tr>
-<td>-wipe 　</td>
-<td>检查目前所有的screen作业，并删除已经无法使用的screen作业。</td>
+<td>to_number(text, text)</td>
+<td>numeric</td>
+<td>把字串转换成numeric</td>
+<td>to_number(‘12,454.8-‘, ‘99G999D9S’)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="常用-screen-参数："><a href="#常用-screen-参数：" class="headerlink" title="常用 screen 参数："></a>常用 screen 参数：</h3><table>
+<h3 id="1-用于日期-时间格式化的模式："><a href="#1-用于日期-时间格式化的模式：" class="headerlink" title="1. 用于日期/时间格式化的模式："></a>1. 用于日期/时间格式化的模式：</h3><table>
 <thead>
 <tr>
-<th>参数</th>
-<th>解释</th>
+<th>模式</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>screen -S yourname</td>
-<td>新建一个叫yourname的session</td>
+<td>HH</td>
+<td>一天的小时数(01-12)</td>
 </tr>
 <tr>
-<td>screen -ls</td>
-<td>列出当前所有的session</td>
+<td>HH12</td>
+<td>一天的小时数(01-12)</td>
 </tr>
 <tr>
-<td>screen -r yourname</td>
-<td>回到yourname这个session</td>
+<td>HH24</td>
+<td>一天的小时数(00-23)</td>
 </tr>
 <tr>
-<td>screen -d yourname</td>
-<td>远程detach某个session</td>
+<td>MI</td>
+<td>分钟(00-59)</td>
 </tr>
 <tr>
-<td>screen -d -r yourname</td>
-<td>结束当前session并回到yourname这个session</td>
+<td>SS</td>
+<td>秒(00-59)</td>
+</tr>
+<tr>
+<td>MS</td>
+<td>毫秒(000-999)</td>
+</tr>
+<tr>
+<td>US</td>
+<td>微秒(000000-999999)</td>
+</tr>
+<tr>
+<td>AM</td>
+<td>正午标识(大写)</td>
+</tr>
+<tr>
+<td>Y,YYY</td>
+<td>带逗号的年(4和更多位)</td>
+</tr>
+<tr>
+<td>YYYY</td>
+<td>年(4和更多位)</td>
+</tr>
+<tr>
+<td>YYY</td>
+<td>年的后三位</td>
+</tr>
+<tr>
+<td>YY</td>
+<td>年的后两位</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>年的最后一位</td>
+</tr>
+<tr>
+<td>MONTH</td>
+<td>全长大写月份名(空白填充为9字符)</td>
+</tr>
+<tr>
+<td>Month</td>
+<td>全长混合大小写月份名(空白填充为9字符)</td>
+</tr>
+<tr>
+<td>month</td>
+<td>全长小写月份名(空白填充为9字符)</td>
+</tr>
+<tr>
+<td>MON</td>
+<td>大写缩写月份名(3字符)</td>
+</tr>
+<tr>
+<td>Mon</td>
+<td>缩写混合大小写月份名(3字符)</td>
+</tr>
+<tr>
+<td>mon</td>
+<td>小写缩写月份名(3字符)</td>
+</tr>
+<tr>
+<td>MM</td>
+<td>月份号(01-12)</td>
+</tr>
+<tr>
+<td>DAY</td>
+<td>全长大写日期名(空白填充为9字符)</td>
+</tr>
+<tr>
+<td>Day</td>
+<td>全长混合大小写日期名(空白填充为9字符)</td>
+</tr>
+<tr>
+<td>day</td>
+<td>全长小写日期名(空白填充为9字符)</td>
+</tr>
+<tr>
+<td>DY</td>
+<td>缩写大写日期名(3字符)</td>
+</tr>
+<tr>
+<td>Dy</td>
+<td>缩写混合大小写日期名(3字符)</td>
+</tr>
+<tr>
+<td>dy</td>
+<td>缩写小写日期名(3字符)</td>
+</tr>
+<tr>
+<td>DDD</td>
+<td>一年里的日子(001-366)</td>
+</tr>
+<tr>
+<td>DD</td>
+<td>一个月里的日子(01-31)</td>
+</tr>
+<tr>
+<td>D</td>
+<td>一周里的日子(1-7；周日是1)</td>
+</tr>
+<tr>
+<td>W</td>
+<td>一个月里的周数(1-5)(第一周从该月第一天开始)</td>
+</tr>
+<tr>
+<td>WW</td>
+<td>一年里的周数(1-53)(第一周从该年的第一天开始)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="在每个-screen-session-下，所有命令都以-ctrl-a-C-a-开始。"><a href="#在每个-screen-session-下，所有命令都以-ctrl-a-C-a-开始。" class="headerlink" title="在每个 screen session 下，所有命令都以 ctrl+a(C-a) 开始。"></a>在每个 screen session 下，所有命令都以 ctrl+a(C-a) 开始。</h3><table>
+<h3 id="2-用于数值格式化的模板模式："><a href="#2-用于数值格式化的模板模式：" class="headerlink" title="2. 用于数值格式化的模板模式："></a>2. 用于数值格式化的模板模式：</h3><table>
 <thead>
 <tr>
-<th>参数</th>
-<th>解释</th>
+<th>模式</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>C-a ?</td>
-<td>-&gt; Help，显示简单说明</td>
+<td>9</td>
+<td>带有指定数值位数的值</td>
 </tr>
 <tr>
-<td>C-a c</td>
-<td>-&gt; Create，开启新的 window</td>
+<td>0</td>
+<td>带前导零的值</td>
 </tr>
 <tr>
-<td>C-a n</td>
-<td>-&gt; Next，切换到下个 window</td>
+<td>.(句点)</td>
+<td>小数点</td>
 </tr>
 <tr>
-<td>C-a p</td>
-<td>-&gt; Previous，前一个 window</td>
+<td>,(逗号)</td>
+<td>分组(千)分隔符</td>
 </tr>
 <tr>
-<td>C-a 0..9</td>
-<td>-&gt; 切换到第 0..9 个window</td>
+<td>PR</td>
+<td>尖括号内负值</td>
 </tr>
 <tr>
-<td>Ctrl+a [Space]</td>
-<td>-&gt; 由视窗0循序换到视窗9</td>
+<td>S</td>
+<td>带符号的数值</td>
 </tr>
 <tr>
-<td>C-a C-a</td>
-<td>-&gt; 在两个最近使用的 window 间切换</td>
+<td>L</td>
+<td>货币符号</td>
 </tr>
 <tr>
-<td>C-a x</td>
-<td>-&gt; 锁住当前的 window，需用用户密码解锁</td>
+<td>D</td>
+<td>小数点</td>
 </tr>
 <tr>
-<td>C-a d</td>
-<td>-&gt; detach，暂时离开当前session，将目前的 screen session (可能含有多个 windows) 丢到后台执行，并会回到还没进 screen 时的状态，此时在 screen session 里每个 window 内运行的 process (无论是前台/后台)都在继续执行，即使 logout 也不影响。</td>
+<td>G</td>
+<td>分组分隔符</td>
 </tr>
 <tr>
-<td>C-a z</td>
-<td>-&gt; 把当前session放到后台执行，用 shell 的 fg 命令则可回去。</td>
+<td>MI</td>
+<td>在指明的位置的负号(如果数字 &lt; 0)</td>
 </tr>
 <tr>
-<td>C-a w</td>
-<td>-&gt; Windows，列出已开启的 windows 有哪些</td>
+<td>PL</td>
+<td>在指明的位置的正号(如果数字 &gt; 0)</td>
 </tr>
 <tr>
-<td>C-a t</td>
-<td>-&gt; Time，显示当前时间，和系统的 load</td>
-</tr>
-<tr>
-<td>C-a K</td>
-<td>-&gt; kill window，强行关闭当前的 window</td>
+<td>SG</td>
+<td>在指明的位置的正/负号</td>
 </tr>
 </tbody>
 </table>
@@ -311,13 +418,13 @@ var _hmt = _hmt || [];
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2017/07/06/Ubuntu环境下Postgresql导入导出ESRI-Shapefile数据/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+    	<li class="prev"><a href="/2017/08/10/gdal2tiles-py-ERROR-6-EPSG-PCS-GCS-code-900913-not-found-in-EPSG-support-files/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2017/07/11/解决Mac下shp2pgsql上传数据遇到Function-AddGeometryColumn-doesn-t-exist/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2017/09/18/Postgresql时间-日期函数和操作符/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -380,7 +487,7 @@ var _hmt = _hmt || [];
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2017-07-09 
+	2017-08-18 
 	</div>
 	
 
@@ -391,7 +498,7 @@ var _hmt = _hmt || [];
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Linux/">Linux<span>6</span></a></li>
+    <li><a href="/categories/数据库/">数据库<span>9</span></a></li>
   </li>
 
     </ul>
@@ -404,13 +511,18 @@ var _hmt = _hmt || [];
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/技术/">技术<span>24</span></a></li>
+  <li><a href="/tags/技术/">技术<span>24</span></a></li> <li><a href="/tags/教程/">教程<span>19</span></a></li>
     </ul>
 	</div>
 	
 
 	<!-- toc -->
 	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#1-用于日期-时间格式化的模式："><span class="toc-article-text">1. 用于日期/时间格式化的模式：</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#2-用于数值格式化的模板模式："><span class="toc-article-text">2. 用于数值格式化的模板模式：</span></a></li></ol>
+		</div>
 	
 	</div>
 	
