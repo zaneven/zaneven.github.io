@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>https://zane.igrocery.cn/2017/08/25/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/</loc>
+    <lastmod>2017-09-19T02:57:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>微信读书产品体验报告</title>
+        <pubTime>2017-08-25T13:55:22.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="产品" url="https://zane.igrocery.cn/categories/%E4%BA%A7%E5%93%81/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://zane.igrocery.cn/2017/08/26/Postgresql%E6%97%B6%E9%97%B4-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0%E5%92%8C%E6%93%8D%E4%BD%9C%E7%AC%A6/</loc>
     <lastmod>2017-09-18T07:31:01.000Z</lastmod>
     <data>
@@ -214,9 +232,9 @@
         <title>Mac下shp2pgsql上传数据遇到Function AddGeometryColumn doesn't exist</title>
         <pubTime>2017-07-11T03:15:58.000Z</pubTime>
         
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -592,9 +610,9 @@
         
         <tag>技术</tag>
          
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -616,9 +634,9 @@
         
         <tag>技术</tag>
          
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -640,9 +658,9 @@
         
         <tag>技术</tag>
          
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -664,9 +682,9 @@
         
         <tag>技术</tag>
          
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            
@@ -686,9 +704,9 @@
         <title>关于连接github出现Permission denied（publickey）</title>
         <pubTime>2017-05-10T04:11:59.000Z</pubTime>
         
-        <tag>问题</tag>
-         
         <tag>教程</tag>
+         
+        <tag>问题</tag>
          
          
            

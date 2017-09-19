@@ -336,6 +336,23 @@
     </entry>
     
     <entry>
+      <title><![CDATA[微信读书产品体验报告]]></title>
+      <url>/2017/08/25/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/</url>
+      <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  微信读书产品体验报告Keynote版</div>
+<a id="more"></a>
+<h1 id="微信读书产品体验报告"><a href="#微信读书产品体验报告" class="headerlink" title="微信读书产品体验报告"></a>微信读书产品体验报告</h1><p><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.001.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.002.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.003.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.004.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.005.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.006.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.007.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.008.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.009.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.010.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.011.jpeg" alt=""><br><img src="http://picly.igrocery.cn/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A.012.jpeg" alt=""></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 产品 </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Postgresql数据类型格式化函数]]></title>
       <url>/2017/08/18/Postgresql%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%87%BD%E6%95%B0/</url>
       <content type="html"><![CDATA[<div class="alert alert-info"><i class="fa fa-info"></i>  PostgreSQL格式化函数提供一套有效的工具用于把各种数据类型(日期/时间、integer、floating point和numeric)转换成格式化的字符串以及反过来从格式化的字符串转换成指定的数据类型</div>
@@ -1320,9 +1337,9 @@ WHERE  city = &#39;东莞市&#39; and ntype LIKE &#39;120%&#39;;</code></p>
         
         <tags>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -2323,9 +2340,9 @@ WHERE  city = &#39;东莞市&#39; and ntype LIKE &#39;120%&#39;;</code></p>
         
         <tags>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -2472,9 +2489,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -2509,9 +2526,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -2593,9 +2610,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
@@ -2639,9 +2656,9 @@ XAMPP:  Another web server is alreadyrunning.</code></p>
             
             <tag> 技术 </tag>
             
-            <tag> 问题 </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> 问题 </tag>
             
         </tags>
         
